@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "dist/";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -45,17 +45,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
+	
 	var _vue = __webpack_require__(2);
-
+	
 	var _vue2 = _interopRequireDefault(_vue);
-
+	
 	var _vueClock = __webpack_require__(4);
-
+	
 	var _vueClock2 = _interopRequireDefault(_vueClock);
-
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	
 	new _vue2.default({
 	    el: 'body',
 	    components: {
@@ -74,7 +74,7 @@
 	 * Released under the MIT License.
 	 */
 	'use strict';
-
+	
 	function set(obj, key, val) {
 	  if (hasOwn(obj, key)) {
 	    obj[key] = val;
@@ -101,14 +101,14 @@
 	  }
 	  return val;
 	}
-
+	
 	/**
 	 * Delete a property and trigger change if necessary.
 	 *
 	 * @param {Object} obj
 	 * @param {String} key
 	 */
-
+	
 	function del(obj, key) {
 	  if (!hasOwn(obj, key)) {
 	    return;
@@ -128,7 +128,7 @@
 	    }
 	  }
 	}
-
+	
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	/**
 	 * Check whether the object has the property.
@@ -137,36 +137,36 @@
 	 * @param {String} key
 	 * @return {Boolean}
 	 */
-
+	
 	function hasOwn(obj, key) {
 	  return hasOwnProperty.call(obj, key);
 	}
-
+	
 	/**
 	 * Check if an expression is a literal value.
 	 *
 	 * @param {String} exp
 	 * @return {Boolean}
 	 */
-
+	
 	var literalValueRE = /^\s?(true|false|[\d\.]+|'[^']*'|"[^"]*")\s?$/;
-
+	
 	function isLiteral(exp) {
 	  return literalValueRE.test(exp);
 	}
-
+	
 	/**
 	 * Check if a string starts with $ or _
 	 *
 	 * @param {String} str
 	 * @return {Boolean}
 	 */
-
+	
 	function isReserved(str) {
 	  var c = (str + '').charCodeAt(0);
 	  return c === 0x24 || c === 0x5F;
 	}
-
+	
 	/**
 	 * Guard text output, make sure undefined outputs
 	 * empty string
@@ -174,11 +174,11 @@
 	 * @param {*} value
 	 * @return {String}
 	 */
-
+	
 	function _toString(value) {
 	  return value == null ? '' : value.toString();
 	}
-
+	
 	/**
 	 * Check and convert possible numeric strings to numbers
 	 * before setting back to data
@@ -186,7 +186,7 @@
 	 * @param {*} value
 	 * @return {*|Number}
 	 */
-
+	
 	function toNumber(value) {
 	  if (typeof value !== 'string') {
 	    return value;
@@ -195,61 +195,61 @@
 	    return isNaN(parsed) ? value : parsed;
 	  }
 	}
-
+	
 	/**
 	 * Convert string boolean literals into real booleans.
 	 *
 	 * @param {*} value
 	 * @return {*|Boolean}
 	 */
-
+	
 	function toBoolean(value) {
 	  return value === 'true' ? true : value === 'false' ? false : value;
 	}
-
+	
 	/**
 	 * Strip quotes from a string
 	 *
 	 * @param {String} str
 	 * @return {String | false}
 	 */
-
+	
 	function stripQuotes(str) {
 	  var a = str.charCodeAt(0);
 	  var b = str.charCodeAt(str.length - 1);
 	  return a === b && (a === 0x22 || a === 0x27) ? str.slice(1, -1) : str;
 	}
-
+	
 	/**
 	 * Camelize a hyphen-delmited string.
 	 *
 	 * @param {String} str
 	 * @return {String}
 	 */
-
+	
 	var camelizeRE = /-(\w)/g;
-
+	
 	function camelize(str) {
 	  return str.replace(camelizeRE, toUpper);
 	}
-
+	
 	function toUpper(_, c) {
 	  return c ? c.toUpperCase() : '';
 	}
-
+	
 	/**
 	 * Hyphenate a camelCase string.
 	 *
 	 * @param {String} str
 	 * @return {String}
 	 */
-
+	
 	var hyphenateRE = /([a-z\d])([A-Z])/g;
-
+	
 	function hyphenate(str) {
 	  return str.replace(hyphenateRE, '$1-$2').toLowerCase();
 	}
-
+	
 	/**
 	 * Converts hyphen/underscore/slash delimitered names into
 	 * camelized classNames.
@@ -261,13 +261,13 @@
 	 * @param {String} str
 	 * @return {String}
 	 */
-
+	
 	var classifyRE = /(?:^|[-_\/])(\w)/g;
-
+	
 	function classify(str) {
 	  return str.replace(classifyRE, toUpper);
 	}
-
+	
 	/**
 	 * Simple bind, faster than native
 	 *
@@ -275,14 +275,14 @@
 	 * @param {Object} ctx
 	 * @return {Function}
 	 */
-
+	
 	function bind$1(fn, ctx) {
 	  return function (a) {
 	    var l = arguments.length;
 	    return l ? l > 1 ? fn.apply(ctx, arguments) : fn.call(ctx, a) : fn.call(ctx);
 	  };
 	}
-
+	
 	/**
 	 * Convert an Array-like object to a real Array.
 	 *
@@ -290,7 +290,7 @@
 	 * @param {Number} [start] - start index
 	 * @return {Array}
 	 */
-
+	
 	function toArray(list, start) {
 	  start = start || 0;
 	  var i = list.length - start;
@@ -300,14 +300,14 @@
 	  }
 	  return ret;
 	}
-
+	
 	/**
 	 * Mix properties into target object.
 	 *
 	 * @param {Object} to
 	 * @param {Object} from
 	 */
-
+	
 	function extend(to, from) {
 	  var keys = Object.keys(from);
 	  var i = keys.length;
@@ -316,7 +316,7 @@
 	  }
 	  return to;
 	}
-
+	
 	/**
 	 * Quick object check - this is primarily used to tell
 	 * Objects from primitive values when we know the value
@@ -325,11 +325,11 @@
 	 * @param {*} obj
 	 * @return {Boolean}
 	 */
-
+	
 	function isObject(obj) {
 	  return obj !== null && typeof obj === 'object';
 	}
-
+	
 	/**
 	 * Strict object type check. Only returns true
 	 * for plain JavaScript objects.
@@ -337,23 +337,23 @@
 	 * @param {*} obj
 	 * @return {Boolean}
 	 */
-
+	
 	var toString = Object.prototype.toString;
 	var OBJECT_STRING = '[object Object]';
-
+	
 	function isPlainObject(obj) {
 	  return toString.call(obj) === OBJECT_STRING;
 	}
-
+	
 	/**
 	 * Array type check.
 	 *
 	 * @param {*} obj
 	 * @return {Boolean}
 	 */
-
+	
 	var isArray = Array.isArray;
-
+	
 	/**
 	 * Define a non-enumerable property
 	 *
@@ -362,7 +362,7 @@
 	 * @param {*} val
 	 * @param {Boolean} [enumerable]
 	 */
-
+	
 	function def(obj, key, val, enumerable) {
 	  Object.defineProperty(obj, key, {
 	    value: val,
@@ -371,7 +371,7 @@
 	    configurable: true
 	  });
 	}
-
+	
 	/**
 	 * Debounce a function so it only gets called after the
 	 * input stops arriving after the given wait period.
@@ -380,7 +380,7 @@
 	 * @param {Number} wait
 	 * @return {Function} - the debounced function
 	 */
-
+	
 	function _debounce(func, wait) {
 	  var timeout, args, context, timestamp, result;
 	  var later = function later() {
@@ -403,7 +403,7 @@
 	    return result;
 	  };
 	}
-
+	
 	/**
 	 * Manual indexOf because it's slightly faster than
 	 * native.
@@ -411,7 +411,7 @@
 	 * @param {Array} arr
 	 * @param {*} obj
 	 */
-
+	
 	function indexOf(arr, obj) {
 	  var i = arr.length;
 	  while (i--) {
@@ -419,14 +419,14 @@
 	  }
 	  return -1;
 	}
-
+	
 	/**
 	 * Make a cancellable version of an async callback.
 	 *
 	 * @param {Function} fn
 	 * @return {Function}
 	 */
-
+	
 	function cancellable(fn) {
 	  var cb = function cb() {
 	    if (!cb.cancelled) {
@@ -438,7 +438,7 @@
 	  };
 	  return cb;
 	}
-
+	
 	/**
 	 * Check if two values are loosely equal - that is,
 	 * if they are plain objects, do they have the same shape?
@@ -447,27 +447,27 @@
 	 * @param {*} b
 	 * @return {Boolean}
 	 */
-
+	
 	function looseEqual(a, b) {
 	  /* eslint-disable eqeqeq */
 	  return a == b || (isObject(a) && isObject(b) ? JSON.stringify(a) === JSON.stringify(b) : false);
 	  /* eslint-enable eqeqeq */
 	}
-
+	
 	var hasProto = ('__proto__' in {});
-
+	
 	// Browser environment sniffing
 	var inBrowser = typeof window !== 'undefined' && Object.prototype.toString.call(window) !== '[object Object]';
-
+	
 	var isIE9 = inBrowser && navigator.userAgent.toLowerCase().indexOf('msie 9.0') > 0;
-
+	
 	var isAndroid = inBrowser && navigator.userAgent.toLowerCase().indexOf('android') > 0;
-
+	
 	var transitionProp = undefined;
 	var transitionEndEvent = undefined;
 	var animationProp = undefined;
 	var animationEndEvent = undefined;
-
+	
 	// Transition property/event sniffing
 	if (inBrowser && !isIE9) {
 	  var isWebkitTrans = window.ontransitionend === undefined && window.onwebkittransitionend !== undefined;
@@ -477,7 +477,7 @@
 	  animationProp = isWebkitAnim ? 'WebkitAnimation' : 'animation';
 	  animationEndEvent = isWebkitAnim ? 'webkitAnimationEnd' : 'animationend';
 	}
-
+	
 	/**
 	 * Defer a task to execute it asynchronously. Ideally this
 	 * should be executed as a microtask, so we leverage
@@ -487,7 +487,7 @@
 	 * @param {Function} cb
 	 * @param {Object} ctx
 	 */
-
+	
 	var nextTick = (function () {
 	  var callbacks = [];
 	  var pending = false;
@@ -525,16 +525,16 @@
 	    timerFunc(nextTickHandler, 0);
 	  };
 	})();
-
+	
 	function Cache(limit) {
 	  this.size = 0;
 	  this.limit = limit;
 	  this.head = this.tail = undefined;
 	  this._keymap = Object.create(null);
 	}
-
+	
 	var p = Cache.prototype;
-
+	
 	/**
 	 * Put <value> into the cache associated with <key>.
 	 * Returns the entry which was removed to make room for
@@ -545,7 +545,7 @@
 	 * @param {*} value
 	 * @return {Entry|undefined}
 	 */
-
+	
 	p.put = function (key, value) {
 	  var entry = {
 	    key: key,
@@ -565,13 +565,13 @@
 	    this.size++;
 	  }
 	};
-
+	
 	/**
 	 * Purge the least recently used (oldest) entry from the
 	 * cache. Returns the removed entry or undefined if the
 	 * cache was empty.
 	 */
-
+	
 	p.shift = function () {
 	  var entry = this.head;
 	  if (entry) {
@@ -582,7 +582,7 @@
 	  }
 	  return entry;
 	};
-
+	
 	/**
 	 * Get and register recent use of <key>. Returns the value
 	 * associated with <key> or undefined if not in cache.
@@ -591,7 +591,7 @@
 	 * @param {Boolean} returnEntry
 	 * @return {Entry|*}
 	 */
-
+	
 	p.get = function (key, returnEntry) {
 	  var entry = this._keymap[key];
 	  if (entry === undefined) return;
@@ -619,15 +619,15 @@
 	  this.tail = entry;
 	  return returnEntry ? entry : entry.value;
 	};
-
+	
 	var cache$1 = new Cache(1000);
 	var filterTokenRE = /[^\s'"]+|'[^']*'|"[^"]*"/g;
 	var reservedArgRE = /^in$|^-?\d+/;
-
+	
 	/**
 	 * Parser state
 	 */
-
+	
 	var str;
 	var dir;
 	var c;
@@ -643,7 +643,7 @@
 	/**
 	 * Push a filter to the current directive object
 	 */
-
+	
 	function pushFilter() {
 	  var exp = str.slice(lastFilterIndex, i).trim();
 	  var filter;
@@ -660,14 +660,14 @@
 	  }
 	  lastFilterIndex = i + 1;
 	}
-
+	
 	/**
 	 * Check if an argument is dynamic and strip quotes.
 	 *
 	 * @param {String} arg
 	 * @return {Object}
 	 */
-
+	
 	function processFilterArg(arg) {
 	  if (reservedArgRE.test(arg)) {
 	    return {
@@ -683,7 +683,7 @@
 	    };
 	  }
 	}
-
+	
 	/**
 	 * Parse a directive value and extract the expression
 	 * and its filters into a descriptor.
@@ -701,21 +701,21 @@
 	 * @param {String} str
 	 * @return {Object}
 	 */
-
+	
 	function parseDirective(s) {
-
+	
 	  var hit = cache$1.get(s);
 	  if (hit) {
 	    return hit;
 	  }
-
+	
 	  // reset parser state
 	  str = s;
 	  inSingle = inDouble = false;
 	  curly = square = paren = 0;
 	  lastFilterIndex = 0;
 	  dir = {};
-
+	
 	  for (i = 0, l = str.length; i < l; i++) {
 	    prev = c;
 	    c = str.charCodeAt(i);
@@ -756,21 +756,21 @@
 	      }
 	    }
 	  }
-
+	
 	  if (dir.expression == null) {
 	    dir.expression = str.slice(0, i).trim();
 	  } else if (lastFilterIndex !== 0) {
 	    pushFilter();
 	  }
-
+	
 	  cache$1.put(s, dir);
 	  return dir;
 	}
-
+	
 	var directive = Object.freeze({
 	  parseDirective: parseDirective
 	});
-
+	
 	var regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g;
 	var cache = undefined;
 	var tagRE = undefined;
@@ -781,11 +781,11 @@
 	 *
 	 * @param {String} str
 	 */
-
+	
 	function escapeRegex(str) {
 	  return str.replace(regexEscapeRE, '\\$&');
 	}
-
+	
 	function compileRegex() {
 	  var open = escapeRegex(config.delimiters[0]);
 	  var close = escapeRegex(config.delimiters[1]);
@@ -796,7 +796,7 @@
 	  // reset cache
 	  cache = new Cache(1000);
 	}
-
+	
 	/**
 	 * Parse a template text string into an array of tokens.
 	 *
@@ -807,7 +807,7 @@
 	 *               - {Boolean} [html]
 	 *               - {Boolean} [oneTime]
 	 */
-
+	
 	function parseText(text) {
 	  if (!cache) {
 	    compileRegex();
@@ -855,7 +855,7 @@
 	  cache.put(text, tokens);
 	  return tokens;
 	}
-
+	
 	/**
 	 * Format a list of tokens into an expression.
 	 * e.g. tokens parsed from 'a {{b}} c' can be serialized
@@ -864,7 +864,7 @@
 	 * @param {Array} tokens
 	 * @return {String}
 	 */
-
+	
 	function tokensToExp(tokens) {
 	  if (tokens.length > 1) {
 	    return tokens.map(function (token) {
@@ -874,7 +874,7 @@
 	    return formatToken(tokens[0], true);
 	  }
 	}
-
+	
 	/**
 	 * Format a single token.
 	 *
@@ -882,11 +882,11 @@
 	 * @param {Boolean} single
 	 * @return {String}
 	 */
-
+	
 	function formatToken(token, single) {
 	  return token.tag ? inlineFilters(token.value, single) : '"' + token.value + '"';
 	}
-
+	
 	/**
 	 * For an attribute with multiple interpolation tags,
 	 * e.g. attr="some-{{thing | filter}}", in order to combine
@@ -899,7 +899,7 @@
 	 * @param {Boolean} single
 	 * @return {String}
 	 */
-
+	
 	var filterRE$1 = /[^|]\|[^|]/;
 	function inlineFilters(exp, single) {
 	  if (!filterRE$1.test(exp)) {
@@ -916,60 +916,60 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Replace all interpolation tags in a piece of text.
 	 *
 	 * @param {String} text
 	 * @return {String}
 	 */
-
+	
 	function removeTags(text) {
 	  return text.replace(tagRE, '');
 	}
-
+	
 	var text$1 = Object.freeze({
 	  compileRegex: compileRegex,
 	  parseText: parseText,
 	  tokensToExp: tokensToExp,
 	  removeTags: removeTags
 	});
-
+	
 	var delimiters = ['{{', '}}'];
 	var unsafeDelimiters = ['{{{', '}}}'];
-
+	
 	var config = Object.defineProperties({
-
+	
 	  /**
 	   * Whether to print debug messages.
 	   * Also enables stack trace for warnings.
 	   *
 	   * @type {Boolean}
 	   */
-
+	
 	  debug: false,
-
+	
 	  /**
 	   * Whether to suppress warnings.
 	   *
 	   * @type {Boolean}
 	   */
-
+	
 	  silent: false,
-
+	
 	  /**
 	   * Whether to use async rendering.
 	   */
-
+	
 	  async: true,
-
+	
 	  /**
 	   * Whether to warn against errors caught when evaluating
 	   * expressions.
 	   */
-
+	
 	  warnExpressionErrors: true,
-
+	
 	  /**
 	   * Whether or not to handle fully object properties which
 	   * are already backed by getters and seters. Depending on
@@ -977,40 +977,40 @@
 	   * performance penalties.
 	   */
 	  convertAllProperties: false,
-
+	
 	  /**
 	   * Internal flag to indicate the delimiters have been
 	   * changed.
 	   *
 	   * @type {Boolean}
 	   */
-
+	
 	  _delimitersChanged: true,
-
+	
 	  /**
 	   * List of asset types that a component can own.
 	   *
 	   * @type {Array}
 	   */
-
+	
 	  _assetTypes: ['component', 'directive', 'elementDirective', 'filter', 'transition', 'partial'],
-
+	
 	  /**
 	   * prop binding modes
 	   */
-
+	
 	  _propBindingModes: {
 	    ONE_WAY: 0,
 	    TWO_WAY: 1,
 	    ONE_TIME: 2
 	  },
-
+	
 	  /**
 	   * Max circular updates allowed in a batcher flush cycle.
 	   */
-
+	
 	  _maxUpdateCount: 100
-
+	
 	}, {
 	  delimiters: { /**
 	                 * Interpolation delimiters. Changing these would trigger
@@ -1018,7 +1018,7 @@
 	                 *
 	                 * @type {Array<String>}
 	                 */
-
+	
 	    get: function get() {
 	      return delimiters;
 	    },
@@ -1041,9 +1041,9 @@
 	    enumerable: true
 	  }
 	});
-
+	
 	var warn = undefined;
-
+	
 	if (process.env.NODE_ENV !== 'production') {
 	  (function () {
 	    var hasConsole = typeof console !== 'undefined';
@@ -1062,7 +1062,7 @@
 	    };
 	  })();
 	}
-
+	
 	/**
 	 * Append with transition.
 	 *
@@ -1071,13 +1071,13 @@
 	 * @param {Vue} vm
 	 * @param {Function} [cb]
 	 */
-
+	
 	function appendWithTransition(el, target, vm, cb) {
 	  applyTransition(el, 1, function () {
 	    target.appendChild(el);
 	  }, vm, cb);
 	}
-
+	
 	/**
 	 * InsertBefore with transition.
 	 *
@@ -1086,13 +1086,13 @@
 	 * @param {Vue} vm
 	 * @param {Function} [cb]
 	 */
-
+	
 	function beforeWithTransition(el, target, vm, cb) {
 	  applyTransition(el, 1, function () {
 	    before(el, target);
 	  }, vm, cb);
 	}
-
+	
 	/**
 	 * Remove with transition.
 	 *
@@ -1100,13 +1100,13 @@
 	 * @param {Vue} vm
 	 * @param {Function} [cb]
 	 */
-
+	
 	function removeWithTransition(el, vm, cb) {
 	  applyTransition(el, -1, function () {
 	    remove(el);
 	  }, vm, cb);
 	}
-
+	
 	/**
 	 * Apply transitions with an operation callback.
 	 *
@@ -1118,7 +1118,7 @@
 	 * @param {Vue} vm
 	 * @param {Function} [cb]
 	 */
-
+	
 	function applyTransition(el, direction, op, vm, cb) {
 	  var transition = el.__v_trans;
 	  if (!transition ||
@@ -1138,14 +1138,14 @@
 	  var action = direction > 0 ? 'enter' : 'leave';
 	  transition[action](op, cb);
 	}
-
+	
 	/**
 	 * Query an element selector if it's not an element already.
 	 *
 	 * @param {String|Element} el
 	 * @return {Element}
 	 */
-
+	
 	function query(el) {
 	  if (typeof el === 'string') {
 	    var selector = el;
@@ -1156,7 +1156,7 @@
 	  }
 	  return el;
 	}
-
+	
 	/**
 	 * Check if a node is in the document.
 	 * Note: document.documentElement.contains should work here
@@ -1168,20 +1168,20 @@
 	 * @param {Node} node
 	 * @return {Boolean}
 	 */
-
+	
 	function inDoc(node) {
 	  var doc = document.documentElement;
 	  var parent = node && node.parentNode;
 	  return doc === node || doc === parent || !!(parent && parent.nodeType === 1 && doc.contains(parent));
 	}
-
+	
 	/**
 	 * Get and remove an attribute from a node.
 	 *
 	 * @param {Node} node
 	 * @param {String} _attr
 	 */
-
+	
 	function getAttr(node, _attr) {
 	  var val = node.getAttribute(_attr);
 	  if (val !== null) {
@@ -1189,7 +1189,7 @@
 	  }
 	  return val;
 	}
-
+	
 	/**
 	 * Get an attribute with colon or v-bind: prefix.
 	 *
@@ -1197,7 +1197,7 @@
 	 * @param {String} name
 	 * @return {String|null}
 	 */
-
+	
 	function getBindAttr(node, name) {
 	  var val = getAttr(node, ':' + name);
 	  if (val === null) {
@@ -1205,7 +1205,7 @@
 	  }
 	  return val;
 	}
-
+	
 	/**
 	 * Check the presence of a bind attribute.
 	 *
@@ -1213,29 +1213,29 @@
 	 * @param {String} name
 	 * @return {Boolean}
 	 */
-
+	
 	function hasBindAttr(node, name) {
 	  return node.hasAttribute(name) || node.hasAttribute(':' + name) || node.hasAttribute('v-bind:' + name);
 	}
-
+	
 	/**
 	 * Insert el before target
 	 *
 	 * @param {Element} el
 	 * @param {Element} target
 	 */
-
+	
 	function before(el, target) {
 	  target.parentNode.insertBefore(el, target);
 	}
-
+	
 	/**
 	 * Insert el after target
 	 *
 	 * @param {Element} el
 	 * @param {Element} target
 	 */
-
+	
 	function after(el, target) {
 	  if (target.nextSibling) {
 	    before(el, target.nextSibling);
@@ -1243,24 +1243,24 @@
 	    target.parentNode.appendChild(el);
 	  }
 	}
-
+	
 	/**
 	 * Remove el from DOM
 	 *
 	 * @param {Element} el
 	 */
-
+	
 	function remove(el) {
 	  el.parentNode.removeChild(el);
 	}
-
+	
 	/**
 	 * Prepend el to target
 	 *
 	 * @param {Element} el
 	 * @param {Element} target
 	 */
-
+	
 	function prepend(el, target) {
 	  if (target.firstChild) {
 	    before(el, target.firstChild);
@@ -1268,21 +1268,21 @@
 	    target.appendChild(el);
 	  }
 	}
-
+	
 	/**
 	 * Replace target with el
 	 *
 	 * @param {Element} target
 	 * @param {Element} el
 	 */
-
+	
 	function replace(target, el) {
 	  var parent = target.parentNode;
 	  if (parent) {
 	    parent.replaceChild(el, target);
 	  }
 	}
-
+	
 	/**
 	 * Add event listener shorthand.
 	 *
@@ -1290,11 +1290,11 @@
 	 * @param {String} event
 	 * @param {Function} cb
 	 */
-
+	
 	function on$1(el, event, cb) {
 	  el.addEventListener(event, cb);
 	}
-
+	
 	/**
 	 * Remove event listener shorthand.
 	 *
@@ -1302,11 +1302,11 @@
 	 * @param {String} event
 	 * @param {Function} cb
 	 */
-
+	
 	function off(el, event, cb) {
 	  el.removeEventListener(event, cb);
 	}
-
+	
 	/**
 	 * In IE9, setAttribute('class') will result in empty class
 	 * if the element also has the :class attribute; However in
@@ -1316,7 +1316,7 @@
 	 * @param {Element} el
 	 * @param {String} cls
 	 */
-
+	
 	function setClass(el, cls) {
 	  /* istanbul ignore if */
 	  if (isIE9 && !(el instanceof SVGElement)) {
@@ -1325,14 +1325,14 @@
 	    el.setAttribute('class', cls);
 	  }
 	}
-
+	
 	/**
 	 * Add class with compatibility for IE & SVG
 	 *
 	 * @param {Element} el
 	 * @param {String} cls
 	 */
-
+	
 	function addClass(el, cls) {
 	  if (el.classList) {
 	    el.classList.add(cls);
@@ -1343,14 +1343,14 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Remove class with compatibility for IE & SVG
 	 *
 	 * @param {Element} el
 	 * @param {String} cls
 	 */
-
+	
 	function removeClass(el, cls) {
 	  if (el.classList) {
 	    el.classList.remove(cls);
@@ -1366,7 +1366,7 @@
 	    el.removeAttribute('class');
 	  }
 	}
-
+	
 	/**
 	 * Extract raw content inside an element into a temporary
 	 * container div
@@ -1375,7 +1375,7 @@
 	 * @param {Boolean} asFragment
 	 * @return {Element}
 	 */
-
+	
 	function extractContent(el, asFragment) {
 	  var child;
 	  var rawContent;
@@ -1394,24 +1394,24 @@
 	  }
 	  return rawContent;
 	}
-
+	
 	/**
 	 * Trim possible empty head/tail textNodes inside a parent.
 	 *
 	 * @param {Node} node
 	 */
-
+	
 	function trimNode(node) {
 	  trim(node, node.firstChild);
 	  trim(node, node.lastChild);
 	}
-
+	
 	function trim(parent, node) {
 	  if (node && node.nodeType === 3 && !node.data.trim()) {
 	    parent.removeChild(node);
 	  }
 	}
-
+	
 	/**
 	 * Check if an element is a template tag.
 	 * Note if the template appears inside an SVG its tagName
@@ -1419,11 +1419,11 @@
 	 *
 	 * @param {Element} el
 	 */
-
+	
 	function isTemplate(el) {
 	  return el.tagName && el.tagName.toLowerCase() === 'template';
 	}
-
+	
 	/**
 	 * Create an "anchor" for performing dom insertion/removals.
 	 * This is used in a number of scenarios:
@@ -1441,22 +1441,22 @@
 	 *                            templates.
 	 * @return {Comment|Text}
 	 */
-
+	
 	function createAnchor(content, persist) {
 	  var anchor = config.debug ? document.createComment(content) : document.createTextNode(persist ? ' ' : '');
 	  anchor.__vue_anchor = true;
 	  return anchor;
 	}
-
+	
 	/**
 	 * Find a component ref attribute that starts with $.
 	 *
 	 * @param {Element} node
 	 * @return {String|undefined}
 	 */
-
+	
 	var refRE = /^v-ref:/;
-
+	
 	function findRef(node) {
 	  if (node.hasAttributes()) {
 	    var attrs = node.attributes;
@@ -1468,7 +1468,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Map a function to a range of nodes .
 	 *
@@ -1476,7 +1476,7 @@
 	 * @param {Node} end
 	 * @param {Function} op
 	 */
-
+	
 	function mapNodeRange(node, end, op) {
 	  var next;
 	  while (node !== end) {
@@ -1486,7 +1486,7 @@
 	  }
 	  op(end);
 	}
-
+	
 	/**
 	 * Remove a range of nodes with transition, store
 	 * the nodes in a fragment with correct ordering,
@@ -1498,7 +1498,7 @@
 	 * @param {DocumentFragment} frag
 	 * @param {Function} cb
 	 */
-
+	
 	function removeNodeRange(start, end, vm, frag, cb) {
 	  var done = false;
 	  var removed = 0;
@@ -1518,10 +1518,10 @@
 	    }
 	  }
 	}
-
+	
 	var commonTagRE = /^(div|p|span|img|a|b|i|br|ul|ol|li|h1|h2|h3|h4|h5|h6|code|pre|table|th|td|tr|form|label|input|select|option|nav|article|section|header|footer)$/;
 	var reservedTagRE = /^(slot|partial|component)$/;
-
+	
 	/**
 	 * Check if an element is a component, if yes return its
 	 * component id.
@@ -1530,7 +1530,7 @@
 	 * @param {Object} options
 	 * @return {Object|undefined}
 	 */
-
+	
 	function checkComponentAttr(el, options) {
 	  var tag = el.tagName.toLowerCase();
 	  var hasAttrs = el.hasAttributes();
@@ -1554,14 +1554,14 @@
 	    return getIsBinding(el);
 	  }
 	}
-
+	
 	/**
 	 * Get "is" binding from an element.
 	 *
 	 * @param {Element} el
 	 * @return {Object|undefined}
 	 */
-
+	
 	function getIsBinding(el) {
 	  // dynamic syntax
 	  var exp = getAttr(el, 'is');
@@ -1574,7 +1574,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Set a prop's initial value on a vm and its data object.
 	 *
@@ -1582,20 +1582,20 @@
 	 * @param {Object} prop
 	 * @param {*} value
 	 */
-
+	
 	function initProp(vm, prop, value) {
 	  var key = prop.path;
 	  value = coerceProp(prop, value);
 	  vm[key] = vm._data[key] = assertProp(prop, value) ? value : undefined;
 	}
-
+	
 	/**
 	 * Assert whether a prop is valid.
 	 *
 	 * @param {Object} prop
 	 * @param {*} value
 	 */
-
+	
 	function assertProp(prop, value) {
 	  // if a prop is not provided and is not required,
 	  // skip the check.
@@ -1642,7 +1642,7 @@
 	  }
 	  return true;
 	}
-
+	
 	/**
 	 * Force parsing value with coerce option.
 	 *
@@ -1650,7 +1650,7 @@
 	 * @param {Object} options
 	 * @return {*}
 	 */
-
+	
 	function coerceProp(prop, value) {
 	  var coerce = prop.options.coerce;
 	  if (!coerce) {
@@ -1659,15 +1659,15 @@
 	  // coerce is a function
 	  return coerce(value);
 	}
-
+	
 	function formatType(val) {
 	  return val ? val.charAt(0).toUpperCase() + val.slice(1) : 'custom type';
 	}
-
+	
 	function formatValue(val) {
 	  return Object.prototype.toString.call(val).slice(8, -1);
 	}
-
+	
 	/**
 	 * Option overwriting strategies are functions that handle
 	 * how to merge a parent option value and a child option
@@ -1679,13 +1679,13 @@
 	 * @param {*} childVal
 	 * @param {Vue} [vm]
 	 */
-
+	
 	var strats = config.optionMergeStrategies = Object.create(null);
-
+	
 	/**
 	 * Helper that recursively merges two data objects together.
 	 */
-
+	
 	function mergeData(to, from) {
 	  var key, toVal, fromVal;
 	  for (key in from) {
@@ -1699,11 +1699,11 @@
 	  }
 	  return to;
 	}
-
+	
 	/**
 	 * Data
 	 */
-
+	
 	strats.data = function (parentVal, childVal, vm) {
 	  if (!vm) {
 	    // in a Vue.extend merge, both should be functions
@@ -1738,11 +1738,11 @@
 	    };
 	  }
 	};
-
+	
 	/**
 	 * El
 	 */
-
+	
 	strats.el = function (parentVal, childVal, vm) {
 	  if (!vm && childVal && typeof childVal !== 'function') {
 	    process.env.NODE_ENV !== 'production' && warn('The "el" option should be a function ' + 'that returns a per-instance value in component ' + 'definitions.');
@@ -1752,24 +1752,24 @@
 	  // invoke the element factory if this is instance merge
 	  return vm && typeof ret === 'function' ? ret.call(vm) : ret;
 	};
-
+	
 	/**
 	 * Hooks and param attributes are merged as arrays.
 	 */
-
+	
 	strats.init = strats.created = strats.ready = strats.attached = strats.detached = strats.beforeCompile = strats.compiled = strats.beforeDestroy = strats.destroyed = function (parentVal, childVal) {
 	  return childVal ? parentVal ? parentVal.concat(childVal) : isArray(childVal) ? childVal : [childVal] : parentVal;
 	};
-
+	
 	/**
 	 * 0.11 deprecation warning
 	 */
-
+	
 	strats.paramAttributes = function () {
 	  /* istanbul ignore next */
 	  process.env.NODE_ENV !== 'production' && warn('"paramAttributes" option has been deprecated in 0.12. ' + 'Use "props" instead.');
 	};
-
+	
 	/**
 	 * Assets
 	 *
@@ -1777,23 +1777,23 @@
 	 * a three-way merge between constructor options, instance
 	 * options and parent options.
 	 */
-
+	
 	function mergeAssets(parentVal, childVal) {
 	  var res = Object.create(parentVal);
 	  return childVal ? extend(res, guardArrayAssets(childVal)) : res;
 	}
-
+	
 	config._assetTypes.forEach(function (type) {
 	  strats[type + 's'] = mergeAssets;
 	});
-
+	
 	/**
 	 * Events & Watchers.
 	 *
 	 * Events & watchers hashes should not overwrite one
 	 * another, so we merge them as arrays.
 	 */
-
+	
 	strats.watch = strats.events = function (parentVal, childVal) {
 	  if (!childVal) return parentVal;
 	  if (!parentVal) return childVal;
@@ -1809,11 +1809,11 @@
 	  }
 	  return ret;
 	};
-
+	
 	/**
 	 * Other object hashes.
 	 */
-
+	
 	strats.props = strats.methods = strats.computed = function (parentVal, childVal) {
 	  if (!childVal) return parentVal;
 	  if (!parentVal) return childVal;
@@ -1822,22 +1822,22 @@
 	  extend(ret, childVal);
 	  return ret;
 	};
-
+	
 	/**
 	 * Default strategy.
 	 */
-
+	
 	var defaultStrat = function defaultStrat(parentVal, childVal) {
 	  return childVal === undefined ? parentVal : childVal;
 	};
-
+	
 	/**
 	 * Make sure component options get converted to actual
 	 * constructors.
 	 *
 	 * @param {Object} options
 	 */
-
+	
 	function guardComponents(options) {
 	  if (options.components) {
 	    var components = options.components = guardArrayAssets(options.components);
@@ -1856,14 +1856,14 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Ensure all props option syntax are normalized into the
 	 * Object-based format.
 	 *
 	 * @param {Object} options
 	 */
-
+	
 	function guardProps(options) {
 	  var props = options.props;
 	  var i, val;
@@ -1889,7 +1889,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Guard an Array-format assets option and converted it
 	 * into the key-value Object format.
@@ -1897,7 +1897,7 @@
 	 * @param {Object|Array} assets
 	 * @return {Object}
 	 */
-
+	
 	function guardArrayAssets(assets) {
 	  if (isArray(assets)) {
 	    var res = {};
@@ -1916,7 +1916,7 @@
 	  }
 	  return assets;
 	}
-
+	
 	/**
 	 * Merge two option objects into a new one.
 	 * Core utility used in both instantiation and inheritance.
@@ -1926,7 +1926,7 @@
 	 * @param {Vue} [vm] - if vm is present, indicates this is
 	 *                     an instantiation merge.
 	 */
-
+	
 	function mergeOptions(parent, child, vm) {
 	  guardComponents(child);
 	  guardProps(child);
@@ -1951,7 +1951,7 @@
 	  }
 	  return options;
 	}
-
+	
 	/**
 	 * Resolve an asset.
 	 * This function is used because child instances need access
@@ -1962,7 +1962,7 @@
 	 * @param {String} id
 	 * @return {Object|Function}
 	 */
-
+	
 	function resolveAsset(options, type, id) {
 	  var assets = options[type];
 	  var camelizedId;
@@ -1972,24 +1972,24 @@
 	  // Pascal Case ID
 	  assets[camelizedId.charAt(0).toUpperCase() + camelizedId.slice(1)];
 	}
-
+	
 	/**
 	 * Assert asset exists
 	 */
-
+	
 	function assertAsset(val, type, id) {
 	  if (!val) {
 	    process.env.NODE_ENV !== 'production' && warn('Failed to resolve ' + type + ': ' + id);
 	  }
 	}
-
+	
 	var arrayProto = Array.prototype;
 	var arrayMethods = Object.create(arrayProto)
-
+	
 	/**
 	 * Intercept mutating methods and emit events
 	 */
-
+	
 	;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
 	  // cache original method
 	  var original = arrayProto[method];
@@ -2021,7 +2021,7 @@
 	    return result;
 	  });
 	});
-
+	
 	/**
 	 * Swap the element at the given index with a new value
 	 * and emits corresponding event.
@@ -2030,21 +2030,21 @@
 	 * @param {*} val
 	 * @return {*} - replaced element
 	 */
-
+	
 	def(arrayProto, '$set', function $set(index, val) {
 	  if (index >= this.length) {
 	    this.length = index + 1;
 	  }
 	  return this.splice(index, 1, val)[0];
 	});
-
+	
 	/**
 	 * Convenience method to remove the element at given index.
 	 *
 	 * @param {Number} index
 	 * @param {*} val
 	 */
-
+	
 	def(arrayProto, '$remove', function $remove(item) {
 	  /* istanbul ignore if */
 	  if (!this.length) return;
@@ -2053,9 +2053,9 @@
 	    return this.splice(index, 1);
 	  }
 	});
-
+	
 	var uid$3 = 0;
-
+	
 	/**
 	 * A dep is an observable that can have multiple
 	 * directives subscribing to it.
@@ -2066,44 +2066,44 @@
 	  this.id = uid$3++;
 	  this.subs = [];
 	}
-
+	
 	// the current target watcher being evaluated.
 	// this is globally unique because there could be only one
 	// watcher being evaluated at any time.
 	Dep.target = null;
-
+	
 	/**
 	 * Add a directive subscriber.
 	 *
 	 * @param {Directive} sub
 	 */
-
+	
 	Dep.prototype.addSub = function (sub) {
 	  this.subs.push(sub);
 	};
-
+	
 	/**
 	 * Remove a directive subscriber.
 	 *
 	 * @param {Directive} sub
 	 */
-
+	
 	Dep.prototype.removeSub = function (sub) {
 	  this.subs.$remove(sub);
 	};
-
+	
 	/**
 	 * Add self as a dependency to the target watcher.
 	 */
-
+	
 	Dep.prototype.depend = function () {
 	  Dep.target.addDep(this);
 	};
-
+	
 	/**
 	 * Notify all subscribers of a new value.
 	 */
-
+	
 	Dep.prototype.notify = function () {
 	  // stablize the subscriber list first
 	  var subs = toArray(this.subs);
@@ -2111,9 +2111,9 @@
 	    subs[i].update();
 	  }
 	};
-
+	
 	var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
-
+	
 	/**
 	 * Observer class that are attached to each observed
 	 * object. Once attached, the observer converts target
@@ -2123,7 +2123,7 @@
 	 * @param {Array|Object} value
 	 * @constructor
 	 */
-
+	
 	function Observer(value) {
 	  this.value = value;
 	  this.dep = new Dep();
@@ -2136,9 +2136,9 @@
 	    this.walk(value);
 	  }
 	}
-
+	
 	// Instance methods
-
+	
 	/**
 	 * Walk through each property and convert them into
 	 * getter/setters. This method should only be called when
@@ -2146,7 +2146,7 @@
 	 *
 	 * @param {Object} obj
 	 */
-
+	
 	Observer.prototype.walk = function (obj) {
 	  var keys = Object.keys(obj);
 	  var i = keys.length;
@@ -2154,20 +2154,20 @@
 	    this.convert(keys[i], obj[keys[i]]);
 	  }
 	};
-
+	
 	/**
 	 * Observe a list of Array items.
 	 *
 	 * @param {Array} items
 	 */
-
+	
 	Observer.prototype.observeArray = function (items) {
 	  var i = items.length;
 	  while (i--) {
 	    observe(items[i]);
 	  }
 	};
-
+	
 	/**
 	 * Convert a property into getter/setter so we can emit
 	 * the events when the property is accessed/changed.
@@ -2175,11 +2175,11 @@
 	 * @param {String} key
 	 * @param {*} val
 	 */
-
+	
 	Observer.prototype.convert = function (key, val) {
 	  defineReactive(this.value, key, val);
 	};
-
+	
 	/**
 	 * Add an owner vm, so that when $set/$delete mutations
 	 * happen we can notify owner vms to proxy the keys and
@@ -2188,24 +2188,24 @@
 	 *
 	 * @param {Vue} vm
 	 */
-
+	
 	Observer.prototype.addVm = function (vm) {
 	  (this.vms || (this.vms = [])).push(vm);
 	};
-
+	
 	/**
 	 * Remove an owner vm. This is called when the object is
 	 * swapped out as an instance's $data object.
 	 *
 	 * @param {Vue} vm
 	 */
-
+	
 	Observer.prototype.removeVm = function (vm) {
 	  this.vms.$remove(vm);
 	};
-
+	
 	// helpers
-
+	
 	/**
 	 * Augment an target Object or Array by intercepting
 	 * the prototype chain using __proto__
@@ -2213,11 +2213,11 @@
 	 * @param {Object|Array} target
 	 * @param {Object} proto
 	 */
-
+	
 	function protoAugment(target, src) {
 	  target.__proto__ = src;
 	}
-
+	
 	/**
 	 * Augment an target Object or Array by defining
 	 * hidden properties.
@@ -2225,7 +2225,7 @@
 	 * @param {Object|Array} target
 	 * @param {Object} proto
 	 */
-
+	
 	function copyAugment(target, src, keys) {
 	  var i = keys.length;
 	  var key;
@@ -2234,7 +2234,7 @@
 	    def(target, key, src[key]);
 	  }
 	}
-
+	
 	/**
 	 * Attempt to create an observer instance for a value,
 	 * returns the new observer if successfully observed,
@@ -2245,7 +2245,7 @@
 	 * @return {Observer|undefined}
 	 * @static
 	 */
-
+	
 	function observe(value, vm) {
 	  if (!value || typeof value !== 'object') {
 	    return;
@@ -2261,7 +2261,7 @@
 	  }
 	  return ob;
 	}
-
+	
 	/**
 	 * Define a reactive property on an Object.
 	 *
@@ -2269,10 +2269,10 @@
 	 * @param {String} key
 	 * @param {*} val
 	 */
-
+	
 	function defineReactive(obj, key, val) {
 	  var dep = new Dep();
-
+	
 	  // cater for pre-defined getter/setters
 	  var getter, setter;
 	  if (config.convertAllProperties) {
@@ -2283,7 +2283,7 @@
 	    getter = property && property.get;
 	    setter = property && property.set;
 	  }
-
+	
 	  var childOb = observe(val);
 	  Object.defineProperty(obj, key, {
 	    enumerable: true,
@@ -2319,7 +2319,7 @@
 	    }
 	  });
 	}
-
+	
 	var util = Object.freeze({
 		defineReactive: defineReactive,
 		set: set,
@@ -2387,11 +2387,11 @@
 		reservedTagRE: reservedTagRE,
 		get warn () { return warn; }
 	});
-
+	
 	var uid = 0;
-
+	
 	function initMixin (Vue) {
-
+	
 	  /**
 	   * The main init sequence. This is called for every
 	   * instance, including ones that are created from extended
@@ -2402,11 +2402,11 @@
 	   *                           options and the options passed
 	   *                           in to the constructor.
 	   */
-
+	
 	  Vue.prototype._init = function (options) {
-
+	
 	    options = options || {};
-
+	
 	    this.$el = null;
 	    this.$parent = options.parent;
 	    this.$root = this.$parent ? this.$parent.$root : this;
@@ -2415,40 +2415,40 @@
 	    this.$els = {}; // element references
 	    this._watchers = []; // all watchers as an array
 	    this._directives = []; // all directives
-
+	
 	    // a uid
 	    this._uid = uid++;
-
+	
 	    // a flag to avoid this being observed
 	    this._isVue = true;
-
+	
 	    // events bookkeeping
 	    this._events = {}; // registered callbacks
 	    this._eventsCount = {}; // for $broadcast optimization
-
+	
 	    // fragment instance properties
 	    this._isFragment = false;
 	    this._fragment = // @type {DocumentFragment}
 	    this._fragmentStart = // @type {Text|Comment}
 	    this._fragmentEnd = null; // @type {Text|Comment}
-
+	
 	    // lifecycle state
 	    this._isCompiled = this._isDestroyed = this._isReady = this._isAttached = this._isBeingDestroyed = false;
 	    this._unlinkFn = null;
-
+	
 	    // context:
 	    // if this is a transcluded component, context
 	    // will be the common parent vm of this instance
 	    // and its host.
 	    this._context = options._context || this.$parent;
-
+	
 	    // scope:
 	    // if this is inside an inline v-for, the scope
 	    // will be the intermediate scope created for this
 	    // repeat fragment. this is used for linking props
 	    // and container directives.
 	    this._scope = options._scope;
-
+	
 	    // fragment:
 	    // if this instance is compiled inside a Fragment, it
 	    // needs to reigster itself as a child of that fragment
@@ -2457,49 +2457,49 @@
 	    if (this._frag) {
 	      this._frag.children.push(this);
 	    }
-
+	
 	    // push self into parent / transclusion host
 	    if (this.$parent) {
 	      this.$parent.$children.push(this);
 	    }
-
+	
 	    // merge options.
 	    options = this.$options = mergeOptions(this.constructor.options, options, this);
-
+	
 	    // set ref
 	    this._updateRef();
-
+	
 	    // initialize data as empty object.
 	    // it will be filled up in _initScope().
 	    this._data = {};
-
+	
 	    // call init hook
 	    this._callHook('init');
-
+	
 	    // initialize data observation and scope inheritance.
 	    this._initState();
-
+	
 	    // setup event system and option events.
 	    this._initEvents();
-
+	
 	    // call created hook
 	    this._callHook('created');
-
+	
 	    // if `el` option is passed, start compilation.
 	    if (options.el) {
 	      this.$mount(options.el);
 	    }
 	  };
 	}
-
+	
 	var pathCache = new Cache(1000);
-
+	
 	// actions
 	var APPEND = 0;
 	var PUSH = 1;
 	var INC_SUB_PATH_DEPTH = 2;
 	var PUSH_SUB_PATH = 3;
-
+	
 	// states
 	var BEFORE_PATH = 0;
 	var IN_PATH = 1;
@@ -2510,28 +2510,28 @@
 	var IN_DOUBLE_QUOTE = 6;
 	var AFTER_PATH = 7;
 	var ERROR = 8;
-
+	
 	var pathStateMachine = [];
-
+	
 	pathStateMachine[BEFORE_PATH] = {
 	  'ws': [BEFORE_PATH],
 	  'ident': [IN_IDENT, APPEND],
 	  '[': [IN_SUB_PATH],
 	  'eof': [AFTER_PATH]
 	};
-
+	
 	pathStateMachine[IN_PATH] = {
 	  'ws': [IN_PATH],
 	  '.': [BEFORE_IDENT],
 	  '[': [IN_SUB_PATH],
 	  'eof': [AFTER_PATH]
 	};
-
+	
 	pathStateMachine[BEFORE_IDENT] = {
 	  'ws': [BEFORE_IDENT],
 	  'ident': [IN_IDENT, APPEND]
 	};
-
+	
 	pathStateMachine[IN_IDENT] = {
 	  'ident': [IN_IDENT, APPEND],
 	  '0': [IN_IDENT, APPEND],
@@ -2541,7 +2541,7 @@
 	  '[': [IN_SUB_PATH, PUSH],
 	  'eof': [AFTER_PATH, PUSH]
 	};
-
+	
 	pathStateMachine[IN_SUB_PATH] = {
 	  "'": [IN_SINGLE_QUOTE, APPEND],
 	  '"': [IN_DOUBLE_QUOTE, APPEND],
@@ -2550,33 +2550,33 @@
 	  'eof': ERROR,
 	  'else': [IN_SUB_PATH, APPEND]
 	};
-
+	
 	pathStateMachine[IN_SINGLE_QUOTE] = {
 	  "'": [IN_SUB_PATH, APPEND],
 	  'eof': ERROR,
 	  'else': [IN_SINGLE_QUOTE, APPEND]
 	};
-
+	
 	pathStateMachine[IN_DOUBLE_QUOTE] = {
 	  '"': [IN_SUB_PATH, APPEND],
 	  'eof': ERROR,
 	  'else': [IN_DOUBLE_QUOTE, APPEND]
 	};
-
+	
 	/**
 	 * Determine the type of a character in a keypath.
 	 *
 	 * @param {Char} ch
 	 * @return {String} type
 	 */
-
+	
 	function getPathCharType(ch) {
 	  if (ch === undefined) {
 	    return 'eof';
 	  }
-
+	
 	  var code = ch.charCodeAt(0);
-
+	
 	  switch (code) {
 	    case 0x5B: // [
 	    case 0x5D: // ]
@@ -2586,12 +2586,12 @@
 	    case 0x30:
 	      // 0
 	      return ch;
-
+	
 	    case 0x5F: // _
 	    case 0x24:
 	      // $
 	      return 'ident';
-
+	
 	    case 0x20: // Space
 	    case 0x09: // Tab
 	    case 0x0A: // Newline
@@ -2603,20 +2603,20 @@
 	      // Paragraph Separator
 	      return 'ws';
 	  }
-
+	
 	  // a-z, A-Z
 	  if (code >= 0x61 && code <= 0x7A || code >= 0x41 && code <= 0x5A) {
 	    return 'ident';
 	  }
-
+	
 	  // 1-9
 	  if (code >= 0x31 && code <= 0x39) {
 	    return 'number';
 	  }
-
+	
 	  return 'else';
 	}
-
+	
 	/**
 	 * Format a subPath, return its plain form if it is
 	 * a literal string or number. Otherwise prepend the
@@ -2625,7 +2625,7 @@
 	 * @param {String} path
 	 * @return {String}
 	 */
-
+	
 	function formatSubPath(path) {
 	  var trimmed = path.trim();
 	  // invalid leading 0
@@ -2634,30 +2634,30 @@
 	  }
 	  return isLiteral(trimmed) ? stripQuotes(trimmed) : '*' + trimmed;
 	}
-
+	
 	/**
 	 * Parse a string path into an array of segments
 	 *
 	 * @param {String} path
 	 * @return {Array|undefined}
 	 */
-
+	
 	function parse(path) {
 	  var keys = [];
 	  var index = -1;
 	  var mode = BEFORE_PATH;
 	  var subPathDepth = 0;
 	  var c, newChar, key, type, transition, action, typeMap;
-
+	
 	  var actions = [];
-
+	
 	  actions[PUSH] = function () {
 	    if (key !== undefined) {
 	      keys.push(key);
 	      key = undefined;
 	    }
 	  };
-
+	
 	  actions[APPEND] = function () {
 	    if (key === undefined) {
 	      key = newChar;
@@ -2665,12 +2665,12 @@
 	      key += newChar;
 	    }
 	  };
-
+	
 	  actions[INC_SUB_PATH_DEPTH] = function () {
 	    actions[APPEND]();
 	    subPathDepth++;
 	  };
-
+	
 	  actions[PUSH_SUB_PATH] = function () {
 	    if (subPathDepth > 0) {
 	      subPathDepth--;
@@ -2686,7 +2686,7 @@
 	      }
 	    }
 	  };
-
+	
 	  function maybeUnescapeQuote() {
 	    var nextChar = path[index + 1];
 	    if (mode === IN_SINGLE_QUOTE && nextChar === "'" || mode === IN_DOUBLE_QUOTE && nextChar === '"') {
@@ -2696,23 +2696,23 @@
 	      return true;
 	    }
 	  }
-
+	
 	  while (mode != null) {
 	    index++;
 	    c = path[index];
-
+	
 	    if (c === '\\' && maybeUnescapeQuote()) {
 	      continue;
 	    }
-
+	
 	    type = getPathCharType(c);
 	    typeMap = pathStateMachine[mode];
 	    transition = typeMap[type] || typeMap['else'] || ERROR;
-
+	
 	    if (transition === ERROR) {
 	      return; // parse error
 	    }
-
+	
 	    mode = transition[0];
 	    action = actions[transition[1]];
 	    if (action) {
@@ -2722,21 +2722,21 @@
 	        return;
 	      }
 	    }
-
+	
 	    if (mode === AFTER_PATH) {
 	      keys.raw = path;
 	      return keys;
 	    }
 	  }
 	}
-
+	
 	/**
 	 * External parse that check for a cache hit first
 	 *
 	 * @param {String} path
 	 * @return {Array|undefined}
 	 */
-
+	
 	function parsePath(path) {
 	  var hit = pathCache.get(path);
 	  if (!hit) {
@@ -2747,29 +2747,29 @@
 	  }
 	  return hit;
 	}
-
+	
 	/**
 	 * Get from an object from a path string
 	 *
 	 * @param {Object} obj
 	 * @param {String} path
 	 */
-
+	
 	function getPath(obj, path) {
 	  return parseExpression(path).get(obj);
 	}
-
+	
 	/**
 	 * Warn against setting non-existent root path on a vm.
 	 */
-
+	
 	var warnNonExistent;
 	if (process.env.NODE_ENV !== 'production') {
 	  warnNonExistent = function (path) {
 	    warn('You are setting a non-existent path "' + path.raw + '" ' + 'on a vm instance. Consider pre-initializing the property ' + 'with the "data" option for more reliable reactivity ' + 'and better performance.');
 	  };
 	}
-
+	
 	/**
 	 * Set on an object from a path
 	 *
@@ -2777,7 +2777,7 @@
 	 * @param {String | Array} path
 	 * @param {*} val
 	 */
-
+	
 	function setPath(obj, path, val) {
 	  var original = obj;
 	  if (typeof path === 'string') {
@@ -2817,22 +2817,22 @@
 	  }
 	  return true;
 	}
-
+	
 	var path = Object.freeze({
 	  parsePath: parsePath,
 	  getPath: getPath,
 	  setPath: setPath
 	});
-
+	
 	var expressionCache = new Cache(1000);
-
+	
 	var allowedKeywords = 'Math,Date,this,true,false,null,undefined,Infinity,NaN,' + 'isNaN,isFinite,decodeURI,decodeURIComponent,encodeURI,' + 'encodeURIComponent,parseInt,parseFloat';
 	var allowedKeywordsRE = new RegExp('^(' + allowedKeywords.replace(/,/g, '\\b|') + '\\b)');
-
+	
 	// keywords that don't make sense inside expressions
 	var improperKeywords = 'break,case,class,catch,const,continue,debugger,default,' + 'delete,do,else,export,extends,finally,for,function,if,' + 'import,in,instanceof,let,return,super,switch,throw,try,' + 'var,while,with,yield,enum,await,implements,package,' + 'proctected,static,interface,private,public';
 	var improperKeywordsRE = new RegExp('^(' + improperKeywords.replace(/,/g, '\\b|') + '\\b)');
-
+	
 	var wsRE = /\s/g;
 	var newlineRE = /\n/g;
 	var saveRE = /[\{,]\s*[\w\$_]+\s*:|('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")|new |typeof |void /g;
@@ -2840,7 +2840,7 @@
 	var pathTestRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/;
 	var identRE = /[^\w$\.](?:[A-Za-z_$][\w$]*)/g;
 	var booleanLiteralRE = /^(?:true|false)$/;
-
+	
 	/**
 	 * Save / Rewrite / Restore
 	 *
@@ -2850,9 +2850,9 @@
 	 * remove and store these parts in a temporary array, and
 	 * restore them after the path rewrite.
 	 */
-
+	
 	var saved = [];
-
+	
 	/**
 	 * Save replacer
 	 *
@@ -2867,20 +2867,20 @@
 	 * @param {String} isString - str if matched as a string
 	 * @return {String} - placeholder with index
 	 */
-
+	
 	function save(str, isString) {
 	  var i = saved.length;
 	  saved[i] = isString ? str.replace(newlineRE, '\\n') : str;
 	  return '"' + i + '"';
 	}
-
+	
 	/**
 	 * Path rewrite replacer
 	 *
 	 * @param {String} raw
 	 * @return {String}
 	 */
-
+	
 	function rewrite(raw) {
 	  var c = raw.charAt(0);
 	  var path = raw.slice(1);
@@ -2891,7 +2891,7 @@
 	    return c + 'scope.' + path;
 	  }
 	}
-
+	
 	/**
 	 * Restore replacer
 	 *
@@ -2899,11 +2899,11 @@
 	 * @param {String} i - matched save index
 	 * @return {String}
 	 */
-
+	
 	function restore(str, i) {
 	  return saved[i];
 	}
-
+	
 	/**
 	 * Rewrite an expression, prefixing all path accessors with
 	 * `scope.` and generate getter/setter functions.
@@ -2911,7 +2911,7 @@
 	 * @param {String} exp
 	 * @return {Function}
 	 */
-
+	
 	function compileGetter(exp) {
 	  if (improperKeywordsRE.test(exp)) {
 	    process.env.NODE_ENV !== 'production' && warn('Avoid using reserved keywords in expression: ' + exp);
@@ -2925,7 +2925,7 @@
 	  body = (' ' + body).replace(identRE, rewrite).replace(restoreRE, restore);
 	  return makeGetterFn(body);
 	}
-
+	
 	/**
 	 * Build a getter function. Requires eval.
 	 *
@@ -2935,7 +2935,7 @@
 	 * @param {String} body
 	 * @return {Function|undefined}
 	 */
-
+	
 	function makeGetterFn(body) {
 	  try {
 	    return new Function('scope', 'return ' + body + ';');
@@ -2943,14 +2943,14 @@
 	    process.env.NODE_ENV !== 'production' && warn('Invalid expression. ' + 'Generated function body: ' + body);
 	  }
 	}
-
+	
 	/**
 	 * Compile a setter function for the expression.
 	 *
 	 * @param {String} exp
 	 * @return {Function|undefined}
 	 */
-
+	
 	function compileSetter(exp) {
 	  var path = parsePath(exp);
 	  if (path) {
@@ -2961,7 +2961,7 @@
 	    process.env.NODE_ENV !== 'production' && warn('Invalid setter expression: ' + exp);
 	  }
 	}
-
+	
 	/**
 	 * Parse an expression into re-written getter/setters.
 	 *
@@ -2969,7 +2969,7 @@
 	 * @param {Boolean} needSet
 	 * @return {Function}
 	 */
-
+	
 	function parseExpression(exp, needSet) {
 	  exp = exp.trim();
 	  // try cache
@@ -2992,14 +2992,14 @@
 	  expressionCache.put(exp, res);
 	  return res;
 	}
-
+	
 	/**
 	 * Check if an expression is a simple path.
 	 *
 	 * @param {String} exp
 	 * @return {Boolean}
 	 */
-
+	
 	function isSimplePath(exp) {
 	  return pathTestRE.test(exp) &&
 	  // don't treat true/false as paths
@@ -3007,12 +3007,12 @@
 	  // Math constants e.g. Math.PI, Math.E etc.
 	  exp.slice(0, 5) !== 'Math.';
 	}
-
+	
 	var expression = Object.freeze({
 	  parseExpression: parseExpression,
 	  isSimplePath: isSimplePath
 	});
-
+	
 	// we have two separate queues: one for directive updates
 	// and one for user watcher registered via $watch().
 	// we want to guarantee directive updates to be called
@@ -3025,11 +3025,11 @@
 	var circular = {};
 	var waiting = false;
 	var internalQueueDepleted = false;
-
+	
 	/**
 	 * Reset the batcher's state.
 	 */
-
+	
 	function resetBatcherState() {
 	  queue = [];
 	  userQueue = [];
@@ -3037,11 +3037,11 @@
 	  circular = {};
 	  waiting = internalQueueDepleted = false;
 	}
-
+	
 	/**
 	 * Flush both queues and run the watchers.
 	 */
-
+	
 	function flushBatcherQueue() {
 	  runBatcherQueue(queue);
 	  internalQueueDepleted = true;
@@ -3055,13 +3055,13 @@
 	  }
 	  resetBatcherState();
 	}
-
+	
 	/**
 	 * Run the watchers in a single queue.
 	 *
 	 * @param {Array} queue
 	 */
-
+	
 	function runBatcherQueue(queue) {
 	  // do not cache length because more watchers might be pushed
 	  // as we run existing watchers
@@ -3080,7 +3080,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Push a watcher into the watcher queue.
 	 * Jobs with duplicate IDs will be skipped unless it's
@@ -3091,7 +3091,7 @@
 	 *   - {Number} id
 	 *   - {Function} run
 	 */
-
+	
 	function pushWatcher(watcher) {
 	  var id = watcher.id;
 	  if (has[id] == null) {
@@ -3112,9 +3112,9 @@
 	    }
 	  }
 	}
-
+	
 	var uid$2 = 0;
-
+	
 	/**
 	 * A watcher parses an expression, collects dependencies,
 	 * and fires callback when the expression value changes.
@@ -3164,13 +3164,13 @@
 	  // watchers during vm._digest()
 	  this.queued = this.shallow = false;
 	}
-
+	
 	/**
 	 * Add a dependency to this directive.
 	 *
 	 * @param {Dep} dep
 	 */
-
+	
 	Watcher.prototype.addDep = function (dep) {
 	  var id = dep.id;
 	  if (!this.newDeps[id]) {
@@ -3181,11 +3181,11 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Evaluate the getter, and re-collect dependencies.
 	 */
-
+	
 	Watcher.prototype.get = function () {
 	  this.beforeGet();
 	  var scope = this.scope || this.vm;
@@ -3214,13 +3214,13 @@
 	  this.afterGet();
 	  return value;
 	};
-
+	
 	/**
 	 * Set the corresponding value with the setter.
 	 *
 	 * @param {*} value
 	 */
-
+	
 	Watcher.prototype.set = function (value) {
 	  var scope = this.scope || this.vm;
 	  if (this.filters) {
@@ -3250,20 +3250,20 @@
 	    });
 	  }
 	};
-
+	
 	/**
 	 * Prepare for dependency collection.
 	 */
-
+	
 	Watcher.prototype.beforeGet = function () {
 	  Dep.target = this;
 	  this.newDeps = Object.create(null);
 	};
-
+	
 	/**
 	 * Clean up for dependency collection.
 	 */
-
+	
 	Watcher.prototype.afterGet = function () {
 	  Dep.target = null;
 	  var ids = Object.keys(this.deps);
@@ -3276,14 +3276,14 @@
 	  }
 	  this.deps = this.newDeps;
 	};
-
+	
 	/**
 	 * Subscriber interface.
 	 * Will be called when a dependency changes.
 	 *
 	 * @param {Boolean} shallow
 	 */
-
+	
 	Watcher.prototype.update = function (shallow) {
 	  if (this.lazy) {
 	    this.dirty = true;
@@ -3302,12 +3302,12 @@
 	    pushWatcher(this);
 	  }
 	};
-
+	
 	/**
 	 * Batcher job interface.
 	 * Will be called by the batcher.
 	 */
-
+	
 	Watcher.prototype.run = function () {
 	  if (this.active) {
 	    var value = this.get();
@@ -3342,12 +3342,12 @@
 	    this.queued = this.shallow = false;
 	  }
 	};
-
+	
 	/**
 	 * Evaluate the value of the watcher.
 	 * This only gets called for lazy watchers.
 	 */
-
+	
 	Watcher.prototype.evaluate = function () {
 	  // avoid overwriting another watcher that is being
 	  // collected.
@@ -3356,11 +3356,11 @@
 	  this.dirty = false;
 	  Dep.target = current;
 	};
-
+	
 	/**
 	 * Depend on all deps collected by this watcher.
 	 */
-
+	
 	Watcher.prototype.depend = function () {
 	  var depIds = Object.keys(this.deps);
 	  var i = depIds.length;
@@ -3368,11 +3368,11 @@
 	    this.deps[depIds[i]].depend();
 	  }
 	};
-
+	
 	/**
 	 * Remove self from all dependencies' subcriber list.
 	 */
-
+	
 	Watcher.prototype.teardown = function () {
 	  if (this.active) {
 	    // remove self from vm's watcher list
@@ -3390,7 +3390,7 @@
 	    this.vm = this.cb = this.value = null;
 	  }
 	};
-
+	
 	/**
 	 * Recrusively traverse an object to evoke all converted
 	 * getters, so that every nested property inside the object
@@ -3398,7 +3398,7 @@
 	 *
 	 * @param {*} val
 	 */
-
+	
 	function traverse(val) {
 	  var i, keys;
 	  if (isArray(val)) {
@@ -3410,7 +3410,7 @@
 	    while (i--) traverse(val[keys[i]]);
 	  }
 	}
-
+	
 	var cloak = {
 	  bind: function bind() {
 	    var el = this.el;
@@ -3419,17 +3419,17 @@
 	    });
 	  }
 	};
-
+	
 	var ref = {
 	  bind: function bind() {
 	    process.env.NODE_ENV !== 'production' && warn('v-ref:' + this.arg + ' must be used on a child ' + 'component. Found on <' + this.el.tagName.toLowerCase() + '>.');
 	  }
 	};
-
+	
 	var el = {
-
+	
 	  priority: 1500,
-
+	
 	  bind: function bind() {
 	    /* istanbul ignore if */
 	    if (!this.arg) {
@@ -3443,7 +3443,7 @@
 	      defineReactive(refs, id, this.el);
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    var refs = (this._scope || this.vm).$els;
 	    if (refs[this.id] === this.el) {
@@ -3451,18 +3451,18 @@
 	    }
 	  }
 	};
-
+	
 	var prefixes = ['-webkit-', '-moz-', '-ms-'];
 	var camelPrefixes = ['Webkit', 'Moz', 'ms'];
 	var importantRE = /!important;?$/;
 	var propCache = Object.create(null);
-
+	
 	var testEl = null;
-
+	
 	var style = {
-
+	
 	  deep: true,
-
+	
 	  update: function update(value) {
 	    if (typeof value === 'string') {
 	      this.el.style.cssText = value;
@@ -3472,7 +3472,7 @@
 	      this.handleObject(value || {});
 	    }
 	  },
-
+	
 	  handleObject: function handleObject(value) {
 	    // cache object styles so that only changed props
 	    // are actually updated.
@@ -3492,7 +3492,7 @@
 	      }
 	    }
 	  },
-
+	
 	  handleSingle: function handleSingle(prop, value) {
 	    prop = normalize(prop);
 	    if (!prop) return; // unsupported prop
@@ -3508,9 +3508,9 @@
 	      this.el.style.removeProperty(prop);
 	    }
 	  }
-
+	
 	};
-
+	
 	/**
 	 * Normalize a CSS property name.
 	 * - cache result
@@ -3520,7 +3520,7 @@
 	 * @param {String} prop
 	 * @return {String}
 	 */
-
+	
 	function normalize(prop) {
 	  if (propCache[prop]) {
 	    return propCache[prop];
@@ -3529,7 +3529,7 @@
 	  propCache[prop] = propCache[res] = res;
 	  return res;
 	}
-
+	
 	/**
 	 * Auto detect the appropriate prefix for a CSS property.
 	 * https://gist.github.com/paulirish/523692
@@ -3537,7 +3537,7 @@
 	 * @param {String} prop
 	 * @return {String}
 	 */
-
+	
 	function prefix(prop) {
 	  prop = hyphenate(prop);
 	  var camel = camelize(prop);
@@ -3557,18 +3557,18 @@
 	    }
 	  }
 	}
-
+	
 	// xlink
 	var xlinkNS = 'http://www.w3.org/1999/xlink';
 	var xlinkRE = /^xlink:/;
-
+	
 	// check for attributes that prohibit interpolations
 	var disallowedInterpAttrRE = /^v-|^:|^@|^(is|transition|transition-mode|debounce|track-by|stagger|enter-stagger|leave-stagger)$/;
-
+	
 	// these attributes should also set their corresponding properties
 	// because they only affect the initial state of the element
 	var attrWithPropsRE = /^(value|checked|selected|muted)$/;
-
+	
 	// these attributes should set a hidden property for
 	// binding v-model to object values
 	var modelProps = {
@@ -3576,11 +3576,11 @@
 	  'true-value': '_trueValue',
 	  'false-value': '_falseValue'
 	};
-
+	
 	var bind = {
-
+	
 	  priority: 850,
-
+	
 	  bind: function bind() {
 	    var attr = this.arg;
 	    var tag = this.el.tagName;
@@ -3596,7 +3596,7 @@
 	        this.el.removeAttribute(attr);
 	        this.invalid = true;
 	      }
-
+	
 	      /* istanbul ignore if */
 	      if (process.env.NODE_ENV !== 'production') {
 	        var raw = attr + '="' + this.descriptor.raw + '": ';
@@ -3604,7 +3604,7 @@
 	        if (attr === 'src') {
 	          warn(raw + 'interpolation in "src" attribute will cause ' + 'a 404 request. Use v-bind:src instead.');
 	        }
-
+	
 	        // warn style
 	        if (attr === 'style') {
 	          warn(raw + 'interpolation in "style" attribute will cause ' + 'the attribute to be discarded in Internet Explorer. ' + 'Use v-bind:style instead.');
@@ -3612,7 +3612,7 @@
 	      }
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    if (this.invalid) {
 	      return;
@@ -3624,10 +3624,10 @@
 	      this.handleObject(value || {});
 	    }
 	  },
-
+	
 	  // share object handler with v-bind:class
 	  handleObject: style.handleObject,
-
+	
 	  handleSingle: function handleSingle(attr, value) {
 	    if (!this.descriptor.interp && attrWithPropsRE.test(attr) && attr in this.el) {
 	      this.el[attr] = attr === 'value' ? value == null // IE9 will set input.value to "null" for null...
@@ -3660,7 +3660,7 @@
 	    }
 	  }
 	};
-
+	
 	// keyCode aliases
 	var keyCodes = {
 	  esc: 27,
@@ -3673,7 +3673,7 @@
 	  right: 39,
 	  down: 40
 	};
-
+	
 	function keyFilter(handler, keys) {
 	  var codes = keys.map(function (key) {
 	    var charCode = key.charCodeAt(0);
@@ -3694,26 +3694,26 @@
 	    }
 	  };
 	}
-
+	
 	function stopFilter(handler) {
 	  return function stopHandler(e) {
 	    e.stopPropagation();
 	    return handler.call(this, e);
 	  };
 	}
-
+	
 	function preventFilter(handler) {
 	  return function preventHandler(e) {
 	    e.preventDefault();
 	    return handler.call(this, e);
 	  };
 	}
-
+	
 	var on = {
-
+	
 	  acceptStatement: true,
 	  priority: 700,
-
+	
 	  bind: function bind() {
 	    // deal with iframes
 	    if (this.el.tagName === 'IFRAME' && this.arg !== 'load') {
@@ -3724,19 +3724,19 @@
 	      this.on('load', this.iframeBind);
 	    }
 	  },
-
+	
 	  update: function update(handler) {
 	    // stub a noop for v-on with no value,
 	    // e.g. @mousedown.prevent
 	    if (!this.descriptor.raw) {
 	      handler = function () {};
 	    }
-
+	
 	    if (typeof handler !== 'function') {
 	      process.env.NODE_ENV !== 'production' && warn('v-on:' + this.arg + '="' + this.expression + '" expects a function value, ' + 'got ' + handler);
 	      return;
 	    }
-
+	
 	    // apply modifiers
 	    if (this.modifiers.stop) {
 	      handler = stopFilter(handler);
@@ -3751,39 +3751,39 @@
 	    if (keys.length) {
 	      handler = keyFilter(handler, keys);
 	    }
-
+	
 	    this.reset();
 	    this.handler = handler;
-
+	
 	    if (this.iframeBind) {
 	      this.iframeBind();
 	    } else {
 	      on$1(this.el, this.arg, this.handler);
 	    }
 	  },
-
+	
 	  reset: function reset() {
 	    var el = this.iframeBind ? this.el.contentWindow : this.el;
 	    if (this.handler) {
 	      off(el, this.arg, this.handler);
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    this.reset();
 	  }
 	};
-
+	
 	var checkbox = {
-
+	
 	  bind: function bind() {
 	    var self = this;
 	    var el = this.el;
-
+	
 	    this.getValue = function () {
 	      return el.hasOwnProperty('_value') ? el._value : self.params.number ? toNumber(el.value) : el.value;
 	    };
-
+	
 	    function getBooleanValue() {
 	      var val = el.checked;
 	      if (val && el.hasOwnProperty('_trueValue')) {
@@ -3794,7 +3794,7 @@
 	      }
 	      return val;
 	    }
-
+	
 	    this.listener = function () {
 	      var model = self._watcher.value;
 	      if (isArray(model)) {
@@ -3810,13 +3810,13 @@
 	        self.set(getBooleanValue());
 	      }
 	    };
-
+	
 	    this.on('change', this.listener);
 	    if (el.hasAttribute('checked')) {
 	      this.afterBind = this.listener;
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    var el = this.el;
 	    if (isArray(value)) {
@@ -3830,23 +3830,23 @@
 	    }
 	  }
 	};
-
+	
 	var select = {
-
+	
 	  bind: function bind() {
 	    var self = this;
 	    var el = this.el;
-
+	
 	    // method to force update DOM using latest value.
 	    this.forceUpdate = function () {
 	      if (self._watcher) {
 	        self.update(self._watcher.get());
 	      }
 	    };
-
+	
 	    // check if this is a multiple select
 	    var multiple = this.multiple = el.hasAttribute('multiple');
-
+	
 	    // attach listener
 	    this.listener = function () {
 	      var value = getValue(el, multiple);
@@ -3854,20 +3854,20 @@
 	      self.set(value);
 	    };
 	    this.on('change', this.listener);
-
+	
 	    // if has initial value, set afterBind
 	    var initValue = getValue(el, multiple, true);
 	    if (multiple && initValue.length || !multiple && initValue !== null) {
 	      this.afterBind = this.listener;
 	    }
-
+	
 	    // All major browsers except Firefox resets
 	    // selectedIndex with value -1 to 0 when the element
 	    // is appended to a new parent, therefore we have to
 	    // force a DOM update whenever that happens...
 	    this.vm.$on('hook:attached', this.forceUpdate);
 	  },
-
+	
 	  update: function update(value) {
 	    var el = this.el;
 	    el.selectedIndex = -1;
@@ -3883,13 +3883,13 @@
 	      /* eslint-enable eqeqeq */
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    /* istanbul ignore next */
 	    this.vm.$off('hook:attached', this.forceUpdate);
 	  }
 	};
-
+	
 	/**
 	 * Get select value
 	 *
@@ -3898,7 +3898,7 @@
 	 * @param {Boolean} init
 	 * @return {Array|*}
 	 */
-
+	
 	function getValue(el, multi, init) {
 	  var res = multi ? [] : null;
 	  var op, val, selected;
@@ -3916,7 +3916,7 @@
 	  }
 	  return res;
 	}
-
+	
 	/**
 	 * Native Array.indexOf uses strict equal, but in this
 	 * case we need to match string/numbers with custom equal.
@@ -3924,7 +3924,7 @@
 	 * @param {Array} arr
 	 * @param {*} val
 	 */
-
+	
 	function indexOf$1(arr, val) {
 	  var i = arr.length;
 	  while (i--) {
@@ -3934,13 +3934,13 @@
 	  }
 	  return -1;
 	}
-
+	
 	var radio = {
-
+	
 	  bind: function bind() {
 	    var self = this;
 	    var el = this.el;
-
+	
 	    this.getValue = function () {
 	      // value overwrite via v-bind:value
 	      if (el.hasOwnProperty('_value')) {
@@ -3952,24 +3952,24 @@
 	      }
 	      return val;
 	    };
-
+	
 	    this.listener = function () {
 	      self.set(self.getValue());
 	    };
 	    this.on('change', this.listener);
-
+	
 	    if (el.hasAttribute('checked')) {
 	      this.afterBind = this.listener;
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    this.el.checked = looseEqual(value, this.getValue());
 	  }
 	};
-
+	
 	var text$2 = {
-
+	
 	  bind: function bind() {
 	    var self = this;
 	    var el = this.el;
@@ -3977,7 +3977,7 @@
 	    var lazy = this.params.lazy;
 	    var number = this.params.number;
 	    var debounce = this.params.debounce;
-
+	
 	    // handle composition events.
 	    //   http://blog.evanyou.me/2014/01/03/composition-event/
 	    // skip this for Android because it handles composition
@@ -4002,7 +4002,7 @@
 	        }
 	      });
 	    }
-
+	
 	    // prevent messing with the input when user is typing,
 	    // and force update on blur.
 	    this.focused = false;
@@ -4018,7 +4018,7 @@
 	        }
 	      });
 	    }
-
+	
 	    // Now attach the main listener
 	    this.listener = this.rawListener = function () {
 	      if (composing || !self._bound) {
@@ -4034,12 +4034,12 @@
 	        }
 	      });
 	    };
-
+	
 	    // apply debounce
 	    if (debounce) {
 	      this.listener = _debounce(this.listener, debounce);
 	    }
-
+	
 	    // Support jQuery events, since jQuery.trigger() doesn't
 	    // trigger native events in some cases and some plugins
 	    // rely on $.trigger()
@@ -4062,7 +4062,7 @@
 	        this.on('input', this.listener);
 	      }
 	    }
-
+	
 	    // IE9 doesn't fire input event on backspace/del/cut
 	    if (!lazy && isIE9) {
 	      this.on('cut', function () {
@@ -4074,17 +4074,17 @@
 	        }
 	      });
 	    }
-
+	
 	    // set initial value if present
 	    if (el.hasAttribute('value') || el.tagName === 'TEXTAREA' && el.value.trim()) {
 	      this.afterBind = this.listener;
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    this.el.value = _toString(value);
 	  },
-
+	
 	  unbind: function unbind() {
 	    var el = this.el;
 	    if (this.hasjQuery) {
@@ -4093,21 +4093,21 @@
 	    }
 	  }
 	};
-
+	
 	var handlers = {
 	  text: text$2,
 	  radio: radio,
 	  select: select,
 	  checkbox: checkbox
 	};
-
+	
 	var model = {
-
+	
 	  priority: 800,
 	  twoWay: true,
 	  handlers: handlers,
 	  params: ['lazy', 'number', 'debounce'],
-
+	
 	  /**
 	   * Possible elements:
 	   *   <select>
@@ -4118,7 +4118,7 @@
 	   *     - radio
 	   *     - number
 	   */
-
+	
 	  bind: function bind() {
 	    // friendly warning...
 	    this.checkFilters();
@@ -4143,11 +4143,11 @@
 	    this.update = handler.update;
 	    this._unbind = handler.unbind;
 	  },
-
+	
 	  /**
 	   * Check read/write filter stats.
 	   */
-
+	
 	  checkFilters: function checkFilters() {
 	    var filters = this.filters;
 	    if (!filters) return;
@@ -4162,15 +4162,15 @@
 	      }
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    this.el.__v_model = null;
 	    this._unbind && this._unbind();
 	  }
 	};
-
+	
 	var show = {
-
+	
 	  bind: function bind() {
 	    // check else block
 	    var next = this.el.nextElementSibling;
@@ -4178,14 +4178,14 @@
 	      this.elseEl = next;
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    this.apply(this.el, value);
 	    if (this.elseEl) {
 	      this.apply(this.elseEl, !value);
 	    }
 	  },
-
+	
 	  apply: function apply(el, value) {
 	    if (inDoc(el)) {
 	      applyTransition(el, value ? 1 : -1, toggle, this.vm);
@@ -4197,25 +4197,25 @@
 	    }
 	  }
 	};
-
+	
 	var templateCache = new Cache(1000);
 	var idSelectorCache = new Cache(1000);
-
+	
 	var map = {
 	  efault: [0, '', ''],
 	  legend: [1, '<fieldset>', '</fieldset>'],
 	  tr: [2, '<table><tbody>', '</tbody></table>'],
 	  col: [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>']
 	};
-
+	
 	map.td = map.th = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
-
+	
 	map.option = map.optgroup = [1, '<select multiple="multiple">', '</select>'];
-
+	
 	map.thead = map.tbody = map.colgroup = map.caption = map.tfoot = [1, '<table>', '</table>'];
-
+	
 	map.g = map.defs = map.symbol = map.use = map.image = map.text = map.circle = map.ellipse = map.line = map.path = map.polygon = map.polyline = map.rect = [1, '<svg ' + 'xmlns="http://www.w3.org/2000/svg" ' + 'xmlns:xlink="http://www.w3.org/1999/xlink" ' + 'xmlns:ev="http://www.w3.org/2001/xml-events"' + 'version="1.1">', '</svg>'];
-
+	
 	/**
 	 * Check if a node is a supported template node with a
 	 * DocumentFragment content.
@@ -4223,14 +4223,14 @@
 	 * @param {Node} node
 	 * @return {Boolean}
 	 */
-
+	
 	function isRealTemplate(node) {
 	  return isTemplate(node) && node.content instanceof DocumentFragment;
 	}
-
+	
 	var tagRE$1 = /<([\w:]+)/;
 	var entityRE = /&#?\w+?;/;
-
+	
 	/**
 	 * Convert a string template to a DocumentFragment.
 	 * Determines correct wrapping by tag types. Wrapping
@@ -4240,30 +4240,30 @@
 	 * @param {Boolean} raw
 	 * @return {DocumentFragment}
 	 */
-
+	
 	function stringToFragment(templateString, raw) {
 	  // try a cache hit first
 	  var hit = templateCache.get(templateString);
 	  if (hit) {
 	    return hit;
 	  }
-
+	
 	  var frag = document.createDocumentFragment();
 	  var tagMatch = templateString.match(tagRE$1);
 	  var entityMatch = entityRE.test(templateString);
-
+	
 	  if (!tagMatch && !entityMatch) {
 	    // text only, return a single text node.
 	    frag.appendChild(document.createTextNode(templateString));
 	  } else {
-
+	
 	    var tag = tagMatch && tagMatch[1];
 	    var wrap = map[tag] || map.efault;
 	    var depth = wrap[0];
 	    var prefix = wrap[1];
 	    var suffix = wrap[2];
 	    var node = document.createElement('div');
-
+	
 	    if (!raw) {
 	      templateString = templateString.trim();
 	    }
@@ -4271,7 +4271,7 @@
 	    while (depth--) {
 	      node = node.lastChild;
 	    }
-
+	
 	    var child;
 	    /* eslint-disable no-cond-assign */
 	    while (child = node.firstChild) {
@@ -4279,18 +4279,18 @@
 	      frag.appendChild(child);
 	    }
 	  }
-
+	
 	  templateCache.put(templateString, frag);
 	  return frag;
 	}
-
+	
 	/**
 	 * Convert a template node to a DocumentFragment.
 	 *
 	 * @param {Node} node
 	 * @return {DocumentFragment}
 	 */
-
+	
 	function nodeToFragment(node) {
 	  // if its a template tag and the browser supports it,
 	  // its content is already a document fragment.
@@ -4314,7 +4314,7 @@
 	  trimNode(frag);
 	  return frag;
 	}
-
+	
 	// Test for the presence of the Safari template cloning bug
 	// https://bugs.webkit.org/showug.cgi?id=137755
 	var hasBrokenTemplate = (function () {
@@ -4327,7 +4327,7 @@
 	    return false;
 	  }
 	})();
-
+	
 	// Test for IE10/11 textarea placeholder clone bug
 	var hasTextareaCloneBug = (function () {
 	  /* istanbul ignore else */
@@ -4339,7 +4339,7 @@
 	    return false;
 	  }
 	})();
-
+	
 	/**
 	 * 1. Deal with Safari cloning nested <template> bug by
 	 *    manually cloning all template instances.
@@ -4349,7 +4349,7 @@
 	 * @param {Element|DocumentFragment} node
 	 * @return {Element|DocumentFragment}
 	 */
-
+	
 	function cloneNode(node) {
 	  if (!node.querySelectorAll) {
 	    return node.cloneNode();
@@ -4389,7 +4389,7 @@
 	  }
 	  return res;
 	}
-
+	
 	/**
 	 * Process the template option and normalizes it into a
 	 * a DocumentFragment that can be used as a partial or a
@@ -4407,17 +4407,17 @@
 	 *        selector and keep whitespace in the string.
 	 * @return {DocumentFragment|undefined}
 	 */
-
+	
 	function parseTemplate(template, shouldClone, raw) {
 	  var node, frag;
-
+	
 	  // if the template is already a document fragment,
 	  // do nothing
 	  if (template instanceof DocumentFragment) {
 	    trimNode(template);
 	    return shouldClone ? cloneNode(template) : template;
 	  }
-
+	
 	  if (typeof template === 'string') {
 	    // id selector
 	    if (!raw && template.charAt(0) === '#') {
@@ -4439,15 +4439,15 @@
 	    // a direct node
 	    frag = nodeToFragment(template);
 	  }
-
+	
 	  return frag && shouldClone ? cloneNode(frag) : frag;
 	}
-
+	
 	var template = Object.freeze({
 	  cloneNode: cloneNode,
 	  parseTemplate: parseTemplate
 	});
-
+	
 	/**
 	 * Abstraction for a partially-compiled fragment.
 	 * Can optionally compile content with a child scope.
@@ -4487,7 +4487,7 @@
 	  }
 	  this.node.__vfrag__ = this;
 	}
-
+	
 	/**
 	 * Call attach/detach for all components contained within
 	 * this fragment. Also do so recursively for all child
@@ -4495,7 +4495,7 @@
 	 *
 	 * @param {Function} hook
 	 */
-
+	
 	Fragment.prototype.callHook = function (hook) {
 	  var i, l;
 	  for (i = 0, l = this.children.length; i < l; i++) {
@@ -4505,25 +4505,25 @@
 	    this.childFrags[i].callHook(hook);
 	  }
 	};
-
+	
 	/**
 	 * Destroy the fragment.
 	 */
-
+	
 	Fragment.prototype.destroy = function () {
 	  if (this.parentFrag) {
 	    this.parentFrag.childFrags.$remove(this);
 	  }
 	  this.unlink();
 	};
-
+	
 	/**
 	 * Insert fragment before target, single node version
 	 *
 	 * @param {Node} target
 	 * @param {Boolean} withTransition
 	 */
-
+	
 	function singleBefore(target, withTransition) {
 	  this.inserted = true;
 	  var method = withTransition !== false ? beforeWithTransition : before;
@@ -4532,11 +4532,11 @@
 	    this.callHook(attach);
 	  }
 	}
-
+	
 	/**
 	 * Remove fragment, single node version
 	 */
-
+	
 	function singleRemove() {
 	  this.inserted = false;
 	  var shouldCallRemove = inDoc(this.node);
@@ -4549,14 +4549,14 @@
 	    self.destroy();
 	  });
 	}
-
+	
 	/**
 	 * Insert fragment before target, multi-nodes version
 	 *
 	 * @param {Node} target
 	 * @param {Boolean} withTransition
 	 */
-
+	
 	function multiBefore(target, withTransition) {
 	  this.inserted = true;
 	  var vm = this.vm;
@@ -4568,11 +4568,11 @@
 	    this.callHook(attach);
 	  }
 	}
-
+	
 	/**
 	 * Remove fragment, multi-nodes version
 	 */
-
+	
 	function multiRemove() {
 	  this.inserted = false;
 	  var self = this;
@@ -4585,19 +4585,19 @@
 	    self.destroy();
 	  });
 	}
-
+	
 	/**
 	 * Call attach hook for a Vue instance.
 	 *
 	 * @param {Vue} child
 	 */
-
+	
 	function attach(child) {
 	  if (!child._isAttached) {
 	    child._callHook('attached');
 	  }
 	}
-
+	
 	/**
 	 * Call destroy for all contained instances,
 	 * with remove:false and defer:true.
@@ -4607,25 +4607,25 @@
 	 *
 	 * @param {Vue} child
 	 */
-
+	
 	function destroyChild(child) {
 	  child.$destroy(false, true);
 	}
-
+	
 	/**
 	 * Call detach hook for a Vue instance.
 	 *
 	 * @param {Vue} child
 	 */
-
+	
 	function detach(child) {
 	  if (child._isAttached) {
 	    child._callHook('detached');
 	  }
 	}
-
+	
 	var linkerCache = new Cache(5000);
-
+	
 	/**
 	 * A factory that can be used to create instances of a
 	 * fragment. Caches the compiled linker if possible.
@@ -4659,7 +4659,7 @@
 	  }
 	  this.linker = linker;
 	}
-
+	
 	/**
 	 * Create a fragment instance with given host and scope.
 	 *
@@ -4667,16 +4667,16 @@
 	 * @param {Object} scope
 	 * @param {Fragment} parentFrag
 	 */
-
+	
 	FragmentFactory.prototype.create = function (host, scope, parentFrag) {
 	  var frag = cloneNode(this.template);
 	  return new Fragment(this.linker, this.vm, frag, host, scope, parentFrag);
 	};
-
+	
 	var vIf = {
-
+	
 	  priority: 2000,
-
+	
 	  bind: function bind() {
 	    var el = this.el;
 	    if (!el.__vue__) {
@@ -4695,7 +4695,7 @@
 	      this.invalid = true;
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    if (this.invalid) return;
 	    if (value) {
@@ -4706,7 +4706,7 @@
 	      this.remove();
 	    }
 	  },
-
+	
 	  insert: function insert() {
 	    if (this.elseFrag) {
 	      this.elseFrag.remove();
@@ -4715,7 +4715,7 @@
 	    this.frag = this.factory.create(this._host, this._scope, this._frag);
 	    this.frag.before(this.anchor);
 	  },
-
+	
 	  remove: function remove() {
 	    if (this.frag) {
 	      this.frag.remove();
@@ -4726,22 +4726,22 @@
 	      this.elseFrag.before(this.anchor);
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    if (this.frag) {
 	      this.frag.destroy();
 	    }
 	  }
 	};
-
+	
 	var uid$1 = 0;
-
+	
 	var vFor = {
-
+	
 	  priority: 2000,
-
+	
 	  params: ['track-by', 'stagger', 'enter-stagger', 'leave-stagger'],
-
+	
 	  bind: function bind() {
 	    // support "item in items" syntax
 	    var inMatch = this.expression.match(/(.*) in (.*)/);
@@ -4755,15 +4755,15 @@
 	      }
 	      this.expression = inMatch[2];
 	    }
-
+	
 	    if (!this.alias) {
 	      process.env.NODE_ENV !== 'production' && warn('Alias is required in v-for.');
 	      return;
 	    }
-
+	
 	    // uid as a cache identifier
 	    this.id = '__v-for__' + ++uid$1;
-
+	
 	    // check if this is an option list,
 	    // so that we know if we need to update the <select>'s
 	    // v-model when the option list has changed.
@@ -4772,26 +4772,26 @@
 	    // retrive it in the actual updateModel() function.
 	    var tag = this.el.tagName;
 	    this.isOption = (tag === 'OPTION' || tag === 'OPTGROUP') && this.el.parentNode.tagName === 'SELECT';
-
+	
 	    // setup anchor nodes
 	    this.start = createAnchor('v-for-start');
 	    this.end = createAnchor('v-for-end');
 	    replace(this.el, this.end);
 	    before(this.start, this.end);
-
+	
 	    // cache
 	    this.cache = Object.create(null);
-
+	
 	    // fragment factory
 	    this.factory = new FragmentFactory(this.vm, this.el);
 	  },
-
+	
 	  update: function update(data) {
 	    this.diff(data);
 	    this.updateRef();
 	    this.updateModel();
 	  },
-
+	
 	  /**
 	   * Diff, based on new data and old data, determine the
 	   * minimum amount of DOM manipulations needed to make the
@@ -4805,12 +4805,12 @@
 	   *
 	   * @param {Array} data
 	   */
-
+	
 	  diff: function diff(data) {
 	    // check if the Array was converted from an Object
 	    var item = data[0];
 	    var convertedFromObject = this.fromObject = isObject(item) && hasOwn(item, '$key') && hasOwn(item, '$value');
-
+	
 	    var trackByKey = this.params.trackBy;
 	    var oldFrags = this.frags;
 	    var frags = this.frags = new Array(data.length);
@@ -4821,7 +4821,7 @@
 	    var inDocument = inDoc(start);
 	    var init = !oldFrags;
 	    var i, l, frag, key, value, primitive;
-
+	
 	    // First pass, go through the new Array and fill up
 	    // the new frags array. If a piece of data has a cached
 	    // instance for it, we reuse it. Otherwise build a new
@@ -4860,12 +4860,12 @@
 	        frag.before(end);
 	      }
 	    }
-
+	
 	    // we're done for the initial render.
 	    if (init) {
 	      return;
 	    }
-
+	
 	    // Second pass, go through the old fragments and
 	    // destroy those who are not reused (and remove them
 	    // from cache)
@@ -4878,7 +4878,7 @@
 	        this.remove(frag, removalIndex++, totalRemoved, inDocument);
 	      }
 	    }
-
+	
 	    // Final pass, move/insert new fragments into the
 	    // right place.
 	    var targetPrev, prevEl, currentPrev;
@@ -4904,7 +4904,7 @@
 	      frag.reused = frag.fresh = false;
 	    }
 	  },
-
+	
 	  /**
 	   * Create a new fragment instance.
 	   *
@@ -4914,7 +4914,7 @@
 	   * @param {String} [key]
 	   * @return {Fragment}
 	   */
-
+	
 	  create: function create(value, alias, index, key) {
 	    var host = this._host;
 	    // create iteration scope
@@ -4944,11 +4944,11 @@
 	    this.cacheFrag(value, frag, index, key);
 	    return frag;
 	  },
-
+	
 	  /**
 	   * Update the v-ref on owner vm.
 	   */
-
+	
 	  updateRef: function updateRef() {
 	    var ref = this.descriptor.ref;
 	    if (!ref) return;
@@ -4964,12 +4964,12 @@
 	    }
 	    hash[ref] = refs;
 	  },
-
+	
 	  /**
 	   * For option lists, update the containing v-model on
 	   * parent <select>.
 	   */
-
+	
 	  updateModel: function updateModel() {
 	    if (this.isOption) {
 	      var parent = this.start.parentNode;
@@ -4979,7 +4979,7 @@
 	      }
 	    }
 	  },
-
+	
 	  /**
 	   * Insert a fragment. Handles staggering.
 	   *
@@ -4988,7 +4988,7 @@
 	   * @param {Node} prevEl
 	   * @param {Boolean} inDocument
 	   */
-
+	
 	  insert: function insert(frag, index, prevEl, inDocument) {
 	    if (frag.staggerCb) {
 	      frag.staggerCb.cancel();
@@ -5015,7 +5015,7 @@
 	      frag.before(prevEl.nextSibling);
 	    }
 	  },
-
+	
 	  /**
 	   * Remove a fragment. Handles staggering.
 	   *
@@ -5024,7 +5024,7 @@
 	   * @param {Number} total
 	   * @param {Boolean} inDocument
 	   */
-
+	
 	  remove: function remove(frag, index, total, inDocument) {
 	    if (frag.staggerCb) {
 	      frag.staggerCb.cancel();
@@ -5047,7 +5047,7 @@
 	      frag.remove();
 	    }
 	  },
-
+	
 	  /**
 	   * Move a fragment to a new position.
 	   * Force no transition.
@@ -5055,11 +5055,11 @@
 	   * @param {Fragment} frag
 	   * @param {Node} prevEl
 	   */
-
+	
 	  move: function move(frag, prevEl) {
 	    frag.before(prevEl.nextSibling, false);
 	  },
-
+	
 	  /**
 	   * Cache a fragment using track-by or the object key.
 	   *
@@ -5068,7 +5068,7 @@
 	   * @param {Number} index
 	   * @param {String} [key]
 	   */
-
+	
 	  cacheFrag: function cacheFrag(value, frag, index, key) {
 	    var trackByKey = this.params.trackBy;
 	    var cache = this.cache;
@@ -5095,7 +5095,7 @@
 	    }
 	    frag.raw = value;
 	  },
-
+	
 	  /**
 	   * Get a cached fragment from the value/index/key
 	   *
@@ -5104,7 +5104,7 @@
 	   * @param {String} key
 	   * @return {Fragment}
 	   */
-
+	
 	  getCachedFrag: function getCachedFrag(value, index, key) {
 	    var trackByKey = this.params.trackBy;
 	    var primitive = !isObject(value);
@@ -5120,13 +5120,13 @@
 	    }
 	    return frag;
 	  },
-
+	
 	  /**
 	   * Delete a fragment from cache.
 	   *
 	   * @param {Fragment} frag
 	   */
-
+	
 	  deleteCachedFrag: function deleteCachedFrag(frag) {
 	    var value = frag.raw;
 	    var trackByKey = this.params.trackBy;
@@ -5144,7 +5144,7 @@
 	      frag.raw = null;
 	    }
 	  },
-
+	
 	  /**
 	   * Get the stagger amount for an insertion/removal.
 	   *
@@ -5153,7 +5153,7 @@
 	   * @param {Number} total
 	   * @param {String} type
 	   */
-
+	
 	  getStagger: function getStagger(frag, index, total, type) {
 	    type = type + 'Stagger';
 	    var trans = frag.node.__v_trans;
@@ -5161,18 +5161,18 @@
 	    var hook = hooks && (hooks[type] || hooks.stagger);
 	    return hook ? hook.call(frag, index, total) : index * parseInt(this.params[type] || this.params.stagger, 10);
 	  },
-
+	
 	  /**
 	   * Pre-process the value before piping it through the
 	   * filters. This is passed to and called by the watcher.
 	   */
-
+	
 	  _preProcess: function _preProcess(value) {
 	    // regardless of type, store the un-filtered raw value.
 	    this.rawValue = value;
 	    return value;
 	  },
-
+	
 	  /**
 	   * Post-process the value after it has been piped through
 	   * the filters. This is passed to and called by the watcher.
@@ -5181,7 +5181,7 @@
 	   * wathcer's dependency collection phase because we want
 	   * the v-for to update when the source Object is mutated.
 	   */
-
+	
 	  _postProcess: function _postProcess(value) {
 	    if (isArray(value)) {
 	      return value;
@@ -5206,7 +5206,7 @@
 	      return value || [];
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    if (this.descriptor.ref) {
 	      (this._scope || this.vm).$refs[this.descriptor.ref] = null;
@@ -5222,7 +5222,7 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Helper to find the previous element that is a fragment
 	 * anchor. This is necessary because a destroyed frag's
@@ -5238,7 +5238,7 @@
 	 * @param {String} id
 	 * @return {Fragment}
 	 */
-
+	
 	function findPrevFrag(frag, anchor, id) {
 	  var el = frag.node.previousSibling;
 	  /* istanbul ignore if */
@@ -5252,14 +5252,14 @@
 	  }
 	  return frag;
 	}
-
+	
 	/**
 	 * Find a vm from a fragment.
 	 *
 	 * @param {Fragment} frag
 	 * @return {Vue|undefined}
 	 */
-
+	
 	function findVmFromFrag(frag) {
 	  var node = frag.node;
 	  // handle multi-node frag
@@ -5270,14 +5270,14 @@
 	  }
 	  return node.__vue__;
 	}
-
+	
 	/**
 	 * Create a range array from given number.
 	 *
 	 * @param {Number} n
 	 * @return {Array}
 	 */
-
+	
 	function range(n) {
 	  var i = -1;
 	  var ret = new Array(n);
@@ -5286,15 +5286,15 @@
 	  }
 	  return ret;
 	}
-
+	
 	if (process.env.NODE_ENV !== 'production') {
 	  vFor.warnDuplicate = function (value) {
 	    warn('Duplicate value found in v-for="' + this.descriptor.raw + '": ' + JSON.stringify(value) + '. Use track-by="$index" if ' + 'you are expecting duplicate values.');
 	  };
 	}
-
+	
 	var html = {
-
+	
 	  bind: function bind() {
 	    // a comment node means this is a binding for
 	    // {{{ inline unescaped html }}}
@@ -5306,7 +5306,7 @@
 	      replace(this.el, this.anchor);
 	    }
 	  },
-
+	
 	  update: function update(value) {
 	    value = _toString(value);
 	    if (this.nodes) {
@@ -5315,7 +5315,7 @@
 	      this.el.innerHTML = value;
 	    }
 	  },
-
+	
 	  swap: function swap(value) {
 	    // remove old nodes
 	    var i = this.nodes.length;
@@ -5330,18 +5330,18 @@
 	    before(frag, this.anchor);
 	  }
 	};
-
+	
 	var text = {
-
+	
 	  bind: function bind() {
 	    this.attr = this.el.nodeType === 3 ? 'data' : 'textContent';
 	  },
-
+	
 	  update: function update(value) {
 	    this.el[this.attr] = _toString(value);
 	  }
 	};
-
+	
 	// must export plain object
 	var publicDirectives = {
 	  text: text,
@@ -5356,16 +5356,16 @@
 	  ref: ref,
 	  cloak: cloak
 	};
-
+	
 	var queue$1 = [];
 	var queued = false;
-
+	
 	/**
 	 * Push a job into the queue.
 	 *
 	 * @param {Function} job
 	 */
-
+	
 	function pushJob(job) {
 	  queue$1.push(job);
 	  if (!queued) {
@@ -5373,12 +5373,12 @@
 	    nextTick(flush);
 	  }
 	}
-
+	
 	/**
 	 * Flush the queue, and do one forced reflow before
 	 * triggering transitions.
 	 */
-
+	
 	function flush() {
 	  // Force layout
 	  var f = document.documentElement.offsetHeight;
@@ -5391,12 +5391,12 @@
 	  // unused variable f
 	  return f;
 	}
-
+	
 	var TYPE_TRANSITION = 1;
 	var TYPE_ANIMATION = 2;
 	var transDurationProp = transitionProp + 'Duration';
 	var animDurationProp = animationProp + 'Duration';
-
+	
 	/**
 	 * A Transition object that encapsulates the state and logic
 	 * of the transition.
@@ -5423,9 +5423,9 @@
 	    self[m] = bind$1(self[m], self);
 	  });
 	}
-
+	
 	var p$1 = Transition.prototype;
-
+	
 	/**
 	 * Start an entering transition.
 	 *
@@ -5450,7 +5450,7 @@
 	 * @param {Function} op - insert/show the element
 	 * @param {Function} [cb]
 	 */
-
+	
 	p$1.enter = function (op, cb) {
 	  this.cancelPending();
 	  this.callHook('beforeEnter');
@@ -5465,15 +5465,15 @@
 	  this.cancel = this.hooks && this.hooks.enterCancelled;
 	  pushJob(this.enterNextTick);
 	};
-
+	
 	/**
 	 * The "nextTick" phase of an entering transition, which is
 	 * to be pushed into a queue and executed after a reflow so
 	 * that removing the class can trigger a CSS transition.
 	 */
-
+	
 	p$1.enterNextTick = function () {
-
+	
 	  // Important hack:
 	  // in Chrome, if a just-entered element is applied the
 	  // leave class while its interpolated property still has
@@ -5486,7 +5486,7 @@
 	  setTimeout(function () {
 	    self.justEntered = false;
 	  }, 17);
-
+	
 	  var enterDone = this.enterDone;
 	  var type = this.getCssTransitionType(this.enterClass);
 	  if (!this.pendingJsCb) {
@@ -5503,11 +5503,11 @@
 	    removeClass(this.el, this.enterClass);
 	  }
 	};
-
+	
 	/**
 	 * The "cleanup" phase of an entering transition.
 	 */
-
+	
 	p$1.enterDone = function () {
 	  this.entered = true;
 	  this.cancel = this.pendingJsCb = null;
@@ -5515,7 +5515,7 @@
 	  this.callHook('afterEnter');
 	  if (this.cb) this.cb();
 	};
-
+	
 	/**
 	 * Start a leaving transition.
 	 *
@@ -5536,7 +5536,7 @@
 	 * @param {Function} op - remove/hide the element
 	 * @param {Function} [cb]
 	 */
-
+	
 	p$1.leave = function (op, cb) {
 	  this.cancelPending();
 	  this.callHook('beforeLeave');
@@ -5564,11 +5564,11 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * The "nextTick" phase of a leaving transition.
 	 */
-
+	
 	p$1.leaveNextTick = function () {
 	  var type = this.getCssTransitionType(this.leaveClass);
 	  if (type) {
@@ -5578,11 +5578,11 @@
 	    this.leaveDone();
 	  }
 	};
-
+	
 	/**
 	 * The "cleanup" phase of a leaving transition.
 	 */
-
+	
 	p$1.leaveDone = function () {
 	  this.left = true;
 	  this.cancel = this.pendingJsCb = null;
@@ -5592,12 +5592,12 @@
 	  if (this.cb) this.cb();
 	  this.op = null;
 	};
-
+	
 	/**
 	 * Cancel any pending callbacks from a previously running
 	 * but not finished transition.
 	 */
-
+	
 	p$1.cancelPending = function () {
 	  this.op = this.cb = null;
 	  var hasPending = false;
@@ -5620,19 +5620,19 @@
 	    this.cancel = null;
 	  }
 	};
-
+	
 	/**
 	 * Call a user-provided synchronous hook function.
 	 *
 	 * @param {String} type
 	 */
-
+	
 	p$1.callHook = function (type) {
 	  if (this.hooks && this.hooks[type]) {
 	    this.hooks[type].call(this.vm, this.el);
 	  }
 	};
-
+	
 	/**
 	 * Call a user-provided, potentially-async hook function.
 	 * We check for the length of arguments to see if the hook
@@ -5643,7 +5643,7 @@
 	 *
 	 * @param {String} type
 	 */
-
+	
 	p$1.callHookWithCb = function (type) {
 	  var hook = this.hooks && this.hooks[type];
 	  if (hook) {
@@ -5653,7 +5653,7 @@
 	    hook.call(this.vm, this.el, this.pendingJsCb);
 	  }
 	};
-
+	
 	/**
 	 * Get an element's transition type based on the
 	 * calculated styles.
@@ -5661,7 +5661,7 @@
 	 * @param {String} className
 	 * @return {Number}
 	 */
-
+	
 	p$1.getCssTransitionType = function (className) {
 	  /* istanbul ignore if */
 	  if (!transitionEndEvent ||
@@ -5695,14 +5695,14 @@
 	  }
 	  return type;
 	};
-
+	
 	/**
 	 * Setup a CSS transitionend/animationend callback.
 	 *
 	 * @param {String} event
 	 * @param {Function} cb
 	 */
-
+	
 	p$1.setupCssCb = function (event, cb) {
 	  this.pendingCssEvent = event;
 	  var self = this;
@@ -5718,7 +5718,7 @@
 	  };
 	  on$1(el, event, onEnd);
 	};
-
+	
 	/**
 	 * Check if an element is hidden - in that case we can just
 	 * skip the transition alltogether.
@@ -5726,15 +5726,15 @@
 	 * @param {Element} el
 	 * @return {Boolean}
 	 */
-
+	
 	function isHidden(el) {
 	  return !(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
 	}
-
+	
 	var transition = {
-
+	
 	  priority: 1100,
-
+	
 	  update: function update(id, oldId) {
 	    var el = this.el;
 	    // resolve on owner vm
@@ -5748,13 +5748,13 @@
 	    addClass(el, id + '-transition');
 	  }
 	};
-
+	
 	var bindingModes = config._propBindingModes;
-
+	
 	var propDef = {
-
+	
 	  bind: function bind() {
-
+	
 	    var child = this.vm;
 	    var parent = child._context;
 	    // passed in from compiler directly
@@ -5762,7 +5762,7 @@
 	    var childKey = prop.path;
 	    var parentKey = prop.parentPath;
 	    var twoWay = prop.mode === bindingModes.TWO_WAY;
-
+	
 	    var parentWatcher = this.parentWatcher = new Watcher(parent, parentKey, function (val) {
 	      val = coerceProp(prop, val);
 	      if (assertProp(prop, val)) {
@@ -5775,10 +5775,10 @@
 	      // v-for scope if present
 	      scope: this._scope
 	    });
-
+	
 	    // set the child initial value.
 	    initProp(child, prop, parentWatcher.value);
-
+	
 	    // setup two-way binding
 	    if (twoWay) {
 	      // important: defer the child watcher creation until
@@ -5796,7 +5796,7 @@
 	      });
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    this.parentWatcher.teardown();
 	    if (this.childWatcher) {
@@ -5804,13 +5804,13 @@
 	    }
 	  }
 	};
-
+	
 	var component = {
-
+	
 	  priority: 1500,
-
+	
 	  params: ['keep-alive', 'transition-mode', 'inline-template'],
-
+	
 	  /**
 	   * Setup. Two possible usages:
 	   *
@@ -5820,7 +5820,7 @@
 	   * - dynamic:
 	   *   <component :is="view">
 	   */
-
+	
 	  bind: function bind() {
 	    if (!this.el.__vue__) {
 	      // keep-alive cache
@@ -5858,18 +5858,18 @@
 	      process.env.NODE_ENV !== 'production' && warn('cannot mount component "' + this.expression + '" ' + 'on already mounted element: ' + this.el);
 	    }
 	  },
-
+	
 	  /**
 	   * Public update, called by the watcher in the dynamic
 	   * literal scenario, e.g. <component :is="view">
 	   */
-
+	
 	  update: function update(value) {
 	    if (!this.literal) {
 	      this.setComponent(value);
 	    }
 	  },
-
+	
 	  /**
 	   * Switch dynamic components. May resolve the component
 	   * asynchronously, and perform transition based on
@@ -5882,7 +5882,7 @@
 	   * @param {String} value
 	   * @param {Function} [cb]
 	   */
-
+	
 	  setComponent: function setComponent(value, cb) {
 	    this.invalidatePending();
 	    if (!value) {
@@ -5897,12 +5897,12 @@
 	      });
 	    }
 	  },
-
+	
 	  /**
 	   * Resolve the component constructor to use when creating
 	   * the child vm.
 	   */
-
+	
 	  resolveComponent: function resolveComponent(id, cb) {
 	    var self = this;
 	    this.pendingComponentCb = cancellable(function (Component) {
@@ -5912,7 +5912,7 @@
 	    });
 	    this.vm._resolveComponent(id, this.pendingComponentCb);
 	  },
-
+	
 	  /**
 	   * Create a new instance using the current constructor and
 	   * replace the existing instance. This method doesn't care
@@ -5921,7 +5921,7 @@
 	   *
 	   * @param {Function} [cb]
 	   */
-
+	
 	  mountComponent: function mountComponent(cb) {
 	    // actual mount
 	    this.unbuild(true);
@@ -5946,20 +5946,20 @@
 	      this.transition(newComponent, cb);
 	    }
 	  },
-
+	
 	  /**
 	   * When the component changes or unbinds before an async
 	   * constructor is resolved, we need to invalidate its
 	   * pending callback.
 	   */
-
+	
 	  invalidatePending: function invalidatePending() {
 	    if (this.pendingComponentCb) {
 	      this.pendingComponentCb.cancel();
 	      this.pendingComponentCb = null;
 	    }
 	  },
-
+	
 	  /**
 	   * Instantiate/insert a new child vm.
 	   * If keep alive and has cached instance, insert that
@@ -5968,7 +5968,7 @@
 	   * @param {Object} [extraOptions]
 	   * @return {Vue} - the created instance
 	   */
-
+	
 	  build: function build(extraOptions) {
 	    var cached = this.getCached();
 	    if (cached) {
@@ -6022,24 +6022,24 @@
 	      return child;
 	    }
 	  },
-
+	
 	  /**
 	   * Try to get a cached instance of the current component.
 	   *
 	   * @return {Vue|undefined}
 	   */
-
+	
 	  getCached: function getCached() {
 	    return this.keepAlive && this.cache[this.Component.cid];
 	  },
-
+	
 	  /**
 	   * Teardown the current child, but defers cleanup so
 	   * that we can separate the destroy and removal steps.
 	   *
 	   * @param {Boolean} defer
 	   */
-
+	
 	  unbuild: function unbuild(defer) {
 	    if (this.waitingFor) {
 	      this.waitingFor.$destroy();
@@ -6058,14 +6058,14 @@
 	    // later.
 	    child.$destroy(false, defer);
 	  },
-
+	
 	  /**
 	   * Remove current destroyed child and manually do
 	   * the cleanup after removal.
 	   *
 	   * @param {Function} cb
 	   */
-
+	
 	  remove: function remove(child, cb) {
 	    var keepAlive = this.keepAlive;
 	    if (child) {
@@ -6088,7 +6088,7 @@
 	      cb();
 	    }
 	  },
-
+	
 	  /**
 	   * Actually swap the components, depending on the
 	   * transition mode. Defaults to simultaneous.
@@ -6096,7 +6096,7 @@
 	   * @param {Vue} target
 	   * @param {Function} [cb]
 	   */
-
+	
 	  transition: function transition(target, cb) {
 	    var self = this;
 	    var current = this.childVM;
@@ -6122,11 +6122,11 @@
 	        target.$before(self.anchor, cb);
 	    }
 	  },
-
+	
 	  /**
 	   * Unbind.
 	   */
-
+	
 	  unbind: function unbind() {
 	    this.invalidatePending();
 	    // Do not defer cleanup when unbinding
@@ -6140,11 +6140,11 @@
 	    }
 	  }
 	};
-
+	
 	var vClass = {
-
+	
 	  deep: true,
-
+	
 	  update: function update(value) {
 	    if (value && typeof value === 'string') {
 	      this.handleObject(stringToObject(value));
@@ -6156,7 +6156,7 @@
 	      this.cleanup();
 	    }
 	  },
-
+	
 	  handleObject: function handleObject(value) {
 	    this.cleanup(value);
 	    var keys = this.prevKeys = Object.keys(value);
@@ -6169,7 +6169,7 @@
 	      }
 	    }
 	  },
-
+	
 	  handleArray: function handleArray(value) {
 	    this.cleanup(value);
 	    for (var i = 0, l = value.length; i < l; i++) {
@@ -6179,7 +6179,7 @@
 	    }
 	    this.prevKeys = value.slice();
 	  },
-
+	
 	  cleanup: function cleanup(value) {
 	    if (this.prevKeys) {
 	      var i = this.prevKeys.length;
@@ -6192,7 +6192,7 @@
 	    }
 	  }
 	};
-
+	
 	function stringToObject(value) {
 	  var res = {};
 	  var keys = value.trim().split(/\s+/);
@@ -6202,11 +6202,11 @@
 	  }
 	  return res;
 	}
-
+	
 	function contains$1(value, key) {
 	  return isArray(value) ? value.indexOf(key) > -1 : hasOwn(value, key);
 	}
-
+	
 	var internalDirectives = {
 	  style: style,
 	  'class': vClass,
@@ -6214,14 +6214,14 @@
 	  prop: propDef,
 	  transition: transition
 	};
-
+	
 	var propBindingModes = config._propBindingModes;
 	var empty = {};
-
+	
 	// regexes
 	var identRE$1 = /^[$_a-zA-Z]+[\w$]*$/;
 	var settablePathRE = /^[A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\[[^\[\]]+\])*$/;
-
+	
 	/**
 	 * Compile props on a root element and return
 	 * a props link function.
@@ -6230,7 +6230,7 @@
 	 * @param {Array} propOptions
 	 * @return {Function} propsLinkFn
 	 */
-
+	
 	function compileProps(el, propOptions) {
 	  var props = [];
 	  var names = Object.keys(propOptions);
@@ -6239,12 +6239,12 @@
 	  while (i--) {
 	    name = names[i];
 	    options = propOptions[name] || empty;
-
+	
 	    if (process.env.NODE_ENV !== 'production' && name === '$data') {
 	      warn('Do not use $data as prop.');
 	      continue;
 	    }
-
+	
 	    // props could contain dashes, which will be
 	    // interpreted as minus calculations by the parser
 	    // so we need to camelize the path here
@@ -6253,7 +6253,7 @@
 	      process.env.NODE_ENV !== 'production' && warn('Invalid prop key: "' + name + '". Prop keys ' + 'must be valid identifiers.');
 	      continue;
 	    }
-
+	
 	    prop = {
 	      name: name,
 	      path: path,
@@ -6261,7 +6261,7 @@
 	      mode: propBindingModes.ONE_WAY,
 	      raw: null
 	    };
-
+	
 	    attr = hyphenate(name);
 	    // first check dynamic version
 	    if ((value = getBindAttr(el, attr)) === null) {
@@ -6292,7 +6292,7 @@
 	        }
 	      }
 	      prop.parentPath = value;
-
+	
 	      // warn required two-way
 	      if (process.env.NODE_ENV !== 'production' && options.twoWay && prop.mode !== propBindingModes.TWO_WAY) {
 	        warn('Prop "' + name + '" expects a two-way binding type.');
@@ -6309,14 +6309,14 @@
 	  }
 	  return makePropsLinkFn(props);
 	}
-
+	
 	/**
 	 * Build a function that applies props to a vm.
 	 *
 	 * @param {Array} props
 	 * @return {Function} propsLinkFn
 	 */
-
+	
 	function makePropsLinkFn(props) {
 	  return function propsLinkFn(vm, scope) {
 	    // store resolved props info
@@ -6364,7 +6364,7 @@
 	    }
 	  };
 	}
-
+	
 	/**
 	 * Get the default value of a prop.
 	 *
@@ -6372,7 +6372,7 @@
 	 * @param {Object} options
 	 * @return {*}
 	 */
-
+	
 	function getDefault(vm, options) {
 	  // no default, return undefined
 	  if (!hasOwn(options, 'default')) {
@@ -6387,20 +6387,20 @@
 	  // call factory function for non-Function types
 	  return typeof def === 'function' && options.type !== Function ? def.call(vm) : def;
 	}
-
+	
 	// special binding prefixes
 	var bindRE = /^v-bind:|^:/;
 	var onRE = /^v-on:|^@/;
 	var argRE = /:(.*)$/;
 	var modifierRE = /\.[^\.]+/g;
 	var transitionRE = /^(v-bind:|:)?transition$/;
-
+	
 	// terminal directives
 	var terminalDirectives = ['for', 'if'];
-
+	
 	// default directive priority
 	var DEFAULT_PRIORITY = 1000;
-
+	
 	/**
 	 * Compile a template and return a reusable composite link
 	 * function, which recursively contains more link functions
@@ -6417,13 +6417,13 @@
 	 * @param {Boolean} partial
 	 * @return {Function}
 	 */
-
+	
 	function compile(el, options, partial) {
 	  // link function for the node itself.
 	  var nodeLinkFn = partial || !options._asComponent ? compileNode(el, options) : null;
 	  // link function for the childNodes
 	  var childLinkFn = !(nodeLinkFn && nodeLinkFn.terminal) && el.tagName !== 'SCRIPT' && el.hasChildNodes() ? compileNodeList(el.childNodes, options) : null;
-
+	
 	  /**
 	   * A composite linker function to be called on a already
 	   * compiled piece of DOM, which instantiates all directive
@@ -6436,7 +6436,7 @@
 	   * @param {Fragment} [frag] - link context fragment
 	   * @return {Function|undefined}
 	   */
-
+	
 	  return function compositeLinkFn(vm, el, host, scope, frag) {
 	    // cache childNodes before linking parent, fix #657
 	    var childNodes = toArray(el.childNodes);
@@ -6448,7 +6448,7 @@
 	    return makeUnlinkFn(vm, dirs);
 	  };
 	}
-
+	
 	/**
 	 * Apply a linker to a vm/element pair and capture the
 	 * directives created during the process.
@@ -6456,7 +6456,7 @@
 	 * @param {Function} linker
 	 * @param {Vue} vm
 	 */
-
+	
 	function linkAndCapture(linker, vm) {
 	  var originalDirCount = vm._directives.length;
 	  linker();
@@ -6467,20 +6467,20 @@
 	  }
 	  return dirs;
 	}
-
+	
 	/**
 	 * Directive priority sort comparator
 	 *
 	 * @param {Object} a
 	 * @param {Object} b
 	 */
-
+	
 	function directiveComparator(a, b) {
 	  a = a.descriptor.def.priority || DEFAULT_PRIORITY;
 	  b = b.descriptor.def.priority || DEFAULT_PRIORITY;
 	  return a > b ? -1 : a === b ? 0 : 1;
 	}
-
+	
 	/**
 	 * Linker functions return an unlink function that
 	 * tearsdown all directives instances generated during
@@ -6495,7 +6495,7 @@
 	 * @param {Array} [contextDirs]
 	 * @return {Function}
 	 */
-
+	
 	function makeUnlinkFn(vm, dirs, context, contextDirs) {
 	  return function unlink(destroying) {
 	    teardownDirs(vm, dirs, destroying);
@@ -6504,7 +6504,7 @@
 	    }
 	  };
 	}
-
+	
 	/**
 	 * Teardown partial linked directives.
 	 *
@@ -6512,7 +6512,7 @@
 	 * @param {Array} dirs
 	 * @param {Boolean} destroying
 	 */
-
+	
 	function teardownDirs(vm, dirs, destroying) {
 	  var i = dirs.length;
 	  while (i--) {
@@ -6522,7 +6522,7 @@
 	    }
 	  }
 	}
-
+	
 	/**
 	 * Compile link props on an instance.
 	 *
@@ -6532,7 +6532,7 @@
 	 * @param {Object} [scope]
 	 * @return {Function}
 	 */
-
+	
 	function compileAndLinkProps(vm, el, props, scope) {
 	  var propsLinkFn = compileProps(el, props);
 	  var propDirs = linkAndCapture(function () {
@@ -6540,7 +6540,7 @@
 	  }, vm);
 	  return makeUnlinkFn(vm, propDirs);
 	}
-
+	
 	/**
 	 * Compile the root element of an instance.
 	 *
@@ -6556,12 +6556,12 @@
 	 * @param {Object} contextOptions
 	 * @return {Function}
 	 */
-
+	
 	function compileRoot(el, options, contextOptions) {
 	  var containerAttrs = options._containerAttrs;
 	  var replacerAttrs = options._replacerAttrs;
 	  var contextLinkFn, replacerLinkFn;
-
+	
 	  // only need to compile other attributes for
 	  // non-fragment instances
 	  if (el.nodeType !== 11) {
@@ -6597,7 +6597,7 @@
 	      warn('Attribute' + (plural ? 's ' : ' ') + names.join(', ') + (plural ? ' are' : ' is') + ' ignored on component ' + '<' + options.el.tagName.toLowerCase() + '> because ' + 'the component is a fragment instance: ' + 'http://vuejs.org/guide/components.html#Fragment_Instance');
 	    }
 	  }
-
+	
 	  return function rootLinkFn(vm, el, scope) {
 	    // link context scope dirs
 	    var context = vm._context;
@@ -6607,18 +6607,18 @@
 	        contextLinkFn(context, el, null, scope);
 	      }, context);
 	    }
-
+	
 	    // link self
 	    var selfDirs = linkAndCapture(function () {
 	      if (replacerLinkFn) replacerLinkFn(vm, el);
 	    }, vm);
-
+	
 	    // return the unlink function that tearsdown context
 	    // container directives.
 	    return makeUnlinkFn(vm, selfDirs, context, contextDirs);
 	  };
 	}
-
+	
 	/**
 	 * Compile a node and return a nodeLinkFn based on the
 	 * node type.
@@ -6627,7 +6627,7 @@
 	 * @param {Object} options
 	 * @return {Function|null}
 	 */
-
+	
 	function compileNode(node, options) {
 	  var type = node.nodeType;
 	  if (type === 1 && node.tagName !== 'SCRIPT') {
@@ -6638,7 +6638,7 @@
 	    return null;
 	  }
 	}
-
+	
 	/**
 	 * Compile an element and return a nodeLinkFn.
 	 *
@@ -6646,7 +6646,7 @@
 	 * @param {Object} options
 	 * @return {Function|null}
 	 */
-
+	
 	function compileElement(el, options) {
 	  // preprocess textareas.
 	  // textarea treats its text content as the initial value.
@@ -6678,7 +6678,7 @@
 	  }
 	  return linkFn;
 	}
-
+	
 	/**
 	 * Compile a textNode and return a nodeLinkFn.
 	 *
@@ -6686,18 +6686,18 @@
 	 * @param {Object} options
 	 * @return {Function|null} textNodeLinkFn
 	 */
-
+	
 	function compileTextNode(node, options) {
 	  // skip marked text nodes
 	  if (node._skip) {
 	    return removeText;
 	  }
-
+	
 	  var tokens = parseText(node.wholeText);
 	  if (!tokens) {
 	    return null;
 	  }
-
+	
 	  // mark adjacent text nodes as skipped,
 	  // because we are using node.wholeText to compile
 	  // all adjacent text nodes together. This fixes
@@ -6708,7 +6708,7 @@
 	    next._skip = true;
 	    next = next.nextSibling;
 	  }
-
+	
 	  var frag = document.createDocumentFragment();
 	  var el, token;
 	  for (var i = 0, l = tokens.length; i < l; i++) {
@@ -6718,18 +6718,18 @@
 	  }
 	  return makeTextNodeLinkFn(tokens, frag, options);
 	}
-
+	
 	/**
 	 * Linker for an skipped text node.
 	 *
 	 * @param {Vue} vm
 	 * @param {Text} node
 	 */
-
+	
 	function removeText(vm, node) {
 	  remove(node);
 	}
-
+	
 	/**
 	 * Process a single text token.
 	 *
@@ -6737,7 +6737,7 @@
 	 * @param {Object} options
 	 * @return {Node}
 	 */
-
+	
 	function processTextToken(token, options) {
 	  var el;
 	  if (token.oneTime) {
@@ -6766,14 +6766,14 @@
 	  }
 	  return el;
 	}
-
+	
 	/**
 	 * Build a function that processes a textNode.
 	 *
 	 * @param {Array<Object>} tokens
 	 * @param {DocumentFragment} frag
 	 */
-
+	
 	function makeTextNodeLinkFn(tokens, frag) {
 	  return function textNodeLinkFn(vm, el, host, scope) {
 	    var fragClone = frag.cloneNode(true);
@@ -6799,7 +6799,7 @@
 	    replace(el, fragClone);
 	  };
 	}
-
+	
 	/**
 	 * Compile a node list and return a childLinkFn.
 	 *
@@ -6807,7 +6807,7 @@
 	 * @param {Object} options
 	 * @return {Function|undefined}
 	 */
-
+	
 	function compileNodeList(nodeList, options) {
 	  var linkFns = [];
 	  var nodeLinkFn, childLinkFn, node;
@@ -6819,14 +6819,14 @@
 	  }
 	  return linkFns.length ? makeChildLinkFn(linkFns) : null;
 	}
-
+	
 	/**
 	 * Make a child link function for a node's childNodes.
 	 *
 	 * @param {Array<Function>} linkFns
 	 * @return {Function} childLinkFn
 	 */
-
+	
 	function makeChildLinkFn(linkFns) {
 	  return function childLinkFn(vm, nodes, host, scope, frag) {
 	    var node, nodeLinkFn, childrenLinkFn;
@@ -6845,7 +6845,7 @@
 	    }
 	  };
 	}
-
+	
 	/**
 	 * Check for element directives (custom elements that should
 	 * be resovled as terminal directives).
@@ -6853,7 +6853,7 @@
 	 * @param {Element} el
 	 * @param {Object} options
 	 */
-
+	
 	function checkElementDirectives(el, options) {
 	  var tag = el.tagName.toLowerCase();
 	  if (commonTagRE.test(tag)) return;
@@ -6867,7 +6867,7 @@
 	    return makeTerminalNodeLinkFn(el, tag, '', options, def);
 	  }
 	}
-
+	
 	/**
 	 * Check if an element is a component. If yes, return
 	 * a component link function.
@@ -6876,7 +6876,7 @@
 	 * @param {Object} options
 	 * @return {Function|undefined}
 	 */
-
+	
 	function checkComponent(el, options) {
 	  var component = checkComponentAttr(el, options);
 	  if (component) {
@@ -6900,7 +6900,7 @@
 	    return componentLinkFn;
 	  }
 	}
-
+	
 	/**
 	 * Check an element for terminal directives in fixed order.
 	 * If it finds one, return a terminal link function.
@@ -6909,7 +6909,7 @@
 	 * @param {Object} options
 	 * @return {Function} terminalLinkFn
 	 */
-
+	
 	function checkTerminalDirectives(el, options) {
 	  // skip v-pre
 	  if (getAttr(el, 'v-pre') !== null) {
@@ -6932,10 +6932,10 @@
 	    /* eslint-enable no-cond-assign */
 	  }
 	}
-
+	
 	function skip() {}
 	skip.terminal = true;
-
+	
 	/**
 	 * Build a node link function for a terminal directive.
 	 * A terminal link function terminates the current
@@ -6949,7 +6949,7 @@
 	 * @param {Object} [def]
 	 * @return {Function} terminalLinkFn
 	 */
-
+	
 	function makeTerminalNodeLinkFn(el, dirName, value, options, def) {
 	  var parsed = parseDirective(value);
 	  var descriptor = {
@@ -6973,7 +6973,7 @@
 	  fn.terminal = true;
 	  return fn;
 	}
-
+	
 	/**
 	 * Compile the directives on an element and return a linker.
 	 *
@@ -6981,7 +6981,7 @@
 	 * @param {Object} options
 	 * @return {Function}
 	 */
-
+	
 	function compileDirectives(attrs, options) {
 	  var i = attrs.length;
 	  var dirs = [];
@@ -6996,7 +6996,7 @@
 	    // check modifiers
 	    modifiers = parseModifiers(name);
 	    name = name.replace(modifierRE, '');
-
+	
 	    // attribute interpolations
 	    if (tokens) {
 	      value = tokensToExp(tokens);
@@ -7015,19 +7015,19 @@
 	        }
 	      }
 	    } else
-
+	
 	      // special attribute: transition
 	      if (transitionRE.test(name)) {
 	        modifiers.literal = !bindRE.test(name);
 	        pushDir('transition', internalDirectives.transition);
 	      } else
-
+	
 	        // event handlers
 	        if (onRE.test(name)) {
 	          arg = name.replace(onRE, '');
 	          pushDir('on', publicDirectives.on);
 	        } else
-
+	
 	          // attribute bindings
 	          if (bindRE.test(name)) {
 	            dirName = name.replace(bindRE, '');
@@ -7038,7 +7038,7 @@
 	              pushDir('bind', publicDirectives.bind);
 	            }
 	          } else
-
+	
 	            // normal directives
 	            if (name.indexOf('v-') === 0) {
 	              // check arg
@@ -7048,24 +7048,24 @@
 	              }
 	              // extract directive name
 	              dirName = name.slice(2);
-
+	
 	              // skip v-else (when used with v-show)
 	              if (dirName === 'else') {
 	                continue;
 	              }
-
+	
 	              dirDef = resolveAsset(options, 'directives', dirName);
-
+	
 	              if (process.env.NODE_ENV !== 'production') {
 	                assertAsset(dirDef, 'directive', dirName);
 	              }
-
+	
 	              if (dirDef) {
 	                pushDir(dirName, dirDef);
 	              }
 	            }
 	  }
-
+	
 	  /**
 	   * Push a directive.
 	   *
@@ -7073,7 +7073,7 @@
 	   * @param {Object|Function} def
 	   * @param {Boolean} [interp]
 	   */
-
+	
 	  function pushDir(dirName, def, interp) {
 	    var parsed = parseDirective(value);
 	    dirs.push({
@@ -7088,19 +7088,19 @@
 	      interp: interp
 	    });
 	  }
-
+	
 	  if (dirs.length) {
 	    return makeNodeLinkFn(dirs);
 	  }
 	}
-
+	
 	/**
 	 * Parse modifiers from directive attribute name.
 	 *
 	 * @param {String} name
 	 * @return {Object}
 	 */
-
+	
 	function parseModifiers(name) {
 	  var res = Object.create(null);
 	  var match = name.match(modifierRE);
@@ -7112,14 +7112,14 @@
 	  }
 	  return res;
 	}
-
+	
 	/**
 	 * Build a link function for all directives on a single node.
 	 *
 	 * @param {Array} directives
 	 * @return {Function} directivesLinkFn
 	 */
-
+	
 	function makeNodeLinkFn(directives) {
 	  return function nodeLinkFn(vm, el, host, scope, frag) {
 	    // reverse apply because it's sorted low to high
@@ -7129,9 +7129,9 @@
 	    }
 	  };
 	}
-
+	
 	var specialCharRE = /[^\w\-:\.]/;
-
+	
 	/**
 	 * Process an element or a DocumentFragment based on a
 	 * instance option object. This allows us to transclude
@@ -7143,7 +7143,7 @@
 	 * @param {Object} options
 	 * @return {Element|DocumentFragment}
 	 */
-
+	
 	function transclude(el, options) {
 	  // extract container attributes to pass them down
 	  // to compiler, because they need to be compiled in
@@ -7176,7 +7176,7 @@
 	  }
 	  return el;
 	}
-
+	
 	/**
 	 * Process the template option.
 	 * If the replace option is true this will swap the $el.
@@ -7185,7 +7185,7 @@
 	 * @param {Object} options
 	 * @return {Element|DocumentFragment}
 	 */
-
+	
 	function transcludeTemplate(el, options) {
 	  var template = options.template;
 	  var frag = parseTemplate(template, true);
@@ -7227,7 +7227,7 @@
 	    process.env.NODE_ENV !== 'production' && warn('Invalid template option: ' + template);
 	  }
 	}
-
+	
 	/**
 	 * Helper to extract a component container's attributes
 	 * into a plain object array.
@@ -7235,13 +7235,13 @@
 	 * @param {Element} el
 	 * @return {Array}
 	 */
-
+	
 	function extractAttrs(el) {
 	  if (el.nodeType === 1 && el.hasAttributes()) {
 	    return toArray(el.attributes);
 	  }
 	}
-
+	
 	/**
 	 * Merge the attributes of two elements, and make sure
 	 * the class names are merged properly.
@@ -7249,7 +7249,7 @@
 	 * @param {Element} from
 	 * @param {Element} to
 	 */
-
+	
 	function mergeAttrs(from, to) {
 	  var attrs = from.attributes;
 	  var i = attrs.length;
@@ -7266,22 +7266,22 @@
 	    }
 	  }
 	}
-
+	
 	var compiler = Object.freeze({
 		compile: compile,
 		compileAndLinkProps: compileAndLinkProps,
 		compileRoot: compileRoot,
 		transclude: transclude
 	});
-
+	
 	function stateMixin (Vue) {
-
+	
 	  /**
 	   * Accessor for `$data` property, since setting $data
 	   * requires observing the new object and updating
 	   * proxied properties.
 	   */
-
+	
 	  Object.defineProperty(Vue.prototype, '$data', {
 	    get: function get() {
 	      return this._data;
@@ -7292,7 +7292,7 @@
 	      }
 	    }
 	  });
-
+	
 	  /**
 	   * Setup the scope of an instance, which contains:
 	   * - observed data
@@ -7300,7 +7300,7 @@
 	   * - user methods
 	   * - meta properties
 	   */
-
+	
 	  Vue.prototype._initState = function () {
 	    this._initProps();
 	    this._initMeta();
@@ -7308,11 +7308,11 @@
 	    this._initData();
 	    this._initComputed();
 	  };
-
+	
 	  /**
 	   * Initialize props.
 	   */
-
+	
 	  Vue.prototype._initProps = function () {
 	    var options = this.$options;
 	    var el = options.el;
@@ -7326,11 +7326,11 @@
 	    // props must be linked in proper scope if inside v-for
 	    ? compileAndLinkProps(this, el, props, this._scope) : null;
 	  };
-
+	
 	  /**
 	   * Initialize the data.
 	   */
-
+	
 	  Vue.prototype._initData = function () {
 	    var propsData = this._data;
 	    var optionsDataFn = this.$options.data;
@@ -7358,13 +7358,13 @@
 	    // observe data
 	    observe(data, this);
 	  };
-
+	
 	  /**
 	   * Swap the instance's $data. Called in $data's setter.
 	   *
 	   * @param {Object} newData
 	   */
-
+	
 	  Vue.prototype._setData = function (newData) {
 	    newData = newData || {};
 	    var oldData = this._data;
@@ -7394,14 +7394,14 @@
 	    observe(newData, this);
 	    this._digest();
 	  };
-
+	
 	  /**
 	   * Proxy a property, so that
 	   * vm.prop === vm._data.prop
 	   *
 	   * @param {String} key
 	   */
-
+	
 	  Vue.prototype._proxy = function (key) {
 	    if (!isReserved(key)) {
 	      // need to store ref to self here
@@ -7421,34 +7421,34 @@
 	      });
 	    }
 	  };
-
+	
 	  /**
 	   * Unproxy a property.
 	   *
 	   * @param {String} key
 	   */
-
+	
 	  Vue.prototype._unproxy = function (key) {
 	    if (!isReserved(key)) {
 	      delete this[key];
 	    }
 	  };
-
+	
 	  /**
 	   * Force update on every watcher in scope.
 	   */
-
+	
 	  Vue.prototype._digest = function () {
 	    for (var i = 0, l = this._watchers.length; i < l; i++) {
 	      this._watchers[i].update(true); // shallow updates
 	    }
 	  };
-
+	
 	  /**
 	   * Setup computed properties. They are essentially
 	   * special getter/setters
 	   */
-
+	
 	  function noop() {}
 	  Vue.prototype._initComputed = function () {
 	    var computed = this.$options.computed;
@@ -7470,7 +7470,7 @@
 	      }
 	    }
 	  };
-
+	
 	  function makeComputedGetter(getter, owner) {
 	    var watcher = new Watcher(owner, getter, null, {
 	      lazy: true
@@ -7485,13 +7485,13 @@
 	      return watcher.value;
 	    };
 	  }
-
+	
 	  /**
 	   * Setup instance methods. Methods must be bound to the
 	   * instance since they might be passed down as a prop to
 	   * child components.
 	   */
-
+	
 	  Vue.prototype._initMethods = function () {
 	    var methods = this.$options.methods;
 	    if (methods) {
@@ -7500,11 +7500,11 @@
 	      }
 	    }
 	  };
-
+	
 	  /**
 	   * Initialize meta information like $index, $key & $value.
 	   */
-
+	
 	  Vue.prototype._initMeta = function () {
 	    var metas = this.$options._meta;
 	    if (metas) {
@@ -7514,17 +7514,17 @@
 	    }
 	  };
 	}
-
+	
 	var eventRE = /^v-on:|^@/;
-
+	
 	function eventsMixin (Vue) {
-
+	
 	  /**
 	   * Setup the instance's option events & watchers.
 	   * If the value is a string, we pull it from the
 	   * instance's methods by name.
 	   */
-
+	
 	  Vue.prototype._initEvents = function () {
 	    var options = this.$options;
 	    if (options._asComponent) {
@@ -7533,14 +7533,14 @@
 	    registerCallbacks(this, '$on', options.events);
 	    registerCallbacks(this, '$watch', options.watch);
 	  };
-
+	
 	  /**
 	   * Register v-on events on a child component
 	   *
 	   * @param {Vue} vm
 	   * @param {Element} el
 	   */
-
+	
 	  function registerComponentEvents(vm, el) {
 	    var attrs = el.attributes;
 	    var name, handler;
@@ -7553,7 +7553,7 @@
 	      }
 	    }
 	  }
-
+	
 	  /**
 	   * Register callbacks for option events and watchers.
 	   *
@@ -7561,7 +7561,7 @@
 	   * @param {String} action
 	   * @param {Object} hash
 	   */
-
+	
 	  function registerCallbacks(vm, action, hash) {
 	    if (!hash) return;
 	    var handlers, key, i, j;
@@ -7576,7 +7576,7 @@
 	      }
 	    }
 	  }
-
+	
 	  /**
 	   * Helper to register an event/watch callback.
 	   *
@@ -7586,7 +7586,7 @@
 	   * @param {Function|String|Object} handler
 	   * @param {Object} [options]
 	   */
-
+	
 	  function register(vm, action, key, handler, options) {
 	    var type = typeof handler;
 	    if (type === 'function') {
@@ -7603,68 +7603,68 @@
 	      register(vm, action, key, handler.handler, handler);
 	    }
 	  }
-
+	
 	  /**
 	   * Setup recursive attached/detached calls
 	   */
-
+	
 	  Vue.prototype._initDOMHooks = function () {
 	    this.$on('hook:attached', onAttached);
 	    this.$on('hook:detached', onDetached);
 	  };
-
+	
 	  /**
 	   * Callback to recursively call attached hook on children
 	   */
-
+	
 	  function onAttached() {
 	    if (!this._isAttached) {
 	      this._isAttached = true;
 	      this.$children.forEach(callAttach);
 	    }
 	  }
-
+	
 	  /**
 	   * Iterator to call attached hook
 	   *
 	   * @param {Vue} child
 	   */
-
+	
 	  function callAttach(child) {
 	    if (!child._isAttached && inDoc(child.$el)) {
 	      child._callHook('attached');
 	    }
 	  }
-
+	
 	  /**
 	   * Callback to recursively call detached hook on children
 	   */
-
+	
 	  function onDetached() {
 	    if (this._isAttached) {
 	      this._isAttached = false;
 	      this.$children.forEach(callDetach);
 	    }
 	  }
-
+	
 	  /**
 	   * Iterator to call detached hook
 	   *
 	   * @param {Vue} child
 	   */
-
+	
 	  function callDetach(child) {
 	    if (child._isAttached && !inDoc(child.$el)) {
 	      child._callHook('detached');
 	    }
 	  }
-
+	
 	  /**
 	   * Trigger all handlers for a hook
 	   *
 	   * @param {String} hook
 	   */
-
+	
 	  Vue.prototype._callHook = function (hook) {
 	    var handlers = this.$options[hook];
 	    if (handlers) {
@@ -7675,9 +7675,9 @@
 	    this.$emit('hook:' + hook);
 	  };
 	}
-
+	
 	function noop() {}
-
+	
 	/**
 	 * A directive links a DOM element with a piece of data,
 	 * which is the result of evaluating an expression.
@@ -7726,7 +7726,7 @@
 	    this.el._vue_directives.push(this);
 	  }
 	}
-
+	
 	/**
 	 * Initialize the directive, mixin definition properties,
 	 * setup the watcher, call definition bind() and update()
@@ -7734,11 +7734,11 @@
 	 *
 	 * @param {Object} def
 	 */
-
+	
 	Directive.prototype._bind = function () {
 	  var name = this.name;
 	  var descriptor = this.descriptor;
-
+	
 	  // remove attribute
 	  if ((name !== 'cloak' || this.vm._isCompiled) && this.el && this.el.removeAttribute) {
 	    var attr = descriptor.attr || 'v-' + name;
@@ -7750,7 +7750,7 @@
 	      setClass(this.el, removeTags(this.el.getAttribute('class')).trim().replace(/\s+/g, ' '));
 	    }
 	  }
-
+	
 	  // copy def properties
 	  var def = descriptor.def;
 	  if (typeof def === 'function') {
@@ -7758,16 +7758,16 @@
 	  } else {
 	    extend(this, def);
 	  }
-
+	
 	  // setup directive params
 	  this._setupParams();
-
+	
 	  // initial bind
 	  if (this.bind) {
 	    this.bind();
 	  }
 	  this._bound = true;
-
+	
 	  if (this.literal) {
 	    this.update && this.update(descriptor.raw);
 	  } else if ((this.expression || this.modifiers) && (this.update || this.twoWay) && !this._checkStatement()) {
@@ -7803,12 +7803,12 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Setup all param attributes, e.g. track-by,
 	 * transition-mode, etc...
 	 */
-
+	
 	Directive.prototype._setupParams = function () {
 	  if (!this.params) {
 	    return;
@@ -7834,14 +7834,14 @@
 	    }
 	  }
 	};
-
+	
 	/**
 	 * Setup a watcher for a dynamic param.
 	 *
 	 * @param {String} key
 	 * @param {String} expression
 	 */
-
+	
 	Directive.prototype._setupParamWatcher = function (key, expression) {
 	  var self = this;
 	  var called = false;
@@ -7861,7 +7861,7 @@
 	    immediate: true
 	  });(this._paramUnwatchFns || (this._paramUnwatchFns = [])).push(unwatch);
 	};
-
+	
 	/**
 	 * Check if the directive is a function caller
 	 * and if the expression is a callable one. If both true,
@@ -7872,7 +7872,7 @@
 	 *
 	 * @return {Boolean}
 	 */
-
+	
 	Directive.prototype._checkStatement = function () {
 	  var expression = this.expression;
 	  if (expression && this.acceptStatement && !isSimplePath(expression)) {
@@ -7890,7 +7890,7 @@
 	    return true;
 	  }
 	};
-
+	
 	/**
 	 * Set the corresponding value with the setter.
 	 * This should only be used in two-way directives
@@ -7899,7 +7899,7 @@
 	 * @param {*} value
 	 * @public
 	 */
-
+	
 	Directive.prototype.set = function (value) {
 	  /* istanbul ignore else */
 	  if (this.twoWay) {
@@ -7910,14 +7910,14 @@
 	    warn('Directive.set() can only be used inside twoWay' + 'directives.');
 	  }
 	};
-
+	
 	/**
 	 * Execute a function while preventing that function from
 	 * triggering updates on this directive instance.
 	 *
 	 * @param {Function} fn
 	 */
-
+	
 	Directive.prototype._withLock = function (fn) {
 	  var self = this;
 	  self._locked = true;
@@ -7926,7 +7926,7 @@
 	    self._locked = false;
 	  });
 	};
-
+	
 	/**
 	 * Convenience method that attaches a DOM event listener
 	 * to the directive element and autometically tears it down
@@ -7935,15 +7935,15 @@
 	 * @param {String} event
 	 * @param {Function} handler
 	 */
-
+	
 	Directive.prototype.on = function (event, handler) {
 	  on$1(this.el, event, handler);(this._listeners || (this._listeners = [])).push([event, handler]);
 	};
-
+	
 	/**
 	 * Teardown the watcher and call unbind.
 	 */
-
+	
 	Directive.prototype._teardown = function () {
 	  if (this._bound) {
 	    this._bound = false;
@@ -7974,15 +7974,15 @@
 	    this.vm = this.el = this._watcher = this._listeners = null;
 	  }
 	};
-
+	
 	function lifecycleMixin (Vue) {
-
+	
 	  /**
 	   * Update v-ref for component.
 	   *
 	   * @param {Boolean} remove
 	   */
-
+	
 	  Vue.prototype._updateRef = function (remove) {
 	    var ref = this.$options._ref;
 	    if (ref) {
@@ -7996,7 +7996,7 @@
 	      }
 	    }
 	  };
-
+	
 	  /**
 	   * Transclude, compile and link element.
 	   *
@@ -8009,10 +8009,10 @@
 	   * @param {Element} el
 	   * @return {Element}
 	   */
-
+	
 	  Vue.prototype._compile = function (el) {
 	    var options = this.$options;
-
+	
 	    // transclude and init element
 	    // transclude can potentially replace original
 	    // so we need to keep reference; this step also injects
@@ -8021,17 +8021,17 @@
 	    var original = el;
 	    el = transclude(el, options);
 	    this._initElement(el);
-
+	
 	    // handle v-pre on root node (#2026)
 	    if (el.nodeType === 1 && getAttr(el, 'v-pre') !== null) {
 	      return;
 	    }
-
+	
 	    // root is always compiled per-instance, because
 	    // container attrs and props can be different every time.
 	    var contextOptions = this._context && this._context.$options;
 	    var rootLinker = compileRoot(el, options, contextOptions);
-
+	
 	    // compile and link the rest
 	    var contentLinkFn;
 	    var ctor = this.constructor;
@@ -8043,12 +8043,12 @@
 	        contentLinkFn = ctor.linker = compile(el, options);
 	      }
 	    }
-
+	
 	    // link phase
 	    // make sure to link root with prop scope!
 	    var rootUnlinkFn = rootLinker(this, el, this._scope);
 	    var contentUnlinkFn = contentLinkFn ? contentLinkFn(this, el) : compile(el, options)(this, el);
-
+	
 	    // register composite unlink function
 	    // to be called during instance destruction
 	    this._unlinkFn = function () {
@@ -8057,24 +8057,24 @@
 	      // splicing the directives
 	      contentUnlinkFn(true);
 	    };
-
+	
 	    // finally replace original
 	    if (options.replace) {
 	      replace(original, el);
 	    }
-
+	
 	    this._isCompiled = true;
 	    this._callHook('compiled');
 	    return el;
 	  };
-
+	
 	  /**
 	   * Initialize instance element. Called in the public
 	   * $mount() method.
 	   *
 	   * @param {Element} el
 	   */
-
+	
 	  Vue.prototype._initElement = function (el) {
 	    if (el instanceof DocumentFragment) {
 	      this._isFragment = true;
@@ -8091,7 +8091,7 @@
 	    this.$el.__vue__ = this;
 	    this._callHook('beforeCompile');
 	  };
-
+	
 	  /**
 	   * Create and bind a directive to an element.
 	   *
@@ -8103,11 +8103,11 @@
 	   * @param {Object} [scope] - v-for scope
 	   * @param {Fragment} [frag] - owner fragment
 	   */
-
+	
 	  Vue.prototype._bindDir = function (descriptor, node, host, scope, frag) {
 	    this._directives.push(new Directive(descriptor, this, node, host, scope, frag));
 	  };
-
+	
 	  /**
 	   * Teardown an instance, unobserves the data, unbind all the
 	   * directives, turn off all the event listeners, etc.
@@ -8116,7 +8116,7 @@
 	   * @param {Boolean} deferCleanup - if true, defer cleanup to
 	   *                                 be called later
 	   */
-
+	
 	  Vue.prototype._destroy = function (remove, deferCleanup) {
 	    if (this._isBeingDestroyed) {
 	      if (!deferCleanup) {
@@ -8124,10 +8124,10 @@
 	      }
 	      return;
 	    }
-
+	
 	    var destroyReady;
 	    var pendingRemoval;
-
+	
 	    var self = this;
 	    // Cleanup should be called either synchronously or asynchronoysly as
 	    // callback of this.$remove(), or if remove and deferCleanup are false.
@@ -8138,7 +8138,7 @@
 	        self._cleanup();
 	      }
 	    };
-
+	
 	    // remove DOM element
 	    if (remove && this.$el) {
 	      pendingRemoval = true;
@@ -8147,7 +8147,7 @@
 	        cleanupIfPossible();
 	      });
 	    }
-
+	
 	    this._callHook('beforeDestroy');
 	    this._isBeingDestroyed = true;
 	    var i;
@@ -8181,17 +8181,17 @@
 	    if (this.$el) {
 	      this.$el.__vue__ = null;
 	    }
-
+	
 	    destroyReady = true;
 	    cleanupIfPossible();
 	  };
-
+	
 	  /**
 	   * Clean up to ensure garbage collection.
 	   * This is called after the leave transition if there
 	   * is any.
 	   */
-
+	
 	  Vue.prototype._cleanup = function () {
 	    if (this._isDestroyed) {
 	      return;
@@ -8223,9 +8223,9 @@
 	    this.$off();
 	  };
 	}
-
+	
 	function miscMixin (Vue) {
-
+	
 	  /**
 	   * Apply a list of filter (descriptors) to a value.
 	   * Using plain for loops here because this will be called in
@@ -8238,7 +8238,7 @@
 	   * @param {Boolean} write
 	   * @return {*}
 	   */
-
+	
 	  Vue.prototype._applyFilters = function (value, oldValue, filters, write) {
 	    var filter, fn, args, arg, offset, i, l, j, k;
 	    for (i = 0, l = filters.length; i < l; i++) {
@@ -8262,7 +8262,7 @@
 	    }
 	    return value;
 	  };
-
+	
 	  /**
 	   * Resolve a component, depending on whether the component
 	   * is defined normally or using an async factory function.
@@ -8273,7 +8273,7 @@
 	   * @param {String} id
 	   * @param {Function} cb
 	   */
-
+	
 	  Vue.prototype._resolveComponent = function (id, cb) {
 	    var factory = resolveAsset(this.$options, 'components', id);
 	    if (process.env.NODE_ENV !== 'production') {
@@ -8313,23 +8313,23 @@
 	    }
 	  };
 	}
-
+	
 	function globalAPI (Vue) {
-
+	
 	  /**
 	   * Expose useful internals
 	   */
-
+	
 	  Vue.util = util;
 	  Vue.config = config;
 	  Vue.set = set;
 	  Vue['delete'] = del;
 	  Vue.nextTick = nextTick;
-
+	
 	  /**
 	   * The following are exposed for advanced usage / plugins
 	   */
-
+	
 	  Vue.compiler = compiler;
 	  Vue.FragmentFactory = FragmentFactory;
 	  Vue.internalDirectives = internalDirectives;
@@ -8340,22 +8340,22 @@
 	    directive: directive,
 	    expression: expression
 	  };
-
+	
 	  /**
 	   * Each instance constructor, including Vue, has a unique
 	   * cid. This enables us to create wrapped "child
 	   * constructors" for prototypal inheritance and cache them.
 	   */
-
+	
 	  Vue.cid = 0;
 	  var cid = 1;
-
+	
 	  /**
 	   * Class inheritance
 	   *
 	   * @param {Object} extendOptions
 	   */
-
+	
 	  Vue.extend = function (extendOptions) {
 	    extendOptions = extendOptions || {};
 	    var Super = this;
@@ -8393,7 +8393,7 @@
 	    }
 	    return Sub;
 	  };
-
+	
 	  /**
 	   * A function that returns a sub-class constructor with the
 	   * given name. This gives us much nicer output when
@@ -8402,17 +8402,17 @@
 	   * @param {String} name
 	   * @return {Function}
 	   */
-
+	
 	  function createClass(name) {
 	    return new Function('return function ' + classify(name) + ' (options) { this._init(options) }')();
 	  }
-
+	
 	  /**
 	   * Plugin system
 	   *
 	   * @param {Object} plugin
 	   */
-
+	
 	  Vue.use = function (plugin) {
 	    /* istanbul ignore if */
 	    if (plugin.installed) {
@@ -8429,16 +8429,16 @@
 	    plugin.installed = true;
 	    return this;
 	  };
-
+	
 	  /**
 	   * Apply a global mixin by merging it into the default
 	   * options.
 	   */
-
+	
 	  Vue.mixin = function (mixin) {
 	    Vue.options = mergeOptions(Vue.options, mixin);
 	  };
-
+	
 	  /**
 	   * Create asset registration methods with the following
 	   * signature:
@@ -8446,7 +8446,7 @@
 	   * @param {String} id
 	   * @param {*} definition
 	   */
-
+	
 	  config._assetTypes.forEach(function (type) {
 	    Vue[type] = function (id, definition) {
 	      if (!definition) {
@@ -8468,11 +8468,11 @@
 	    };
 	  });
 	}
-
+	
 	var filterRE = /[^|]\|[^|]/;
-
+	
 	function dataAPI (Vue) {
-
+	
 	  /**
 	   * Get the value from an expression on this vm.
 	   *
@@ -8480,7 +8480,7 @@
 	   * @param {Boolean} [asStatement]
 	   * @return {*}
 	   */
-
+	
 	  Vue.prototype.$get = function (exp, asStatement) {
 	    var res = parseExpression(exp);
 	    if (res) {
@@ -8498,7 +8498,7 @@
 	      }
 	    }
 	  };
-
+	
 	  /**
 	   * Set the value from an expression on this vm.
 	   * The expression must be a valid left-hand
@@ -8507,24 +8507,24 @@
 	   * @param {String} exp
 	   * @param {*} val
 	   */
-
+	
 	  Vue.prototype.$set = function (exp, val) {
 	    var res = parseExpression(exp, true);
 	    if (res && res.set) {
 	      res.set.call(this, this, val);
 	    }
 	  };
-
+	
 	  /**
 	   * Delete a property on the VM
 	   *
 	   * @param {String} key
 	   */
-
+	
 	  Vue.prototype.$delete = function (key) {
 	    del(this._data, key);
 	  };
-
+	
 	  /**
 	   * Watch an expression, trigger callback when its
 	   * value changes.
@@ -8536,7 +8536,7 @@
 	   *                 - {Boolean} immediate
 	   * @return {Function} - unwatchFn
 	   */
-
+	
 	  Vue.prototype.$watch = function (expOrFn, cb, options) {
 	    var vm = this;
 	    var parsed;
@@ -8556,7 +8556,7 @@
 	      watcher.teardown();
 	    };
 	  };
-
+	
 	  /**
 	   * Evaluate a text directive, including filters.
 	   *
@@ -8564,7 +8564,7 @@
 	   * @param {Boolean} [asStatement]
 	   * @return {String}
 	   */
-
+	
 	  Vue.prototype.$eval = function (text, asStatement) {
 	    // check for filters.
 	    if (filterRE.test(text)) {
@@ -8579,14 +8579,14 @@
 	      return this.$get(text, asStatement);
 	    }
 	  };
-
+	
 	  /**
 	   * Interpolate a piece of template text.
 	   *
 	   * @param {String} text
 	   * @return {String}
 	   */
-
+	
 	  Vue.prototype.$interpolate = function (text) {
 	    var tokens = parseText(text);
 	    var vm = this;
@@ -8602,7 +8602,7 @@
 	      return text;
 	    }
 	  };
-
+	
 	  /**
 	   * Log instance data as a plain JS object
 	   * so that it is easier to inspect in console.
@@ -8610,7 +8610,7 @@
 	   *
 	   * @param {String} [path]
 	   */
-
+	
 	  Vue.prototype.$log = function (path) {
 	    var data = path ? getPath(this._data, path) : this._data;
 	    if (data) {
@@ -8624,7 +8624,7 @@
 	    }
 	    console.log(data);
 	  };
-
+	
 	  /**
 	   * "clean" a getter/setter converted object into a plain
 	   * object copy.
@@ -8632,14 +8632,14 @@
 	   * @param {Object} - obj
 	   * @return {Object}
 	   */
-
+	
 	  function clean(obj) {
 	    return JSON.parse(JSON.stringify(obj));
 	  }
 	}
-
+	
 	function domAPI (Vue) {
-
+	
 	  /**
 	   * Convenience on-instance nextTick. The callback is
 	   * auto-bound to the instance, and this avoids component
@@ -8647,11 +8647,11 @@
 	   *
 	   * @param {Function} fn
 	   */
-
+	
 	  Vue.prototype.$nextTick = function (fn) {
 	    nextTick(fn, this);
 	  };
-
+	
 	  /**
 	   * Append instance to target
 	   *
@@ -8659,11 +8659,11 @@
 	   * @param {Function} [cb]
 	   * @param {Boolean} [withTransition] - defaults to true
 	   */
-
+	
 	  Vue.prototype.$appendTo = function (target, cb, withTransition) {
 	    return insert(this, target, cb, withTransition, append, appendWithTransition);
 	  };
-
+	
 	  /**
 	   * Prepend instance to target
 	   *
@@ -8671,7 +8671,7 @@
 	   * @param {Function} [cb]
 	   * @param {Boolean} [withTransition] - defaults to true
 	   */
-
+	
 	  Vue.prototype.$prependTo = function (target, cb, withTransition) {
 	    target = query(target);
 	    if (target.hasChildNodes()) {
@@ -8681,7 +8681,7 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Insert instance before target
 	   *
@@ -8689,11 +8689,11 @@
 	   * @param {Function} [cb]
 	   * @param {Boolean} [withTransition] - defaults to true
 	   */
-
+	
 	  Vue.prototype.$before = function (target, cb, withTransition) {
 	    return insert(this, target, cb, withTransition, beforeWithCb, beforeWithTransition);
 	  };
-
+	
 	  /**
 	   * Insert instance after target
 	   *
@@ -8701,7 +8701,7 @@
 	   * @param {Function} [cb]
 	   * @param {Boolean} [withTransition] - defaults to true
 	   */
-
+	
 	  Vue.prototype.$after = function (target, cb, withTransition) {
 	    target = query(target);
 	    if (target.nextSibling) {
@@ -8711,14 +8711,14 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Remove instance from DOM
 	   *
 	   * @param {Function} [cb]
 	   * @param {Boolean} [withTransition] - defaults to true
 	   */
-
+	
 	  Vue.prototype.$remove = function (cb, withTransition) {
 	    if (!this.$el.parentNode) {
 	      return cb && cb();
@@ -8740,7 +8740,7 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Shared DOM insertion function.
 	   *
@@ -8752,7 +8752,7 @@
 	   * @param {Function} op2 - op for transition insert
 	   * @return vm
 	   */
-
+	
 	  function insert(vm, target, cb, withTransition, op1, op2) {
 	    target = query(target);
 	    var targetIsDetached = !inDoc(target);
@@ -8771,17 +8771,17 @@
 	    }
 	    return vm;
 	  }
-
+	
 	  /**
 	   * Check for selectors
 	   *
 	   * @param {String|Element} el
 	   */
-
+	
 	  function query(el) {
 	    return typeof el === 'string' ? document.querySelector(el) : el;
 	  }
-
+	
 	  /**
 	   * Append operation that takes a callback.
 	   *
@@ -8790,12 +8790,12 @@
 	   * @param {Vue} vm - unused
 	   * @param {Function} [cb]
 	   */
-
+	
 	  function append(el, target, vm, cb) {
 	    target.appendChild(el);
 	    if (cb) cb();
 	  }
-
+	
 	  /**
 	   * InsertBefore operation that takes a callback.
 	   *
@@ -8804,12 +8804,12 @@
 	   * @param {Vue} vm - unused
 	   * @param {Function} [cb]
 	   */
-
+	
 	  function beforeWithCb(el, target, vm, cb) {
 	    before(el, target);
 	    if (cb) cb();
 	  }
-
+	
 	  /**
 	   * Remove operation that takes a callback.
 	   *
@@ -8817,28 +8817,28 @@
 	   * @param {Vue} vm - unused
 	   * @param {Function} [cb]
 	   */
-
+	
 	  function removeWithCb(el, vm, cb) {
 	    remove(el);
 	    if (cb) cb();
 	  }
 	}
-
+	
 	function eventsAPI (Vue) {
-
+	
 	  /**
 	   * Listen on the given `event` with `fn`.
 	   *
 	   * @param {String} event
 	   * @param {Function} fn
 	   */
-
+	
 	  Vue.prototype.$on = function (event, fn) {
 	    (this._events[event] || (this._events[event] = [])).push(fn);
 	    modifyListenerCount(this, event, 1);
 	    return this;
 	  };
-
+	
 	  /**
 	   * Adds an `event` listener that will be invoked a single
 	   * time then automatically removed.
@@ -8846,7 +8846,7 @@
 	   * @param {String} event
 	   * @param {Function} fn
 	   */
-
+	
 	  Vue.prototype.$once = function (event, fn) {
 	    var self = this;
 	    function on() {
@@ -8857,7 +8857,7 @@
 	    this.$on(event, on);
 	    return this;
 	  };
-
+	
 	  /**
 	   * Remove the given callback for `event` or all
 	   * registered callbacks.
@@ -8865,7 +8865,7 @@
 	   * @param {String} event
 	   * @param {Function} fn
 	   */
-
+	
 	  Vue.prototype.$off = function (event, fn) {
 	    var cbs;
 	    // all
@@ -8904,14 +8904,14 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Trigger an event on self.
 	   *
 	   * @param {String} event
 	   * @return {Boolean} shouldPropagate
 	   */
-
+	
 	  Vue.prototype.$emit = function (event) {
 	    var cbs = this._events[event];
 	    var shouldPropagate = !cbs;
@@ -8927,14 +8927,14 @@
 	    }
 	    return shouldPropagate;
 	  };
-
+	
 	  /**
 	   * Recursively broadcast an event to all children instances.
 	   *
 	   * @param {String} event
 	   * @param {...*} additional arguments
 	   */
-
+	
 	  Vue.prototype.$broadcast = function (event) {
 	    // if no child has registered for this event,
 	    // then there's no need to broadcast.
@@ -8949,14 +8949,14 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Recursively propagate an event up the parent chain.
 	   *
 	   * @param {String} event
 	   * @param {...*} additional arguments
 	   */
-
+	
 	  Vue.prototype.$dispatch = function () {
 	    this.$emit.apply(this, arguments);
 	    var parent = this.$parent;
@@ -8966,7 +8966,7 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Modify the listener counts on all parents.
 	   * This bookkeeping allows $broadcast to return early when
@@ -8976,7 +8976,7 @@
 	   * @param {String} event
 	   * @param {Number} count
 	   */
-
+	
 	  var hookRE = /^hook:/;
 	  function modifyListenerCount(vm, event, count) {
 	    var parent = vm.$parent;
@@ -8989,9 +8989,9 @@
 	    }
 	  }
 	}
-
+	
 	function lifecycleAPI (Vue) {
-
+	
 	  /**
 	   * Set instance target element and kick off the compilation
 	   * process. The passed in `el` can be a selector string, an
@@ -9001,7 +9001,7 @@
 	   * @param {Element|DocumentFragment|string} el
 	   * @public
 	   */
-
+	
 	  Vue.prototype.$mount = function (el) {
 	    if (this._isCompiled) {
 	      process.env.NODE_ENV !== 'production' && warn('$mount() should be called only once.');
@@ -9021,26 +9021,26 @@
 	    }
 	    return this;
 	  };
-
+	
 	  /**
 	   * Mark an instance as ready.
 	   */
-
+	
 	  function ready() {
 	    this._isAttached = true;
 	    this._isReady = true;
 	    this._callHook('ready');
 	  }
-
+	
 	  /**
 	   * Teardown the instance, simply delegate to the internal
 	   * _destroy.
 	   */
-
+	
 	  Vue.prototype.$destroy = function (remove, deferCleanup) {
 	    this._destroy(remove, deferCleanup);
 	  };
-
+	
 	  /**
 	   * Partially compile a piece of DOM and return a
 	   * decompile function.
@@ -9049,12 +9049,12 @@
 	   * @param {Vue} [host]
 	   * @return {Function}
 	   */
-
+	
 	  Vue.prototype.$compile = function (el, host, scope, frag) {
 	    return compile(el, this.$options, true)(this, el, host, scope, frag);
 	  };
 	}
-
+	
 	/**
 	 * The exposed Vue constructor.
 	 *
@@ -9068,39 +9068,39 @@
 	 * @param {Object} [options]
 	 * @public
 	 */
-
+	
 	function Vue(options) {
 	  this._init(options);
 	}
-
+	
 	// install internals
 	initMixin(Vue);
 	stateMixin(Vue);
 	eventsMixin(Vue);
 	lifecycleMixin(Vue);
 	miscMixin(Vue);
-
+	
 	// install APIs
 	globalAPI(Vue);
 	dataAPI(Vue);
 	domAPI(Vue);
 	eventsAPI(Vue);
 	lifecycleAPI(Vue);
-
+	
 	var convertArray = vFor._postProcess;
-
+	
 	/**
 	 * Limit filter for arrays
 	 *
 	 * @param {Number} n
 	 * @param {Number} offset (Decimal expected)
 	 */
-
+	
 	function limitBy(arr, n, offset) {
 	  offset = offset ? parseInt(offset, 10) : 0;
 	  return typeof n === 'number' ? arr.slice(offset, offset + n) : arr;
 	}
-
+	
 	/**
 	 * Filter filter for arrays
 	 *
@@ -9108,7 +9108,7 @@
 	 * @param {String} [delimiter]
 	 * @param {String} ...dataKeys
 	 */
-
+	
 	function filterBy(arr, search, delimiter) {
 	  arr = convertArray(arr);
 	  if (search == null) {
@@ -9146,14 +9146,14 @@
 	  }
 	  return res;
 	}
-
+	
 	/**
 	 * Filter filter for arrays
 	 *
 	 * @param {String} sortKey
 	 * @param {String} reverse
 	 */
-
+	
 	function orderBy(arr, sortKey, reverse) {
 	  arr = convertArray(arr);
 	  if (!sortKey) {
@@ -9171,14 +9171,14 @@
 	    return a === b ? 0 : a > b ? order : -order;
 	  });
 	}
-
+	
 	/**
 	 * String contain helper
 	 *
 	 * @param {*} val
 	 * @param {String} search
 	 */
-
+	
 	function contains(val, search) {
 	  var i;
 	  if (isPlainObject(val)) {
@@ -9200,22 +9200,22 @@
 	    return val.toString().toLowerCase().indexOf(search) > -1;
 	  }
 	}
-
+	
 	var digitsRE = /(\d{3})(?=\d)/g;
-
+	
 	// asset collections must be a plain object.
 	var filters = {
-
+	
 	  orderBy: orderBy,
 	  filterBy: filterBy,
 	  limitBy: limitBy,
-
+	
 	  /**
 	   * Stringify value.
 	   *
 	   * @param {Number} indent
 	   */
-
+	
 	  json: {
 	    read: function read(value, indent) {
 	      return typeof value === 'string' ? value : JSON.stringify(value, null, Number(indent) || 2);
@@ -9228,39 +9228,39 @@
 	      }
 	    }
 	  },
-
+	
 	  /**
 	   * 'abc' => 'Abc'
 	   */
-
+	
 	  capitalize: function capitalize(value) {
 	    if (!value && value !== 0) return '';
 	    value = value.toString();
 	    return value.charAt(0).toUpperCase() + value.slice(1);
 	  },
-
+	
 	  /**
 	   * 'abc' => 'ABC'
 	   */
-
+	
 	  uppercase: function uppercase(value) {
 	    return value || value === 0 ? value.toString().toUpperCase() : '';
 	  },
-
+	
 	  /**
 	   * 'AbC' => 'abc'
 	   */
-
+	
 	  lowercase: function lowercase(value) {
 	    return value || value === 0 ? value.toString().toLowerCase() : '';
 	  },
-
+	
 	  /**
 	   * 12345 => $12,345.00
 	   *
 	   * @param {String} sign
 	   */
-
+	
 	  currency: function currency(value, _currency) {
 	    value = parseFloat(value);
 	    if (!isFinite(value) || !value && value !== 0) return '';
@@ -9273,7 +9273,7 @@
 	    var sign = value < 0 ? '-' : '';
 	    return _currency + sign + head + _int.slice(i).replace(digitsRE, '$1,') + _float;
 	  },
-
+	
 	  /**
 	   * 'item' => 'items'
 	   *
@@ -9286,12 +9286,12 @@
 	   *
 	   *  e.g. ['single', 'double', 'triple', 'multiple']
 	   */
-
+	
 	  pluralize: function pluralize(value) {
 	    var args = toArray(arguments, 1);
 	    return args.length > 1 ? args[value % 10 - 1] || args[args.length - 1] : args[0] + (value === 1 ? '' : 's');
 	  },
-
+	
 	  /**
 	   * Debounce a handler function.
 	   *
@@ -9299,7 +9299,7 @@
 	   * @param {Number} delay = 300
 	   * @return {Function}
 	   */
-
+	
 	  debounce: function debounce(handler, delay) {
 	    if (!handler) return;
 	    if (!delay) {
@@ -9308,13 +9308,13 @@
 	    return _debounce(handler, delay);
 	  }
 	};
-
+	
 	var partial = {
-
+	
 	  priority: 1750,
-
+	
 	  params: ['name'],
-
+	
 	  // watch changes to name for dynamic partials
 	  paramWatchers: {
 	    name: function name(value) {
@@ -9324,13 +9324,13 @@
 	      }
 	    }
 	  },
-
+	
 	  bind: function bind() {
 	    this.anchor = createAnchor('v-partial');
 	    replace(this.el, this.anchor);
 	    this.insert(this.params.name);
 	  },
-
+	
 	  insert: function insert(id) {
 	    var partial = resolveAsset(this.vm.$options, 'partials', id);
 	    if (process.env.NODE_ENV !== 'production') {
@@ -9341,29 +9341,29 @@
 	      vIf.insert.call(this);
 	    }
 	  },
-
+	
 	  unbind: function unbind() {
 	    if (this.frag) {
 	      this.frag.destroy();
 	    }
 	  }
 	};
-
+	
 	// This is the elementDirective that handles <content>
 	// transclusions. It relies on the raw content of an
 	// instance being stored as `$options._content` during
 	// the transclude phase.
-
+	
 	// We are exporting two versions, one for named and one
 	// for unnamed, because the unnamed slots must be compiled
 	// AFTER all named slots have selected their content. So
 	// we need to give them different priorities in the compilation
 	// process. (See #1965)
-
+	
 	var slot = {
-
+	
 	  priority: 1750,
-
+	
 	  bind: function bind() {
 	    var host = this.vm;
 	    var raw = host.$options._content;
@@ -9387,7 +9387,7 @@
 	      }
 	    }
 	  },
-
+	
 	  tryCompile: function tryCompile(content, context, host) {
 	    if (content.hasChildNodes()) {
 	      this.compile(content, context, host);
@@ -9395,7 +9395,7 @@
 	      this.fallback();
 	    }
 	  },
-
+	
 	  compile: function compile(content, context, host) {
 	    if (content && context) {
 	      var scope = host ? host._scope : this._scope;
@@ -9407,23 +9407,23 @@
 	      remove(this.el);
 	    }
 	  },
-
+	
 	  fallback: function fallback() {
 	    this.compile(extractContent(this.el, true), this.vm);
 	  },
-
+	
 	  unbind: function unbind() {
 	    if (this.unlink) {
 	      this.unlink();
 	    }
 	  }
 	};
-
+	
 	var namedSlot = extend(extend({}, slot), {
 	  priority: slot.priority + 1,
 	  params: ['name']
 	});
-
+	
 	/**
 	 * Extract qualified content nodes from a node list.
 	 *
@@ -9432,7 +9432,7 @@
 	 * @param {Boolean} main
 	 * @return {DocumentFragment}
 	 */
-
+	
 	function extractFragment(nodes, parent, main) {
 	  var frag = document.createDocumentFragment();
 	  for (var i = 0, l = nodes.length; i < l; i++) {
@@ -9451,7 +9451,7 @@
 	    }
 	  }
 	  return frag;
-
+	
 	  function append(node) {
 	    if (isTemplate(node) && !node.hasAttribute('v-if') && !node.hasAttribute('v-for')) {
 	      node = parseTemplate(node);
@@ -9460,15 +9460,15 @@
 	    frag.appendChild(node);
 	  }
 	}
-
+	
 	var elementDirectives = {
 	  slot: slot,
 	  _namedSlot: namedSlot, // same as slot but with higher priority
 	  partial: partial
 	};
-
+	
 	Vue.version = '1.0.12';
-
+	
 	/**
 	 * Vue and every constructor that extends Vue has an
 	 * associated options object, which can be accessed during
@@ -9477,7 +9477,7 @@
 	 * These can be seen as the default options of every
 	 * Vue instance.
 	 */
-
+	
 	Vue.options = {
 	  directives: publicDirectives,
 	  elementDirectives: elementDirectives,
@@ -9487,7 +9487,7 @@
 	  partials: {},
 	  replace: true
 	};
-
+	
 	// devtools global hook
 	/* istanbul ignore if */
 	if (process.env.NODE_ENV !== 'production' && inBrowser) {
@@ -9497,7 +9497,7 @@
 	    console.log('Download the Vue Devtools for a better development experience:\n' + 'https://github.com/vuejs/vue-devtools');
 	  }
 	}
-
+	
 	module.exports = Vue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
@@ -9506,13 +9506,13 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
+	
 	var process = module.exports = {};
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-
+	
 	function cleanUpNextTick() {
 	    draining = false;
 	    if (currentQueue.length) {
@@ -9524,14 +9524,14 @@
 	        drainQueue();
 	    }
 	}
-
+	
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = setTimeout(cleanUpNextTick);
 	    draining = true;
-
+	
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -9548,7 +9548,7 @@
 	    draining = false;
 	    clearTimeout(timeout);
 	}
-
+	
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -9561,7 +9561,7 @@
 	        setTimeout(drainQueue, 0);
 	    }
 	};
-
+	
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -9576,9 +9576,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-
+	
 	function noop() {}
-
+	
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -9586,11 +9586,11 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-
+	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-
+	
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -9626,7 +9626,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
-
+	
 	// load the styles
 	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
@@ -9637,8 +9637,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-41788505&file=vue-clock.vue!./../node_modules/less-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-clock.vue", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-41788505&file=vue-clock.vue!./../node_modules/less-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-clock.vue");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-41788505&file=vue-clock.vue&scoped=true!./../node_modules/less-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-clock.vue", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/vue-loader/lib/style-rewriter.js?id=_v-41788505&file=vue-clock.vue&scoped=true!./../node_modules/less-loader/index.js!./../node_modules/vue-loader/lib/selector.js?type=style&index=0!./vue-clock.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9653,11 +9653,11 @@
 
 	exports = module.exports = __webpack_require__(7)();
 	// imports
-
-
+	
+	
 	// module
-	exports.push([module.id, "", ""]);
-
+	exports.push([module.id, ".clock[_v-41788505] {\n  width: 200px;\n  height: 230px;\n  position: relative;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n}\n.clock .clock-display[_v-41788505] {\n  text-align: center;\n  font-size: 30px;\n  border-bottom: 1px solid #ddd;\n}\n.clock .clock-panel[_v-41788505] {\n  width: 200px;\n  height: 200px;\n  border-radius: 100%;\n  background: #B6B6B6;\n  position: absolute;\n  top: 30px;\n  left: 0;\n}\n.clock .clock-panel .clock-tick[_v-41788505] {\n  width: 30px;\n  height: 30px;\n  border-radius: 100%;\n  line-height: 30px;\n  text-align: center;\n  position: absolute;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.clock .clock-panel .clock-tick[_v-41788505]:hover {\n  background: #ffee53;\n}\n.clock .clock-panel .clock-tick .active[_v-41788505] {\n  border-radius: 100%;\n  background: #fff;\n}\n.clock .clock-panel .clock-center[_v-41788505] {\n  position: absolute;\n  top: 100px;\n  left: 100px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.fade-transition[_v-41788505] {\n  -webkit-transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  opacity: 1;\n}\n.fade-enter[_v-41788505],\n.fade-leave[_v-41788505] {\n  opacity: 0;\n}\n", ""]);
+	
 	// exports
 
 
@@ -9672,7 +9672,7 @@
 	// css base code, injected by the css-loader
 	module.exports = function() {
 		var list = [];
-
+	
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
@@ -9686,7 +9686,7 @@
 			}
 			return result.join("");
 		};
-
+	
 		// import a list of modules into the list
 		list.i = function(modules, mediaQuery) {
 			if(typeof modules === "string")
@@ -9742,23 +9742,23 @@
 		singletonElement = null,
 		singletonCounter = 0,
 		styleElementsInsertedAtTop = [];
-
+	
 	module.exports = function(list, options) {
 		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
-
+	
 		options = options || {};
 		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 		// tags it will allow on a page
 		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
+	
 		// By default, add <style> tags to the bottom of <head>.
 		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
+	
 		var styles = listToStyles(list);
 		addStylesToDom(styles, options);
-
+	
 		return function update(newList) {
 			var mayRemove = [];
 			for(var i = 0; i < styles.length; i++) {
@@ -9781,7 +9781,7 @@
 			}
 		};
 	}
-
+	
 	function addStylesToDom(styles, options) {
 		for(var i = 0; i < styles.length; i++) {
 			var item = styles[i];
@@ -9803,7 +9803,7 @@
 			}
 		}
 	}
-
+	
 	function listToStyles(list) {
 		var styles = [];
 		var newStyles = {};
@@ -9821,7 +9821,7 @@
 		}
 		return styles;
 	}
-
+	
 	function insertStyleElement(options, styleElement) {
 		var head = getHeadElement();
 		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
@@ -9840,7 +9840,7 @@
 			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
 		}
 	}
-
+	
 	function removeStyleElement(styleElement) {
 		styleElement.parentNode.removeChild(styleElement);
 		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
@@ -9848,24 +9848,24 @@
 			styleElementsInsertedAtTop.splice(idx, 1);
 		}
 	}
-
+	
 	function createStyleElement(options) {
 		var styleElement = document.createElement("style");
 		styleElement.type = "text/css";
 		insertStyleElement(options, styleElement);
 		return styleElement;
 	}
-
+	
 	function createLinkElement(options) {
 		var linkElement = document.createElement("link");
 		linkElement.rel = "stylesheet";
 		insertStyleElement(options, linkElement);
 		return linkElement;
 	}
-
+	
 	function addStyle(obj, options) {
 		var styleElement, update, remove;
-
+	
 		if (options.singleton) {
 			var styleIndex = singletonCounter++;
 			styleElement = singletonElement || (singletonElement = createStyleElement(options));
@@ -9891,9 +9891,9 @@
 				removeStyleElement(styleElement);
 			};
 		}
-
+	
 		update(obj);
-
+	
 		return function updateStyle(newObj) {
 			if(newObj) {
 				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
@@ -9904,19 +9904,19 @@
 			}
 		};
 	}
-
+	
 	var replaceText = (function () {
 		var textStore = [];
-
+	
 		return function (index, replacement) {
 			textStore[index] = replacement;
 			return textStore.filter(Boolean).join('\n');
 		};
 	})();
-
+	
 	function applyToSingletonTag(styleElement, index, remove, obj) {
 		var css = remove ? "" : obj.css;
-
+	
 		if (styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = replaceText(index, css);
 		} else {
@@ -9930,16 +9930,16 @@
 			}
 		}
 	}
-
+	
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
 		var sourceMap = obj.sourceMap;
-
+	
 		if(media) {
 			styleElement.setAttribute("media", media)
 		}
-
+	
 		if(styleElement.styleSheet) {
 			styleElement.styleSheet.cssText = css;
 		} else {
@@ -9949,23 +9949,23 @@
 			styleElement.appendChild(document.createTextNode(css));
 		}
 	}
-
+	
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
 		var sourceMap = obj.sourceMap;
-
+	
 		if(sourceMap) {
 			// http://stackoverflow.com/a/26603875
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
-
+	
 		var blob = new Blob([css], { type: "text/css" });
-
+	
 		var oldSrc = linkElement.href;
-
+	
 		linkElement.href = URL.createObjectURL(blob);
-
+	
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
@@ -9975,64 +9975,171 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	"use strict";
-
+	'use strict';
+	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	// <template>
-	//     <p>
-	//         123
-	//     </p>
-
+	//     <div class="clock">
+	//         <div class="clock-display">
+	//             <b>{{pad(hour)}}:{{pad(minute)}}</b>
+	//         </div>
+	//         <div class="clock-panel clock-hour" v-show="showHourPanel" transition="fade">
+	//             <div class="clock-tick" v-for="p in AMPoints" :style="p">
+	//                 <div @click="select($index,'hour')" :class="{active: $index == hour}">{{$index}}</div>
+	//             </div>
+	//             <div class="clock-tick" v-for="p in PMPoints" :style="p">
+	//                 <div @click="select(12 + $index,'hour')" :class="{active: 12 + $index == hour}">{{$index + 12}}</div>
+	//             </div>
+	//         </div>
+	//         <div class="clock-panel clock-minute" v-show="!showHourPanel" transition="fade">
+	//             <button class="clock-center" @click="back">back</button>
+	//             <div class="clock-tick" v-for="p in minPoints" :style="p">
+	//                 <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
+	//             </div>
+	//         </div>
+	//     </div>
 	// </template>
-
+	
 	// <script>
+	/**
+	 * @param R {Number} radius of panel
+	 * @param gap {Number} the gap between notation and borader
+	 * @param tick {Number} amount of notations
+	 * @return {Array}
+	 */
+	function generatePostion(R) {
+	    var gap = arguments.length <= 1 || arguments[1] === undefined ? 15 : arguments[1];
+	    var tick = arguments.length <= 2 || arguments[2] === undefined ? 12 : arguments[2];
+	
+	    var PI = Math.PI,
+	        ZERO_CLOCK = 3 / 2 * PI,
+	        // (North direction on )
+	    STEP = 2 * PI / tick;
+	    return new Array(tick).toString().split(',').map(function (point, i) {
+	        var theta = ZERO_CLOCK + STEP * i;
+	        return {
+	            left: (R - gap) * Math.cos(theta) + R + 'px',
+	            top: (R - gap) * Math.sin(theta) + R + 'px'
+	        };
+	    });
+	}
 	exports.default = {
 	    props: {
 	        time: {
 	            type: String,
 	            twoWay: true,
 	            validator: function validator(value) {
-	                return new RegExp(/([01]\d)|(2[0-3])\:[0-5]\d/).test(value);
+	                return new RegExp(/^([01]\d)|(2[0-3])\:[0-5]\d$/).test(value);
 	            }
 	        }
 	    },
 	    data: function data() {
+	        var hour = +this.time.slice(0, 2),
+	            minute = +this.time.slice(3),
+	            restToFive = minute % 5;
 	        return {
-	            hour: null,
-	            minute: null
+	            hour: hour,
+	            minute: minute + (restToFive ? 5 - restToFive : 0),
+	            AMPoints: generatePostion(100),
+	            PMPoints: generatePostion(100, 45),
+	            minPoints: generatePostion(100),
+	
+	            showHourPanel: true
 	        };
 	    },
-
-	    watch: {
-	        minute: function minute(v1, v2) {
-	            if (v2 === null && v1 !== null) {
-	                this.time = this.hour + ":" + this.minute;
-	                this.hour = this.minute = null;
-	            }
-	        }
-	    },
+	
 	    methods: {
-	        show: function show() {
-	            this.hour = new Date().getHours();
-	        },
 	        back: function back() {
-	            this.minute = null;
+	            this.showHourPanel = true;
+	        },
+	        select: function select(value, unit) {
+	            this[unit] = value;
+	            if (unit == 'hour') {
+	                this.showHourPanel = false;
+	            } else if (unit == 'minute') {
+	                this.time = this.pad(this.hour) + ':' + this.pad(this.minute);
+	                console.log(this.time);
+	            }
+	        },
+	        pad: function pad(number) {
+	            return number < 10 ? '0' + number : number;
 	        }
 	    }
 	};
 	// </script>
 
-	// <style lang="less">
+	// <style lang="less" scoped>
+	//     @border-color: #ddd;
+	//     .clock {
+	//         @R: 100px;
+	//         @display-height: 30px;
+	//         @clock-size: 2 * @R;
+	//         width: @clock-size;
+	//         height: @clock-size + @display-height;
+	//         position: relative;
+	//         border: 1px solid @border-color;
+	//         border-radius: 4px;
+	//         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	//         ;
+	//         .clock-display {
+	//             text-align: center;
+	//             font-size: @display-height;
+	//             border-bottom: 1px solid @border-color;
+	//         }
+	//         .clock-panel {
+	//             @size: @clock-size;
+	//             width: @size;
+	//             height: @size;
+	//             border-radius: 100%;
+	//             background: #B6B6B6;
+	//             position: absolute;
+	//             top: @display-height;
+	//             left: 0;
+	//             .clock-tick {
+	//                 @size: 30px;
+	//                 width: @size;
+	//                 height: @size;
+	//                 border-radius: 100%;
+	//                 line-height: @size;
+	//                 text-align: center;
+	//                 position: absolute;
+	//                 transform: translate(-50%, -50%);
+	//                 &:hover {
+	//                     background: #ffee53;
+	//                 }
+	//                 .active {
+	//                     border-radius: 100%;
+	//                     background: #fff;
+	//                 }
+	//             }
+	//             .clock-center {
+	//                 position: absolute;
+	//                 top: @R;
+	//                 left: @R;
+	//                 transform: translate(-50%, -50%);
+	//             }
+	//         }
+	//     }
 
+	//     .fade-transition {
+	//         transition: opacity .6s cubic-bezier(0.47, 0, 0.745, 0.715);
+	//         opacity: 1;
+	//     }
+
+	//     .fade-enter,
+	//     .fade-leave {
+	//         opacity: 0;
+	//     }
 	// </style>
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<p>\n        123\n    </p>";
+	module.exports = "<div class=\"clock\" _v-41788505=\"\">\n        <div class=\"clock-display\" _v-41788505=\"\">\n            <b _v-41788505=\"\">{{pad(hour)}}:{{pad(minute)}}</b>\n        </div>\n        <div class=\"clock-panel clock-hour\" v-show=\"showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <div class=\"clock-tick\" v-for=\"p in AMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select($index,'hour')\" :class=\"{active: $index == hour}\" _v-41788505=\"\">{{$index}}</div>\n            </div>\n            <div class=\"clock-tick\" v-for=\"p in PMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(12 + $index,'hour')\" :class=\"{active: 12 + $index == hour}\" _v-41788505=\"\">{{$index + 12}}</div>\n            </div>\n        </div>\n        <div class=\"clock-panel clock-minute\" v-show=\"!showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <button class=\"clock-center\" @click=\"back\" _v-41788505=\"\">back</button>\n            <div class=\"clock-tick\" v-for=\"p in minPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(5 * $index,'minute')\" :class=\"{active: 5 * $index == minute}\" _v-41788505=\"\">{{$index * 5}}</div>\n            </div>\n        </div>\n    </div>";
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
