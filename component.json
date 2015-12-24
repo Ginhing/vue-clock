@@ -1,0 +1,7 @@
+{
+    "version": "0.1.0",
+    "tag": "master",
+    "name": "vue-clock",
+    "main": "dist/index.js",
+    "repos": "https://github.com/Ginhing/vue-clock"
+}
