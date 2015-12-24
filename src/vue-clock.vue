@@ -76,25 +76,33 @@
                         console.log(this.time)
                     }
                 },
-                pad(number){
-                    return number < 10 ? '0'+ number : number
+                pad(number) {
+                    return number < 10 ? '0' + number : number
                 }
         }
     }
 </script>
 
 <style lang="less" scoped>
+    @border-color: #ddd;
     .clock {
         @R: 100px;
-        width: 2 * @R;
-        position: relative;
         @display-height: 30px;
-        .clock-display{
-            line-height: @display-height;
-            text-align:center;
+        @clock-size: 2 * @R;
+        width: @clock-size;
+        height: @clock-size + @display-height;
+        position: relative;
+        border: 1px solid @border-color;
+        border-radius: 4px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        ;
+        .clock-display {
+            text-align: center;
+            font-size: @display-height;
+            border-bottom: 1px solid @border-color;
         }
         .clock-panel {
-            @size: 2 * @R;
+            @size: @clock-size;
             width: @size;
             height: @size;
             border-radius: 100%;
