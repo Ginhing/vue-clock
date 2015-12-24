@@ -23,13 +23,13 @@
 <script>
     /**
      * @param R {Number} radius of panel
-     * @param gap {Number} the gap between notation and borader
+     * @param gap {Number} the gap between notation and border
      * @param tick {Number} amount of notations
      * @return {Array}
      */
     function generatePostion(R, gap = 15, tick = 12) {
         const PI = Math.PI,
-            ZERO_CLOCK = 3 / 2 * PI, // (North direction on )
+            ZERO_CLOCK = 3 / 2 * PI, // (North direction on screen)
             STEP = 2 * PI / tick
         return new Array(tick).toString().split(',').map((point, i) => {
             let theta = ZERO_CLOCK + STEP * i
