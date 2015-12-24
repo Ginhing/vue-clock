@@ -1,12 +1,13 @@
 module.exports = {
     entry: {
-        'example':'./src/example.js',
-        'index':'./src/index.js'
+        'example': './src/example.js',
+        'index': './src/index.js'
     },
     output: {
         path: 'dist',
-        publicPath: 'dist/',
-        filename: '[name].js'
+        filename: '[name].js',
+        library: 'vue-clock',
+        libraryTarget: 'commonjs'
     },
     module: {
         loaders: [{
