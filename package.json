@@ -1,35 +1,37 @@
 {
-  "name": "vue-clock",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/index.js",
-  "dependencies": {
-    "vue": "^1.0.12"
-  },
-  "devDependencies": {
-    "babel-core": "^6.3.26",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-runtime": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "css-loader": "^0.23.1",
-    "less": "^2.5.3",
-    "less-loader": "^2.2.2",
-    "style-loader": "^0.13.0",
-    "template-html-loader": "0.0.3",
-    "vue-hot-reload-api": "^1.2.2",
-    "vue-html-loader": "^1.0.0",
-    "vue-loader": "^7.3.0",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress"
-  },
-  "keywords": [
-    "clock",
-    "clock-picker"
-  ],
-  "author": "Ginhing",
-  "license": "MIT"
+    "name": "vue-clock",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/vue-clock.js",
+    "dependencies": {
+        "vue": "^1.0.12"
+    },
+    "devDependencies": {
+        "babel-core": "^6.3.26",
+        "babel-loader": "^6.2.0",
+        "babel-plugin-transform-runtime": "^6.3.13",
+        "babel-preset-es2015": "^6.3.13",
+        "babel-runtime": "^5",
+        "css-loader": "^0.23.1",
+        "less": "^2.5.3",
+        "less-loader": "^2.2.2",
+        "style-loader": "^0.13.0",
+        "template-html-loader": "0.0.3",
+        "vue-hot-reload-api": "^1.2.2",
+        "vue-html-loader": "^1.0.0",
+        "vue-loader": "^7.3.0",
+        "webpack": "^1.12.9",
+        "webpack-dev-server": "^1.14.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -rf dist && webpack --config build/webpack.config.js",
+        "dev": "webpack-dev-server --config build/webpack.example.config.js --inline --hot "
+    },
+    "keywords": [
+        "clock",
+        "clock-picker"
+    ],
+    "author": "Ginhing",
+    "license": "MIT"
 }

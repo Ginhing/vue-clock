@@ -1,4 +1,4 @@
-exports["vue-clock"] =
+module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -51,7 +51,7 @@ exports["vue-clock"] =
 	  value: true
 	});
 
-	var _vueClock = __webpack_require__(4);
+	var _vueClock = __webpack_require__(2);
 
 	var _vueClock2 = _interopRequireDefault(_vueClock);
 
@@ -61,15 +61,13 @@ exports["vue-clock"] =
 
 /***/ },
 /* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(5)
-	__vue_script__ = __webpack_require__(9)
-	__vue_template__ = __webpack_require__(10)
+	__webpack_require__(3)
+	__vue_script__ = __webpack_require__(7)
+	__vue_template__ = __webpack_require__(8)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -86,16 +84,16 @@ exports["vue-clock"] =
 	})()}
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(6);
+	var content = __webpack_require__(4);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
+	var update = __webpack_require__(6)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -112,10 +110,10 @@ exports["vue-clock"] =
 	}
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(7)();
+	exports = module.exports = __webpack_require__(5)();
 	// imports
 	
 	
@@ -126,7 +124,7 @@ exports["vue-clock"] =
 
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/*
@@ -182,7 +180,7 @@ exports["vue-clock"] =
 
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -436,7 +434,7 @@ exports["vue-clock"] =
 
 
 /***/ },
-/* 9 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -599,11 +597,11 @@ exports["vue-clock"] =
 	// </style>
 
 /***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"clock\" _v-41788505=\"\">\n        <div class=\"clock-display\" _v-41788505=\"\">\n            <b _v-41788505=\"\">{{pad(hour)}}:{{pad(minute)}}</b>\n        </div>\n        <div class=\"clock-panel clock-hour\" v-show=\"showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <div class=\"clock-tick\" v-for=\"p in AMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select($index,'hour')\" :class=\"{active: $index == hour}\" _v-41788505=\"\">{{$index}}</div>\n            </div>\n            <div class=\"clock-tick\" v-for=\"p in PMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(12 + $index,'hour')\" :class=\"{active: 12 + $index == hour}\" _v-41788505=\"\">{{$index + 12}}</div>\n            </div>\n        </div>\n        <div class=\"clock-panel clock-minute\" v-show=\"!showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <button class=\"clock-center\" @click=\"back\" _v-41788505=\"\">back</button>\n            <div class=\"clock-tick\" v-for=\"p in minPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(5 * $index,'minute')\" :class=\"{active: 5 * $index == minute}\" _v-41788505=\"\">{{$index * 5}}</div>\n            </div>\n        </div>\n    </div>";
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=vue-clock.js.map
