@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist/";
+/******/ 	__webpack_require__.p = "/dist";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -9656,7 +9656,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".clock[_v-41788505] {\n  width: 200px;\n  height: 230px;\n  position: relative;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n}\n.clock .clock-display[_v-41788505] {\n  text-align: center;\n  font-size: 30px;\n  border-bottom: 1px solid #ddd;\n}\n.clock .clock-panel[_v-41788505] {\n  width: 200px;\n  height: 200px;\n  border-radius: 100%;\n  background: #B6B6B6;\n  position: absolute;\n  top: 30px;\n  left: 0;\n}\n.clock .clock-panel .clock-tick[_v-41788505] {\n  width: 30px;\n  height: 30px;\n  border-radius: 100%;\n  line-height: 30px;\n  text-align: center;\n  position: absolute;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.clock .clock-panel .clock-tick[_v-41788505]:hover {\n  background: #ffee53;\n}\n.clock .clock-panel .clock-tick .active[_v-41788505] {\n  border-radius: 100%;\n  background: #fff;\n}\n.clock .clock-panel .clock-center[_v-41788505] {\n  position: absolute;\n  top: 100px;\n  left: 100px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.fade-transition[_v-41788505] {\n  -webkit-transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  opacity: 1;\n}\n.fade-enter[_v-41788505],\n.fade-leave[_v-41788505] {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, ".clock[_v-41788505] {\n  position: relative;\n}\n.clock-input[_v-41788505] {\n  width: 50px;\n  height: 30px;\n  box-sizing: border-box;\n  text-align: center;\n  display: inline-block;\n}\n.clock-picker[_v-41788505] {\n  width: 200px;\n  height: 230px;\n  position: absolute;\n  background-color: #fff;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n}\n.clock-picker .clock-display[_v-41788505] {\n  text-align: center;\n  font-size: 30px;\n  line-height: 30px;\n  border-bottom: 1px solid #ddd;\n}\n.clock-picker .clock-panel[_v-41788505] {\n  width: 200px;\n  height: 200px;\n  border-radius: 100%;\n  background: #B6B6B6;\n  position: absolute;\n  top: 30px;\n  left: 0;\n}\n.clock-picker .clock-panel .clock-tick[_v-41788505] {\n  width: 30px;\n  height: 30px;\n  border-radius: 100%;\n  line-height: 30px;\n  text-align: center;\n  position: absolute;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.clock-picker .clock-panel .clock-tick[_v-41788505]:hover {\n  background: #ffee53;\n}\n.clock-picker .clock-panel .clock-tick .active[_v-41788505] {\n  border-radius: 100%;\n  background: #fff;\n}\n.clock-picker .clock-panel .clock-center[_v-41788505] {\n  position: absolute;\n  top: 100px;\n  left: 100px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.fade-transition[_v-41788505] {\n  -webkit-transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);\n  transition: opacity 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);\n  opacity: 1;\n}\n.fade-enter[_v-41788505],\n.fade-leave[_v-41788505] {\n  opacity: 0;\n}\n", ""]);
 	
 	// exports
 
@@ -9982,21 +9982,28 @@
 	});
 	// <template>
 	//     <div class="clock">
-	//         <div class="clock-display">
-	//             <b>{{pad(hour)}}:{{pad(minute)}}</b>
-	//         </div>
-	//         <div class="clock-panel clock-hour" v-show="showHourPanel" transition="fade">
-	//             <div class="clock-tick" v-for="p in AMPoints" :style="p">
-	//                 <div @click="select($index,'hour')" :class="{active: $index == hour}">{{$index}}</div>
+	//         <span @click="show($event)">
+	//             <slot>
+	//                 <input class="clock-input" type="text" v-model="time">
+	//             </slot>
+	//         </span>
+	//         <div class="clock-picker" :style="pickerOffset" v-show="showHourPanel != null" v-blur:close>
+	//             <div class="clock-display">
+	//                 <b>{{pad(hour)}}:{{pad(minute)}}</b>
 	//             </div>
-	//             <div class="clock-tick" v-for="p in PMPoints" :style="p">
-	//                 <div @click="select(12 + $index,'hour')" :class="{active: 12 + $index == hour}">{{$index + 12}}</div>
+	//             <div class="clock-panel clock-hour" v-show="showHourPanel" transition="fade">
+	//                 <div class="clock-tick" v-for="p in AMPoints" :style="p">
+	//                     <div @click="select($index,'hour')" :class="{active: $index == hour}">{{$index}}</div>
+	//                 </div>
+	//                 <div class="clock-tick" v-for="p in PMPoints" :style="p">
+	//                     <div @click="select(12 + $index,'hour')" :class="{active: 12 + $index == hour}">{{$index + 12}}</div>
+	//                 </div>
 	//             </div>
-	//         </div>
-	//         <div class="clock-panel clock-minute" v-show="!showHourPanel" transition="fade">
-	//             <button class="clock-center" @click="back">back</button>
-	//             <div class="clock-tick" v-for="p in minPoints" :style="p">
-	//                 <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
+	//             <div class="clock-panel clock-minute" v-show="showHourPanel == false" transition="fade">
+	//                 <button class="clock-center" @click="back">&lt;</button>
+	//                 <div class="clock-tick" v-for="p in minPoints" :style="p">
+	//                     <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
+	//                 </div>
 	//             </div>
 	//         </div>
 	//     </div>
@@ -10005,7 +10012,7 @@
 	// <script>
 	/**
 	 * @param R {Number} radius of panel
-	 * @param gap {Number} the gap between notation and borader
+	 * @param gap {Number} the gap between notation and border
 	 * @param tick {Number} amount of notations
 	 * @return {Array}
 	 */
@@ -10015,7 +10022,7 @@
 	
 	    var PI = Math.PI,
 	        ZERO_CLOCK = 3 / 2 * PI,
-	        // (North direction on )
+	        // (North direction on screen)
 	    STEP = 2 * PI / tick;
 	    return new Array(tick).toString().split(',').map(function (point, i) {
 	        var theta = ZERO_CLOCK + STEP * i;
@@ -10032,7 +10039,9 @@
 	            twoWay: true,
 	            validator: function validator(value) {
 	                return new RegExp(/^([01]\d)|(2[0-3])\:[0-5]\d$/).test(value);
-	            }
+	            },
+	
+	            default: '00:00'
 	        }
 	    },
 	    data: function data() {
@@ -10046,25 +10055,51 @@
 	            PMPoints: generatePostion(100, 45),
 	            minPoints: generatePostion(100),
 	
-	            showHourPanel: true
+	            showHourPanel: null,
+	            pickerOffset: {}
 	        };
 	    },
 	
 	    methods: {
+	        show: function show(e) {
+	            this.showHourPanel = true;
+	            this.pickerOffset = {
+	                top: e.target.offsetTop + 'px',
+	                left: e.target.offsetLeft + e.target.offsetWidth + 'px'
+	            };
+	        },
+	        close: function close() {
+	            this.showHourPanel = null;
+	        },
 	        back: function back() {
 	            this.showHourPanel = true;
 	        },
 	        select: function select(value, unit) {
 	            this[unit] = value;
+	            this.time = this.pad(this.hour) + ':' + this.pad(this.minute);
 	            if (unit == 'hour') {
 	                this.showHourPanel = false;
-	            } else if (unit == 'minute') {
-	                this.time = this.pad(this.hour) + ':' + this.pad(this.minute);
-	                console.log(this.time);
 	            }
 	        },
 	        pad: function pad(number) {
 	            return number < 10 ? '0' + number : number;
+	        }
+	    },
+	    directives: {
+	        blur: {
+	            bind: function bind() {
+	                var self = this.vm,
+	                    methodName = this.arg;
+	                this.handler = function (e) {
+	                    if (!self.$el.contains(e.target)) {
+	                        self[methodName]();
+	                    }
+	                };
+	                window.addEventListener('click', this.handler);
+	            },
+	            unbind: function unbind() {
+	                window.removeEventListener('click', this.handler);
+	            }
 	        }
 	    }
 	};
@@ -10073,19 +10108,32 @@
 	// <style lang="less" scoped>
 	//     @border-color: #ddd;
 	//     .clock {
+	//         position: relative;
+	//     }
+
+	//     .clock-input {
+	//         width: 50px;
+	//         height: 30px;
+	//         box-sizing: border-box;
+	//         text-align: center;
+	//         display: inline-block;
+	//     }
+
+	//     .clock-picker {
 	//         @R: 100px;
 	//         @display-height: 30px;
 	//         @clock-size: 2 * @R;
 	//         width: @clock-size;
 	//         height: @clock-size + @display-height;
-	//         position: relative;
+	//         position: absolute;
+	//         background-color: #fff;
 	//         border: 1px solid @border-color;
 	//         border-radius: 4px;
 	//         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-	//         ;
 	//         .clock-display {
 	//             text-align: center;
 	//             font-size: @display-height;
+	//             line-height: @display-height;
 	//             border-bottom: 1px solid @border-color;
 	//         }
 	//         .clock-panel {
@@ -10124,7 +10172,7 @@
 	//     }
 
 	//     .fade-transition {
-	//         transition: opacity .6s cubic-bezier(0.47, 0, 0.745, 0.715);
+	//         transition: opacity .5s cubic-bezier(0.47, 0, 0.745, 0.715);
 	//         opacity: 1;
 	//     }
 
@@ -10138,8 +10186,8 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"clock\" _v-41788505=\"\">\n        <div class=\"clock-display\" _v-41788505=\"\">\n            <b _v-41788505=\"\">{{pad(hour)}}:{{pad(minute)}}</b>\n        </div>\n        <div class=\"clock-panel clock-hour\" v-show=\"showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <div class=\"clock-tick\" v-for=\"p in AMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select($index,'hour')\" :class=\"{active: $index == hour}\" _v-41788505=\"\">{{$index}}</div>\n            </div>\n            <div class=\"clock-tick\" v-for=\"p in PMPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(12 + $index,'hour')\" :class=\"{active: 12 + $index == hour}\" _v-41788505=\"\">{{$index + 12}}</div>\n            </div>\n        </div>\n        <div class=\"clock-panel clock-minute\" v-show=\"!showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n            <button class=\"clock-center\" @click=\"back\" _v-41788505=\"\">back</button>\n            <div class=\"clock-tick\" v-for=\"p in minPoints\" :style=\"p\" _v-41788505=\"\">\n                <div @click=\"select(5 * $index,'minute')\" :class=\"{active: 5 * $index == minute}\" _v-41788505=\"\">{{$index * 5}}</div>\n            </div>\n        </div>\n    </div>";
+	module.exports = "<div class=\"clock\" _v-41788505=\"\">\n        <span @click=\"show($event)\" _v-41788505=\"\">\n            <slot _v-41788505=\"\">\n                <input class=\"clock-input\" type=\"text\" v-model=\"time\" _v-41788505=\"\">\n            </slot>\n        </span>\n        <div class=\"clock-picker\" :style=\"pickerOffset\" v-show=\"showHourPanel != null\" v-blur:close=\"\" _v-41788505=\"\">\n            <div class=\"clock-display\" _v-41788505=\"\">\n                <b _v-41788505=\"\">{{pad(hour)}}:{{pad(minute)}}</b>\n            </div>\n            <div class=\"clock-panel clock-hour\" v-show=\"showHourPanel\" transition=\"fade\" _v-41788505=\"\">\n                <div class=\"clock-tick\" v-for=\"p in AMPoints\" :style=\"p\" _v-41788505=\"\">\n                    <div @click=\"select($index,'hour')\" :class=\"{active: $index == hour}\" _v-41788505=\"\">{{$index}}</div>\n                </div>\n                <div class=\"clock-tick\" v-for=\"p in PMPoints\" :style=\"p\" _v-41788505=\"\">\n                    <div @click=\"select(12 + $index,'hour')\" :class=\"{active: 12 + $index == hour}\" _v-41788505=\"\">{{$index + 12}}</div>\n                </div>\n            </div>\n            <div class=\"clock-panel clock-minute\" v-show=\"showHourPanel == false\" transition=\"fade\" _v-41788505=\"\">\n                <button class=\"clock-center\" @click=\"back\" _v-41788505=\"\">&lt;</button>\n                <div class=\"clock-tick\" v-for=\"p in minPoints\" :style=\"p\" _v-41788505=\"\">\n                    <div @click=\"select(5 * $index,'minute')\" :class=\"{active: 5 * $index == minute}\" _v-41788505=\"\">{{$index * 5}}</div>\n                </div>\n            </div>\n        </div>\n    </div>";
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=example.js.map
