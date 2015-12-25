@@ -1,11 +1,11 @@
 <template>
     <div class="clock">
-        <div class="clock-input" @click="showHourPanel = true">
+        <span @click="show($event)">
             <slot>
-                <input type="text" v-model="time" disabled>
+                <input class="clock-input" type="text" v-model="time">
             </slot>
-        </div>
-        <div class="clock-picker" v-show="showHourPanel != null" v-blur:close>
+        </span>
+        <div class="clock-picker" :style="pickerOffset" v-show="showHourPanel != null" v-blur:close>
             <div class="clock-display">
                 <b>{{pad(hour)}}:{{pad(minute)}}</b>
             </div>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="clock-panel clock-minute" v-show="showHourPanel == false" transition="fade">
-                <button class="clock-center" @click="back">back</button>
+                <button class="clock-center" @click="back">&lt;</button>
                 <div class="clock-tick" v-for="p in minPoints" :style="p">
                     <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
                 </div>
@@ -54,7 +54,7 @@
                 validator(value) {
                     return new RegExp(/^([01]\d)|(2[0-3])\:[0-5]\d$/).test(value)
                 },
-                default:'00:00'
+                default: '00:00'
             }
         },
         data() {
@@ -68,11 +68,19 @@
                     PMPoints: generatePostion(100, 45),
                     minPoints: generatePostion(100),
 
-                    showHourPanel: null
+                    showHourPanel: null,
+                    pickerOffset: {}
             }
         },
         methods: {
-            close() {
+            show(e) {
+                    this.showHourPanel = true
+                    this.pickerOffset = {
+                        top: e.target.offsetTop + 'px',
+                        left: e.target.offsetLeft + e.target.offsetWidth + 'px'
+                    }
+                },
+                close() {
                     this.showHourPanel = null
                 },
                 back() {
@@ -80,10 +88,9 @@
                 },
                 select(value, unit) {
                     this[unit] = value
+                    this.time = `${this.pad(this.hour)}:${this.pad(this.minute)}`
                     if (unit == 'hour') {
                         this.showHourPanel = false
-                    } else if (unit == 'minute') {
-                        this.time = `${this.pad(this.hour)}:${this.pad(this.minute)}`
                     }
                 },
                 pad(number) {
@@ -113,8 +120,15 @@
 <style lang="less" scoped>
     @border-color: #ddd;
     .clock {
+        position: relative;
+    }
+
+    .clock-input {
+        width: 50px;
+        height: 30px;
+        box-sizing: border-box;
+        text-align: center;
         display: inline-block;
-        background-color: #fff;
     }
 
     .clock-picker {
@@ -123,7 +137,8 @@
         @clock-size: 2 * @R;
         width: @clock-size;
         height: @clock-size + @display-height;
-        position: relative;
+        position: absolute;
+        background-color: #fff;
         border: 1px solid @border-color;
         border-radius: 4px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
@@ -169,7 +184,7 @@
     }
 
     .fade-transition {
-        transition: opacity .6s cubic-bezier(0.47, 0, 0.745, 0.715);
+        transition: opacity .5s cubic-bezier(0.47, 0, 0.745, 0.715);
         opacity: 1;
     }
 
