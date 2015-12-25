@@ -114,7 +114,7 @@ module.exports =
 	
 	
 	// module
-	exports.push([module.id, ".clock[_v-41788505] {\n  width: 200px;\n  height: 230px;\n  position: relative;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n}\n.clock .clock-display[_v-41788505] {\n  text-align: center;\n  font-size: 30px;\n  border-bottom: 1px solid #ddd;\n}\n.clock .clock-panel[_v-41788505] {\n  width: 200px;\n  height: 200px;\n  border-radius: 100%;\n  background: #B6B6B6;\n  position: absolute;\n  top: 30px;\n  left: 0;\n}\n.clock .clock-panel .clock-tick[_v-41788505] {\n  width: 30px;\n  height: 30px;\n  border-radius: 100%;\n  line-height: 30px;\n  text-align: center;\n  position: absolute;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.clock .clock-panel .clock-tick[_v-41788505]:hover {\n  background: #ffee53;\n}\n.clock .clock-panel .clock-tick .active[_v-41788505] {\n  border-radius: 100%;\n  background: #fff;\n}\n.clock .clock-panel .clock-center[_v-41788505] {\n  position: absolute;\n  top: 100px;\n  left: 100px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.fade-transition[_v-41788505] {\n  -webkit-transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  opacity: 1;\n}\n.fade-enter[_v-41788505],\n.fade-leave[_v-41788505] {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, ".clock[_v-41788505] {\n  width: 200px;\n  height: 230px;\n  position: relative;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n}\n.clock .clock-display[_v-41788505] {\n  text-align: center;\n  font-size: 30px;\n  line-height: 30px;\n  border-bottom: 1px solid #ddd;\n}\n.clock .clock-panel[_v-41788505] {\n  width: 200px;\n  height: 200px;\n  border-radius: 100%;\n  background: #B6B6B6;\n  position: absolute;\n  top: 30px;\n  left: 0;\n}\n.clock .clock-panel .clock-tick[_v-41788505] {\n  width: 30px;\n  height: 30px;\n  border-radius: 100%;\n  line-height: 30px;\n  text-align: center;\n  position: absolute;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.clock .clock-panel .clock-tick[_v-41788505]:hover {\n  background: #ffee53;\n}\n.clock .clock-panel .clock-tick .active[_v-41788505] {\n  border-radius: 100%;\n  background: #fff;\n}\n.clock .clock-panel .clock-center[_v-41788505] {\n  position: absolute;\n  top: 100px;\n  left: 100px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.fade-transition[_v-41788505] {\n  -webkit-transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  transition: opacity 0.6s cubic-bezier(0.47, 0, 0.745, 0.715);\n  opacity: 1;\n}\n.fade-enter[_v-41788505],\n.fade-leave[_v-41788505] {\n  opacity: 0;\n}\n", ""]);
 	
 	// exports
 
@@ -518,7 +518,6 @@ module.exports =
 	                this.showHourPanel = false;
 	            } else if (unit == 'minute') {
 	                this.time = this.pad(this.hour) + ':' + this.pad(this.minute);
-	                console.log(this.time);
 	            }
 	        },
 	        pad: function pad(number) {
@@ -540,10 +539,11 @@ module.exports =
 	//         border: 1px solid @border-color;
 	//         border-radius: 4px;
 	//         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-	//         ;
+
 	//         .clock-display {
 	//             text-align: center;
 	//             font-size: @display-height;
+	//             line-height: @display-height;
 	//             border-bottom: 1px solid @border-color;
 	//         }
 	//         .clock-panel {
