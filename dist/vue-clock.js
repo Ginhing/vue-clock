@@ -497,7 +497,9 @@ module.exports =
 	            twoWay: true,
 	            validator: function validator(value) {
 	                return new RegExp(/^([01]\d)|(2[0-3])\:[0-5]\d$/).test(value);
-	            }
+	            },
+	
+	            default: '00:00'
 	        }
 	    },
 	    data: function data() {
