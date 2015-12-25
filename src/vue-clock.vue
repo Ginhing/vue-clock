@@ -1,20 +1,27 @@
 <template>
     <div class="clock">
-        <div class="clock-display">
-            <b>{{pad(hour)}}:{{pad(minute)}}</b>
+        <div class="clock-input" @click="showHourPanel = true">
+            <slot>
+                <input type="text" v-model="time" disabled>
+            </slot>
         </div>
-        <div class="clock-panel clock-hour" v-show="showHourPanel" transition="fade">
-            <div class="clock-tick" v-for="p in AMPoints" :style="p">
-                <div @click="select($index,'hour')" :class="{active: $index == hour}">{{$index}}</div>
+        <div class="clock-picker" v-show="showHourPanel != null" v-blur:close>
+            <div class="clock-display">
+                <b>{{pad(hour)}}:{{pad(minute)}}</b>
             </div>
-            <div class="clock-tick" v-for="p in PMPoints" :style="p">
-                <div @click="select(12 + $index,'hour')" :class="{active: 12 + $index == hour}">{{$index + 12}}</div>
+            <div class="clock-panel clock-hour" v-show="showHourPanel" transition="fade">
+                <div class="clock-tick" v-for="p in AMPoints" :style="p">
+                    <div @click="select($index,'hour')" :class="{active: $index == hour}">{{$index}}</div>
+                </div>
+                <div class="clock-tick" v-for="p in PMPoints" :style="p">
+                    <div @click="select(12 + $index,'hour')" :class="{active: 12 + $index == hour}">{{$index + 12}}</div>
+                </div>
             </div>
-        </div>
-        <div class="clock-panel clock-minute" v-show="!showHourPanel" transition="fade">
-            <button class="clock-center" @click="back">back</button>
-            <div class="clock-tick" v-for="p in minPoints" :style="p">
-                <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
+            <div class="clock-panel clock-minute" v-show="showHourPanel == false" transition="fade">
+                <button class="clock-center" @click="back">back</button>
+                <div class="clock-tick" v-for="p in minPoints" :style="p">
+                    <div @click="select(5 * $index,'minute')" :class="{active: 5 * $index == minute}">{{$index * 5}}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -60,11 +67,14 @@
                     PMPoints: generatePostion(100, 45),
                     minPoints: generatePostion(100),
 
-                    showHourPanel: true
+                    showHourPanel: null
             }
         },
         methods: {
-            back() {
+            close() {
+                    this.showHourPanel = null
+                },
+                back() {
                     this.showHourPanel = true
                 },
                 select(value, unit) {
@@ -78,6 +88,23 @@
                 pad(number) {
                     return number < 10 ? '0' + number : number
                 }
+        },
+        directives: {
+            blur: {
+                bind() {
+                        let self = this.vm,
+                            methodName = this.arg
+                        this.handler = function(e) {
+                            if (!self.$el.contains(e.target)) {
+                                self[methodName]()
+                            }
+                        }
+                        window.addEventListener('click', this.handler)
+                    },
+                    unbind() {
+                        window.removeEventListener('click', this.handler)
+                    }
+            }
         }
     }
 </script>
@@ -85,6 +112,11 @@
 <style lang="less" scoped>
     @border-color: #ddd;
     .clock {
+        display: inline-block;
+        background-color: #fff;
+    }
+
+    .clock-picker {
         @R: 100px;
         @display-height: 30px;
         @clock-size: 2 * @R;
@@ -94,7 +126,6 @@
         border: 1px solid @border-color;
         border-radius: 4px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-
         .clock-display {
             text-align: center;
             font-size: @display-height;
