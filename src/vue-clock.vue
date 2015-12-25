@@ -73,7 +73,6 @@
                         this.showHourPanel = false
                     } else if (unit == 'minute') {
                         this.time = `${this.pad(this.hour)}:${this.pad(this.minute)}`
-                        console.log(this.time)
                     }
                 },
                 pad(number) {
@@ -95,10 +94,11 @@
         border: 1px solid @border-color;
         border-radius: 4px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-        ;
+
         .clock-display {
             text-align: center;
             font-size: @display-height;
+            line-height: @display-height;
             border-bottom: 1px solid @border-color;
         }
         .clock-panel {
