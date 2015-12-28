@@ -46,7 +46,7 @@
             }
         })
     }
-    export default {
+    module.exports = {
         props: {
             time: {
                 type: String,
